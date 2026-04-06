@@ -414,5 +414,44 @@
     "model": ["gemini"],
     "usecase": ["prompt-engineering", "agents", "llm"],
     "difficulty": "beginner"
+  },
+  {
+    "id": "frontend-accessibility-a11y-020",
+    "category": "Frontend Development",
+    "tag": "a11y · accessibility",
+    "title": "Accesibilidad (A11y) - Auditoría y Fixes WCAG 2.1",
+    "description": "Evalúa y mejora la accesibilidad de tus componentes web siguiendo estándares WCAG",
+    "body": "Realiza una auditoría de accesibilidad para el siguiente componente/página:\n\n[CÓDIGO/URL]\n\nEnfoque:\n1. **Semántica HTML**: Uso correcto de landmarks y encabezados.\n2. **ARIA Roles**: Atributos aria-* necesarios y su estado.\n3. **Keyboard Navigation**: Gestión del foco y orden de tabulación.\n4. **Color Contrast**: Verificación de ratios mínimos.\n5. **Screen Readers**: Texto alternativo y descripciones.\n\nProporciona:\n- Listado de problemas encontrados (Nivel A/AA/AAA).\n- Código corregido con mejores prácticas de a11y.\n- Herramientas de testing recomendadas (axe-core, Lighthouse).\n\nContexto: [TIPO DE APP: e-commerce/dashboard/blog]",
+    "author": "community",
+    "votes": 0,
+    "model": ["claude", "gpt", "gemini"],
+    "usecase": ["frontend", "accessibility", "best-practices"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "database-nosql-modeling-021",
+    "category": "Database & Data",
+    "tag": "nosql · mongodb",
+    "title": "NoSQL - Modelado de datos en MongoDB (Embedding vs Referencing)",
+    "description": "Decide la mejor estructura de documentos basada en patrones de acceso",
+    "body": "Diseña el esquema de base de datos para [SISTEMA] usando MongoDB:\n\nEntidades:\n[LISTADO DE ENTIDADES Y RELACIONES]\n\nPatrones de acceso (Queries más frecuentes):\n1. [QUERY 1]\n2. [QUERY 2]\n\nAnálisis de modelado:\n1. **Embedding**: Cuándo duplicar datos para lectura rápida.\n2. **Referencing**: Cuándo normalizar para evitar documentos gigantes.\n3. **Indexación**: Índices compuestos y multikey.\n4. **Agregaciones**: Pipelines necesarios para reportes.\n\nProporciona:\n- JSON Schema sugerido.\n- Justificación de Embedding vs Referencing para cada relación.\n- Índices recomendados.\n- Ejemplo de query de agregación compleja.",
+    "author": "community",
+    "votes": 0,
+    "model": ["claude", "gpt", "gemini"],
+    "usecase": ["mongodb", "database", "architecture"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "cloud-serverless-aws-022",
+    "category": "Cloud & Infrastructure",
+    "tag": "aws · serverless",
+    "title": "Serverless - Arquitectura orientada a eventos en AWS",
+    "description": "Diseña un flujo escalable con Lambda, SQS, SNS y EventBridge",
+    "body": "Diseña una arquitectura serverless en AWS para [PROCESO]:\n\nRequerimientos:\n- Trigger: [HTTP API / S3 Upload / Cron / Event]\n- Procesamiento: [Lógica de negocio]\n- Integraciones: [Servicios externos/DBs]\n- Retries/DLQ: Manejo de fallos.\n\nComponentes:\n1. **AWS Lambda**: Configuración de memoria y timeout.\n2. **Messaging**: SQS vs SNS vs EventBridge para desacoplamiento.\n3. **API Gateway**: Auth y throttling.\n4. **IaC**: Código en [Terraform/CDK/SAM].\n\nProporciona:\n- Diagrama de flujo lógico.\n- Configuración de recursos (IaC skeleton).\n- Estrategia de observabilidad (CloudWatch/X-Ray).\n- Estimación de costos aproximada.",
+    "author": "community",
+    "votes": 0,
+    "model": ["claude", "gpt", "gemini"],
+    "usecase": ["aws", "cloud", "serverless"],
+    "difficulty": "advanced"
   }
 ]
