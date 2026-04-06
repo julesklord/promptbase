@@ -1,0 +1,80 @@
+[
+  {
+    "id": "dev-agent-init-001",
+    "category": "Dev / Agents",
+    "tag": "agent · init",
+    "title": "Bootstrap de agente autónomo",
+    "description": "Inicializa un agente de desarrollo autónomo con contexto de stack completo",
+    "body": "Actúa como un agente de desarrollo autónomo especializado en [DOMINIO].\nStack de contexto:\n- OS: Arch Linux (WSL2) + Windows host\n- Shell: zsh + Oh My Posh\n- Python env: pyenv + pyenv-virtualenv\n- Editor: VS Code / Antigravity\n\nObjetivo: [OBJETIVO]\nRestricciones: [RESTRICCIONES]\n\nAntes de ejecutar cualquier acción:\n1. Lista los pasos que realizarás\n2. Identifica dependencias y posibles puntos de falla\n3. Confirma con el usuario si hay ambigüedad\n\nEjecuta de forma incremental. Reporta cada paso con su resultado.",
+    "author": "jules",
+    "votes": 12,
+    "model": ["gemini", "claude", "gpt"],
+    "usecase": ["coding", "agents"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "dev-agent-debug-002",
+    "category": "Dev / Agents",
+    "tag": "agent · debug",
+    "title": "Debug de agente con contexto de error",
+    "description": "Diagnóstico profundo de fallos en agentes LLM con contexto de ejecución",
+    "body": "El agente [NOMBRE_AGENTE] falló en la siguiente operación:\n\nError: [ERROR_COMPLETO]\nContexto de ejecución: [CONTEXTO]\nÚltimo estado conocido: [ESTADO]\n\nAnaliza:\n1. Causa raíz del error\n2. Si el error es del agente, del entorno o de una dependencia externa\n3. Propón una solución con código corregido\n4. Sugiere una prueba unitaria para prevenir regresión\n\nStack relevante: Python [VERSION] / [LIBRERÍA]",
+    "author": "jules",
+    "votes": 8,
+    "model": ["claude", "gemini"],
+    "usecase": ["debugging", "agents"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "mcp-server-001",
+    "category": "MCP / Integrations",
+    "tag": "mcp · server",
+    "title": "Scaffold de MCP server (FastMCP)",
+    "description": "Genera un servidor MCP completo con tools, validación y manejo de errores",
+    "body": "Crea un MCP server en Python (FastMCP) para exponer las siguientes capacidades:\n\nCapacidades: [LISTA DE TOOLS]\nTransporte: [stdio / SSE / websocket]\nAutenticación: [ninguna / API key / OAuth]\nContexto de despliegue: [local / WSL2 / Docker / remoto]\n\nPara cada tool incluye:\n- Nombre y descripción (como aparece en el LLM)\n- Schema de parámetros con validación Pydantic\n- Manejo de errores con mensajes descriptivos\n- Ejemplo de llamada y respuesta\n\nSigue el protocolo MCP spec 2024. No añadas dependencias innecesarias.",
+    "author": "jules",
+    "votes": 15,
+    "model": ["claude", "gemini", "gpt"],
+    "usecase": ["mcp", "backend", "agents"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "reaper-lua-001",
+    "category": "Audio / REAPER",
+    "tag": "reaper · lua",
+    "title": "ReaScript Lua para automatización",
+    "description": "Genera scripts Lua para automatizar tareas en REAPER 7.x",
+    "body": "Escribe un ReaScript en Lua para REAPER que realice la siguiente tarea:\n\nTarea: [DESCRIPCIÓN]\nContexto del proyecto: [TIPO DE SESIÓN]\nElementos involucrados: [TRACKS / ITEMS / FX / MARKERS]\n\nRequisitos:\n- Compatible con REAPER 7.x\n- Manejo de errores con mensajes en consola\n- Sin dependencias externas\n- Comentarios solo donde la lógica no sea obvia\n\nSi requiere UI, usa el API nativo de REAPER (ImGui o ReaScript dialog).\nIncluye instrucciones de instalación/uso.",
+    "author": "jules",
+    "votes": 19,
+    "model": ["claude", "gemini"],
+    "usecase": ["audio", "daw", "automation"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "wsl2-ports-001",
+    "category": "System / WSL2",
+    "tag": "wsl2 · ports",
+    "title": "Port forwarding y networking WSL2 ↔ Windows",
+    "description": "Diagnostica y resuelve problemas de conectividad de red entre WSL2 y Windows host",
+    "body": "Necesito que un servicio corriendo en [Arch Linux WSL2 / Windows host] sea accesible desde [el otro lado / red local / contenedor Docker].\n\nServicio: [NOMBRE]\nPuerto: [PORT]\nBinding actual: [127.0.0.1 / 0.0.0.0 / hostname]\nProblema: [DESCRIPCIÓN]\n\nProporciona:\n1. Diagnóstico de por qué no es accesible\n2. Comandos para verificar el estado actual\n3. Configuración de port forwarding si aplica (netsh / .wslconfig / socat)\n4. Solución permanente vs. temporal\n\nConsidera: WSL2 tiene NAT por defecto, la IP de WSL2 cambia en cada restart.",
+    "author": "jules",
+    "votes": 24,
+    "model": ["claude", "gemini", "gpt"],
+    "usecase": ["sysadmin", "wsl2", "networking"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "gemini-prompt-opt-001",
+    "category": "askgem / LLM",
+    "tag": "gemini · prompt",
+    "title": "Optimización de prompt para Gemini API",
+    "description": "Refina system prompts para agentes basados en Gemini con output parseable",
+    "body": "Optimiza el siguiente prompt/system prompt para Gemini [MODELO]:\n\nPrompt actual: [PROMPT]\nObjetivo: [QUÉ DEBE LOGRAR]\nCasos de uso: [EJEMPLOS]\nProblemas actuales: [QUÉ FALLA HOY]\n\nProporciona:\n1. Prompt optimizado con justificación de cambios\n2. Variables/placeholders claramente marcados\n3. Ejemplos de input/output esperados\n4. Configuración recomendada: temperature, top_p, max_tokens\n\nContexto: se usa en un agente de terminal, las respuestas deben ser parseables.",
+    "author": "jules",
+    "votes": 11,
+    "model": ["gemini"],
+    "usecase": ["prompt-engineering", "agents", "llm"],
+    "difficulty": "beginner"
+  }
+]

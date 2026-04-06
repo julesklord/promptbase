@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROMPTBASE — Community LLM Prompt Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0b;
+  --bg2: #111114;
+  --bg3: #18181c;
+  --bg4: #1e1e24;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.12);
+  --red: #e63946;
+  --red-dim: rgba(230,57,70,0.12);
+  --amber: #f4a261;
+  --amber-dim: rgba(244,162,97,0.1);
+  --green: #52b788;
+  --green-dim: rgba(82,183,136,0.1);
+  --blue: #4cc9f0;
+  --blue-dim: rgba(76,201,240,0.1);
+  --text: #e8e8ec;
+  --text2: #9898a8;
+  --text3: #555560;
+  --mono: 'JetBrains Mono', monospace;
+  --display: 'Syne', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.6;
+  min-height: 100vh;
+  cursor: crosshair;
+}
+
+::selection { background: var(--red); color: #fff; }
+
+/* SCANLINE OVERLAY */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* HEADER */
+header {
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: rgba(10,10,11,0.92);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+  padding: 0 2rem;
+}
+
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  gap: 2rem;
+}
+
+.logo {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-mark {
+  width: 22px;
+  height: 22px;
+  background: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-family: var(--mono);
+  font-weight: 700;
+  color: #fff;
+}
+
+.logo span { color: var(--red); }
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header-nav a {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.header-nav a:hover { color: var(--text); }
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-ghost {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  border: 1px solid var(--border2);
+  background: transparent;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-ghost:hover { border-color: var(--text2); color: var(--text); }
+
+.btn-red {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  border: 1px solid var(--red);
+  background: var(--red);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-red:hover { background: transparent; color: var(--red); }
+
+/* HERO */
+.hero {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 5rem 2rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--red);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--red);
+}
+
+.hero-title {
+  font-family: var(--display);
+  font-size: clamp(42px, 5vw, 72px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.hero-title em {
+  font-style: normal;
+  color: var(--red);
+}
+
+.hero-sub {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.8;
+  max-width: 520px;
+  margin-bottom: 2rem;
+}
+
+.hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.stat-cell {
+  background: var(--bg2);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-cell::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--red);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.stat-cell:hover::before { opacity: 1; }
+
+.stat-num {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text3);
+}
+
+/* TOOLBAR */
+.toolbar {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg2);
+  padding: 0 2rem;
+  position: sticky;
+  top: 52px;
+  z-index: 90;
+}
+
+.toolbar-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  height: 44px;
+}
+
+.search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  border-right: 1px solid var(--border);
+  padding-right: 1.5rem;
+}
+
+.search-icon {
+  color: var(--text3);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+#search {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text);
+  width: 100%;
+  padding: 0;
+}
+
+#search::placeholder { color: var(--text3); }
+
+.filter-tabs {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-left: 1.5rem;
+}
+
+.filter-tabs::-webkit-scrollbar { display: none; }
+
+.filter-tab {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0 14px;
+  height: 44px;
+  border: none;
+  background: transparent;
+  color: var(--text3);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: all 0.15s;
+  position: relative;
+  top: 1px;
+}
+
+.filter-tab:hover { color: var(--text2); }
+.filter-tab.active { color: var(--red); border-bottom-color: var(--red); }
+
+/* MAIN LAYOUT */
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2rem;
+  min-height: 60vh;
+}
+
+/* SIDEBAR */
+.sidebar {}
+
+.sidebar-section { margin-bottom: 2rem; }
+
+.sidebar-title {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text3);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+  cursor: pointer;
+  transition: color 0.12s;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text2);
+}
+
+.sidebar-item:hover { color: var(--text); }
+.sidebar-item.active { color: var(--red); }
+
+.sidebar-count {
+  font-size: 10px;
+  color: var(--text3);
+  background: var(--bg3);
+  padding: 1px 6px;
+}
+
+.tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.tag-pill {
+  font-size: 10px;
+  padding: 3px 8px;
+  border: 1px solid var(--border);
+  color: var(--text3);
+  cursor: pointer;
+  transition: all 0.12s;
+  background: none;
+  font-family: var(--mono);
+}
+
+.tag-pill:hover { border-color: var(--text3); color: var(--text2); }
+.tag-pill.active { border-color: var(--amber); color: var(--amber); background: var(--amber-dim); }
+
+/* GRID */
+.grid-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.grid-count {
+  font-size: 11px;
+  color: var(--text3);
+}
+
+.sort-select {
+  font-family: var(--mono);
+  font-size: 10px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  padding: 4px 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.prompt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1px;
+  background: var(--border);
+}
+
+/* PROMPT CARD */
+.prompt-card {
+  background: var(--bg2);
+  padding: 1.5rem;
+  transition: background 0.15s;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+
+.prompt-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--red);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.2s ease;
+}
+
+.prompt-card:hover { background: var(--bg3); }
+.prompt-card:hover::after { transform: scaleY(1); }
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  gap: 8px;
+}
+
+.card-tag {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 2px 8px;
+  background: var(--bg4);
+  color: var(--text3);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.card-diff {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 2px 7px;
+}
+
+.diff-beginner { color: var(--green); background: var(--green-dim); border: 1px solid rgba(82,183,136,0.2); }
+.diff-intermediate { color: var(--amber); background: var(--amber-dim); border: 1px solid rgba(244,162,97,0.2); }
+.diff-advanced { color: var(--red); background: var(--red-dim); border: 1px solid rgba(230,57,70,0.2); }
+
+.card-title {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.card-desc {
+  font-size: 11px;
+  color: var(--text3);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.card-body {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 12px;
+  font-size: 11px;
+  color: var(--text2);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  max-height: 120px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.card-body::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 40px;
+  background: linear-gradient(transparent, var(--bg));
+  pointer-events: none;
+}
+
+.card-body-full {
+  max-height: none;
+}
+
+.card-body-full::after { display: none; }
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.card-models {
+  display: flex;
+  gap: 4px;
+}
+
+.model-badge {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+  color: var(--text3);
+}
+
+.model-claude { border-color: rgba(76,201,240,0.3); color: var(--blue); }
+.model-gemini { border-color: rgba(82,183,136,0.3); color: var(--green); }
+.model-gpt { border-color: rgba(244,162,97,0.3); color: var(--amber); }
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vote-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text3);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.vote-btn:hover { border-color: var(--red); color: var(--red); }
+.vote-btn.voted { border-color: var(--red); color: var(--red); background: var(--red-dim); }
+
+.copy-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border: 1px solid var(--border2);
+  background: transparent;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.copy-btn:hover { border-color: var(--text); color: var(--text); }
+.copy-btn.copied { border-color: var(--green); color: var(--green); }
+
+.expand-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text3);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.expand-btn:hover { color: var(--text2); }
+
+.card-author {
+  font-size: 10px;
+  color: var(--text3);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.author-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--red);
+  flex-shrink: 0;
+}
+
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: crosshair;
+}
+
+.modal-overlay.open { display: flex; }
+
+.modal {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  cursor: default;
+}
+
+.modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background: var(--bg2);
+}
+
+.modal-title {
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.modal-close {
+  font-family: var(--mono);
+  font-size: 18px;
+  background: none;
+  border: none;
+  color: var(--text3);
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px;
+  transition: color 0.15s;
+}
+
+.modal-close:hover { color: var(--red); }
+
+.modal-body { padding: 1.5rem; }
+
+.form-group { margin-bottom: 1.2rem; }
+
+.form-label {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text3);
+  margin-bottom: 6px;
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 8px 12px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--red);
+}
+
+.form-textarea { min-height: 160px; resize: vertical; line-height: 1.7; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.checkbox-group { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.check-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 11px;
+  color: var(--text2);
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  transition: all 0.12s;
+}
+
+.check-label:hover { border-color: var(--text3); }
+.check-label input { accent-color: var(--red); }
+.check-label:has(input:checked) { border-color: var(--red); color: var(--red); }
+
+.modal-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg2);
+  position: sticky;
+  bottom: 0;
+}
+
+.contribute-hint {
+  font-size: 10px;
+  color: var(--text3);
+  line-height: 1.5;
+}
+
+.contribute-hint a { color: var(--text3); text-decoration: underline; }
+
+/* EMPTY */
+.empty {
+  grid-column: 1 / -1;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: var(--text3);
+  font-size: 12px;
+}
+
+.empty-code {
+  font-size: 42px;
+  font-family: var(--display);
+  font-weight: 800;
+  color: var(--bg4);
+  margin-bottom: 1rem;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem;
+  margin-top: 4rem;
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-left {
+  font-size: 11px;
+  color: var(--text3);
+  line-height: 1.8;
+}
+
+.footer-left a { color: var(--text2); text-decoration: none; }
+.footer-left a:hover { color: var(--red); }
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-link {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-link:hover { color: var(--text); }
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  padding: 10px 16px;
+  font-size: 11px;
+  color: var(--text);
+  z-index: 500;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toast.show { transform: translateY(0); opacity: 1; }
+.toast-dot { width: 6px; height: 6px; background: var(--green); flex-shrink: 0; }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.prompt-card {
+  animation: fadeUp 0.3s ease both;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-stats { display: none; }
+  .main { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .prompt-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .header-nav { display: none; }
+  .hero { padding: 3rem 1rem 2rem; }
+  .main { padding: 1rem; }
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--bg4); }
+::-webkit-scrollbar-thumb:hover { background: var(--text3); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">P</div>
+      PROMPT<span>BASE</span>
+    </a>
+    <nav class="header-nav">
+      <a href="#prompts">Library</a>
+      <a href="https://github.com/julesklord/promptbase" target="_blank">GitHub</a>
+      <a href="#contribute">Contribute</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="header-right">
+      <a href="https://github.com/julesklord/promptbase" target="_blank" class="btn-ghost">
+        ★ Star
+      </a>
+      <button class="btn-red" id="openModal">+ Submit Prompt</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow">Community-driven · Open Source · FOSS</div>
+    <h1 class="hero-title">The <em>prompt</em><br>library for<br>builders.</h1>
+    <p class="hero-sub">
+      Production-grade LLM prompts for developers, audio engineers, and AI integrators.
+      Curated by the community. Optimized for real workflows — agents, MCP, DAW automation, WSL2, and more.
+    </p>
+    <div class="hero-actions">
+      <button class="btn-red" id="openModal2">+ Submit a Prompt</button>
+      <a href="https://github.com/julesklord/promptbase" target="_blank" class="btn-ghost">View on GitHub →</a>
+    </div>
+  </div>
+  <div class="hero-stats" id="heroStats">
+    <div class="stat-cell">
+      <div class="stat-num" id="statPrompts">0</div>
+      <div class="stat-label">Prompts</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num" id="statCats">0</div>
+      <div class="stat-label">Categories</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num" id="statAuthors">0</div>
+      <div class="stat-label">Contributors</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num" id="statVotes">0</div>
+      <div class="stat-label">Total Votes</div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLBAR -->
+<div class="toolbar" id="prompts">
+  <div class="toolbar-inner">
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input type="text" id="search" placeholder="search prompts... (title, tag, usecase)">
+    </div>
+    <div class="filter-tabs" id="filterTabs">
+      <button class="filter-tab active" data-cat="all">All</button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">Difficulty</div>
+      <button class="sidebar-item active" data-diff="all">
+        <span>All levels</span>
+        <span class="sidebar-count" id="countAll">0</span>
+      </button>
+      <button class="sidebar-item" data-diff="beginner">
+        <span>Beginner</span>
+        <span class="sidebar-count" id="countBeginner">0</span>
+      </button>
+      <button class="sidebar-item" data-diff="intermediate">
+        <span>Intermediate</span>
+        <span class="sidebar-count" id="countIntermediate">0</span>
+      </button>
+      <button class="sidebar-item" data-diff="advanced">
+        <span>Advanced</span>
+        <span class="sidebar-count" id="countAdvanced">0</span>
+      </button>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Model</div>
+      <button class="sidebar-item" data-model="all">
+        <span>All models</span>
+      </button>
+      <button class="sidebar-item" data-model="claude">
+        <span>Claude</span>
+      </button>
+      <button class="sidebar-item" data-model="gemini">
+        <span>Gemini</span>
+      </button>
+      <button class="sidebar-item" data-model="gpt">
+        <span>GPT</span>
+      </button>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Use Case Tags</div>
+      <div class="tag-cloud" id="tagCloud"></div>
+    </div>
+
+    <div class="sidebar-section" id="about">
+      <div class="sidebar-title">About</div>
+      <p style="font-size:11px;color:var(--text3);line-height:1.7;">
+        PROMPTBASE is a community-maintained library of battle-tested prompts for AI-augmented development workflows.<br><br>
+        Prompts live in <code style="color:var(--amber)">prompts.json</code>. Submit yours via PR.
+      </p>
+    </div>
+  </aside>
+
+  <div>
+    <div class="grid-header">
+      <div class="grid-count" id="gridCount">Loading...</div>
+      <select class="sort-select" id="sortSelect">
+        <option value="votes">Sort: Most voted</option>
+        <option value="newest">Sort: Newest</option>
+        <option value="alpha">Sort: A–Z</option>
+      </select>
+    </div>
+    <div class="prompt-grid" id="promptGrid"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <strong style="color:var(--text2)">PROMPTBASE</strong> — Community LLM Prompt Library<br>
+      Built by <a href="https://github.com/julesklord" target="_blank">@julesklord</a> · Contributions welcome via <a href="https://github.com/julesklord/promptbase" target="_blank">GitHub PR</a>
+    </div>
+    <div class="footer-right">
+      <a href="https://github.com/julesklord/promptbase" class="footer-link" target="_blank">GitHub</a>
+      <a href="https://github.com/julesklord/promptbase/blob/main/CONTRIBUTING.md" class="footer-link" target="_blank">Contributing</a>
+      <a href="https://github.com/julesklord/promptbase/blob/main/LICENSE" class="footer-link" target="_blank">MIT License</a>
+    </div>
+  </div>
+</footer>
+
+<!-- SUBMIT MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Submit a Prompt</div>
+      <button class="modal-close" id="closeModal">×</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:11px;color:var(--text3);margin-bottom:1.5rem;line-height:1.7;padding:10px 12px;border-left:2px solid var(--red)">
+        Prompts are stored in <code style="color:var(--amber)">prompts.json</code> on GitHub.
+        Fill in the form below, copy the generated JSON, and <a href="https://github.com/julesklord/promptbase/edit/main/prompts.json" target="_blank" style="color:var(--red)">open a Pull Request</a> to contribute.
+      </p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Title *</label>
+          <input class="form-input" id="f-title" placeholder="Bootstrap de agente autónomo">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tag *</label>
+          <input class="form-input" id="f-tag" placeholder="agent · init">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Category *</label>
+          <select class="form-select" id="f-cat">
+            <option value="">Select category...</option>
+            <option>Dev / Agents</option>
+            <option>MCP / Integrations</option>
+            <option>Audio / REAPER</option>
+            <option>askgem / LLM</option>
+            <option>System / WSL2</option>
+            <option>FMG / Business</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Difficulty *</label>
+          <select class="form-select" id="f-diff">
+            <option value="">Select...</option>
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Short Description *</label>
+        <input class="form-input" id="f-desc" placeholder="One line describing what this prompt does">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Prompt Body * (use [PLACEHOLDERS] for variables)</label>
+        <textarea class="form-textarea" id="f-body" placeholder="Actúa como un agente de desarrollo..."></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Author (GitHub username)</label>
+          <input class="form-input" id="f-author" placeholder="julesklord">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Use Cases (comma-separated)</label>
+          <input class="form-input" id="f-usecase" placeholder="agents, coding, debugging">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Compatible Models</label>
+        <div class="checkbox-group">
+          <label class="check-label"><input type="checkbox" value="claude" id="m-claude"> Claude</label>
+          <label class="check-label"><input type="checkbox" value="gemini" id="m-gemini"> Gemini</label>
+          <label class="check-label"><input type="checkbox" value="gpt" id="m-gpt"> GPT</label>
+          <label class="check-label"><input type="checkbox" value="ollama" id="m-ollama"> Ollama/Local</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Generated JSON (copy → paste in prompts.json → open PR)</label>
+        <textarea class="form-textarea" id="f-output" readonly style="min-height:120px;color:var(--amber);font-size:10px;" placeholder="Fill the form above to generate the JSON entry..."></textarea>
+      </div>
+
+      <div style="display:flex;gap:8px;">
+        <button class="btn-ghost" id="generateJson" style="flex:1;">Generate JSON</button>
+        <button class="btn-ghost" id="copyJson">Copy JSON</button>
+        <a href="https://github.com/julesklord/promptbase/edit/main/prompts.json" target="_blank" class="btn-red" style="flex:1;justify-content:center;">Open PR on GitHub →</a>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="contribute-hint">
+        New to contributing? <a href="https://github.com/julesklord/promptbase/blob/main/CONTRIBUTING.md" target="_blank">Read the guide</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-dot"></div>
+  <span id="toastMsg">Copied to clipboard</span>
+</div>
+
+<script>
+const PROMPTS_URL = 'prompts.json';
+let allPrompts = [];
+let filtered = [];
+let activeCategory = 'all';
+let activeDiff = 'all';
+let activeModel = 'all';
+let activeTag = null;
+let searchQuery = '';
+let votes = JSON.parse(localStorage.getItem('pb-votes') || '{}');
+
+async function loadPrompts() {
+  try {
+    const r = await fetch(PROMPTS_URL);
+    allPrompts = await r.json();
+  } catch(e) {
+    allPrompts = [];
+  }
+  init();
+}
+
+function init() {
+  buildStats();
+  buildCategories();
+  buildTagCloud();
+  buildDiffCounts();
+  applyFilters();
+}
+
+function buildStats() {
+  const authors = new Set(allPrompts.map(p => p.author)).size;
+  const totalVotes = allPrompts.reduce((a, p) => a + (p.votes || 0), 0);
+  const cats = new Set(allPrompts.map(p => p.category)).size;
+  animateNum('statPrompts', allPrompts.length);
+  animateNum('statCats', cats);
+  animateNum('statAuthors', authors);
+  animateNum('statVotes', totalVotes);
+}
+
+function animateNum(id, target) {
+  const el = document.getElementById(id);
+  let cur = 0;
+  const step = Math.ceil(target / 30);
+  const t = setInterval(() => {
+    cur = Math.min(cur + step, target);
+    el.textContent = cur;
+    if (cur >= target) clearInterval(t);
+  }, 30);
+}
+
+function buildCategories() {
+  const tabs = document.getElementById('filterTabs');
+  const cats = ['all', ...new Set(allPrompts.map(p => p.category))];
+  tabs.innerHTML = '';
+  cats.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-tab' + (cat === 'all' ? ' active' : '');
+    btn.dataset.cat = cat;
+    btn.textContent = cat === 'all' ? 'All' : cat;
+    btn.onclick = () => {
+      document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeCategory = cat;
+      applyFilters();
+    };
+    tabs.appendChild(btn);
+  });
+}
+
+function buildTagCloud() {
+  const tags = {};
+  allPrompts.forEach(p => (p.usecase || []).forEach(t => { tags[t] = (tags[t] || 0) + 1; }));
+  const cloud = document.getElementById('tagCloud');
+  cloud.innerHTML = '';
+  Object.keys(tags).sort().forEach(tag => {
+    const btn = document.createElement('button');
+    btn.className = 'tag-pill';
+    btn.textContent = tag;
+    btn.onclick = () => {
+      if (activeTag === tag) {
+        activeTag = null;
+        btn.classList.remove('active');
+      } else {
+        document.querySelectorAll('.tag-pill').forEach(b => b.classList.remove('active'));
+        activeTag = tag;
+        btn.classList.add('active');
+      }
+      applyFilters();
+    };
+    cloud.appendChild(btn);
+  });
+}
+
+function buildDiffCounts() {
+  const counts = { beginner: 0, intermediate: 0, advanced: 0 };
+  allPrompts.forEach(p => { if (counts[p.difficulty] !== undefined) counts[p.difficulty]++; });
+  document.getElementById('countAll').textContent = allPrompts.length;
+  document.getElementById('countBeginner').textContent = counts.beginner;
+  document.getElementById('countIntermediate').textContent = counts.intermediate;
+  document.getElementById('countAdvanced').textContent = counts.advanced;
+
+  document.querySelectorAll('[data-diff]').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll('[data-diff]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeDiff = btn.dataset.diff;
+      applyFilters();
+    };
+  });
+
+  document.querySelectorAll('[data-model]').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll('[data-model]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeModel = btn.dataset.model;
+      applyFilters();
+    };
+  });
+}
+
+function applyFilters() {
+  const sort = document.getElementById('sortSelect').value;
+  filtered = allPrompts.filter(p => {
+    if (activeCategory !== 'all' && p.category !== activeCategory) return false;
+    if (activeDiff !== 'all' && p.difficulty !== activeDiff) return false;
+    if (activeModel !== 'all' && !(p.model || []).includes(activeModel)) return false;
+    if (activeTag && !(p.usecase || []).includes(activeTag)) return false;
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      return (p.title + p.tag + p.description + (p.usecase||[]).join(' ') + p.body).toLowerCase().includes(q);
+    }
+    return true;
+  });
+
+  if (sort === 'votes') filtered.sort((a, b) => (b.votes || 0) - (a.votes || 0));
+  else if (sort === 'alpha') filtered.sort((a, b) => a.title.localeCompare(b.title));
+
+  renderGrid();
+}
+
+function renderGrid() {
+  const grid = document.getElementById('promptGrid');
+  document.getElementById('gridCount').textContent = `${filtered.length} prompt${filtered.length !== 1 ? 's' : ''}`;
+
+  if (!filtered.length) {
+    grid.innerHTML = `<div class="empty"><div class="empty-code">404</div>No prompts match your filters.<br>Be the first to submit one.</div>`;
+    return;
+  }
+
+  grid.innerHTML = '';
+  filtered.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'prompt-card';
+    card.style.animationDelay = (i * 30) + 'ms';
+
+    const voteCount = (p.votes || 0) + (votes[p.id] || 0);
+    const isVoted = !!votes[p.id];
+    const models = (p.model || []).map(m => `<span class="model-badge model-${m}">${m}</span>`).join('');
+    const diff = p.difficulty || 'intermediate';
+
+    card.innerHTML = `
+      <div class="card-top">
+        <span class="card-tag">${p.tag}</span>
+        <span class="card-diff diff-${diff}">${diff}</span>
+      </div>
+      <div class="card-title">${p.title}</div>
+      <div class="card-desc">${p.description}</div>
+      <div class="card-body" id="body-${p.id}">${escHtml(p.body)}</div>
+      <div style="display:flex;gap:6px;margin-bottom:12px;">
+        <button class="expand-btn" id="expand-${p.id}">expand ↓</button>
+      </div>
+      <div class="card-meta">
+        <div class="card-models">${models}</div>
+        <div class="card-actions">
+          <button class="vote-btn ${isVoted ? 'voted' : ''}" id="vote-${p.id}">▲ ${voteCount}</button>
+          <button class="copy-btn" id="copy-${p.id}">Copy</button>
+        </div>
+      </div>
+      <div class="card-author">
+        <div class="author-dot"></div>
+        <span>${p.author || 'anonymous'}</span>
+        ${(p.usecase||[]).slice(0,3).map(t => `<span style="color:var(--text3);font-size:9px;background:var(--bg3);padding:1px 5px;">${t}</span>`).join('')}
+      </div>
+    `;
+
+    card.querySelector(`#expand-${p.id}`).onclick = () => {
+      const body = document.getElementById(`body-${p.id}`);
+      const btn = card.querySelector(`#expand-${p.id}`);
+      body.classList.toggle('card-body-full');
+      btn.textContent = body.classList.contains('card-body-full') ? 'collapse ↑' : 'expand ↓';
+    };
+
+    card.querySelector(`#copy-${p.id}`).onclick = () => {
+      navigator.clipboard.writeText(p.body);
+      const btn = card.querySelector(`#copy-${p.id}`);
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      showToast('Prompt copied to clipboard');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    };
+
+    card.querySelector(`#vote-${p.id}`).onclick = () => {
+      if (!votes[p.id]) {
+        votes[p.id] = 1;
+        localStorage.setItem('pb-votes', JSON.stringify(votes));
+        card.querySelector(`#vote-${p.id}`).classList.add('voted');
+        card.querySelector(`#vote-${p.id}`).textContent = `▲ ${voteCount + 1}`;
+        showToast('Vote registered — thanks!');
+      }
+    };
+
+    grid.appendChild(card);
+  });
+}
+
+function escHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+document.getElementById('search').addEventListener('input', e => {
+  searchQuery = e.target.value.trim();
+  applyFilters();
+});
+
+document.getElementById('sortSelect').addEventListener('change', applyFilters);
+
+const overlay = document.getElementById('modalOverlay');
+document.getElementById('openModal').onclick = () => overlay.classList.add('open');
+document.getElementById('openModal2').onclick = () => overlay.classList.add('open');
+document.getElementById('closeModal').onclick = () => overlay.classList.remove('open');
+overlay.onclick = e => { if (e.target === overlay) overlay.classList.remove('open'); };
+
+function generateJSON() {
+  const title = document.getElementById('f-title').value.trim();
+  const tag = document.getElementById('f-tag').value.trim();
+  const cat = document.getElementById('f-cat').value;
+  const diff = document.getElementById('f-diff').value;
+  const desc = document.getElementById('f-desc').value.trim();
+  const body = document.getElementById('f-body').value.trim();
+  const author = document.getElementById('f-author').value.trim() || 'anonymous';
+  const usecases = document.getElementById('f-usecase').value.split(',').map(s => s.trim()).filter(Boolean);
+  const models = ['claude','gemini','gpt','ollama'].filter(m => document.getElementById('m-'+m).checked);
+  const id = (cat.toLowerCase().replace(/[^a-z]/g,'-') + '-' + title.toLowerCase().replace(/[^a-z]/g,'-')).replace(/-+/g,'-').slice(0,40) + '-' + Date.now().toString().slice(-4);
+
+  if (!title || !tag || !cat || !diff || !body) {
+    showToast('Fill required fields first');
+    return;
+  }
+
+  const entry = { id, category: cat, tag, title, description: desc, body, author, votes: 0, model: models, usecase: usecases, difficulty: diff };
+  document.getElementById('f-output').value = JSON.stringify(entry, null, 2);
+}
+
+document.getElementById('generateJson').onclick = generateJSON;
+document.getElementById('copyJson').onclick = () => {
+  const val = document.getElementById('f-output').value;
+  if (!val) { generateJSON(); }
+  navigator.clipboard.writeText(document.getElementById('f-output').value);
+  showToast('JSON copied — paste it in prompts.json and open a PR');
+};
+
+loadPrompts();
+</script>
+</body>
+</html>
