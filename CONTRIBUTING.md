@@ -47,12 +47,14 @@ PROMPTBASE is community-driven. Prompts live in `prompts.json`. No backend, no d
 
 | Category | Description |
 |---|---|
-| Dev / Agents | Autonomous agent design, code review, scaffolding |
-| MCP / Integrations | MCP servers, clients, protocol debugging |
-| Audio / REAPER | ReaScript, OSC, DAW automation, LLM↔audio |
-| askgem / LLM | Gemini API, prompt optimization, agent CLI tools |
-| System / WSL2 | Arch Linux, WSL2, Docker Engine, networking |
-| FMG / Business | Music industry, content strategy, beat metadata |
+| Backend Development | Python, Node.js, API design, server-side patterns |
+| Frontend Development | React, Vue, Accessibility (a11y), performance, CSS |
+| Database & Data | SQL, NoSQL, indexing, data modeling, migration |
+| DevOps & Infrastructure | Docker, K8s, CI/CD, AWS/Cloud, Terraform |
+| Security & Auth | OWASP, JWT, OAuth2, encryption, auditing |
+| Testing & QA | Pytest, Jest, Playwright, E2E, unit testing |
+| System Design | Architecture, caching, microservices vs monolith |
+| AI/ML & LLM | Prompt engineering, agents, RAG, Gemini/Claude/GPT |
 | Other | Anything that doesn't fit above |
 
 ## What makes a good prompt
