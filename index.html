@@ -609,7 +609,7 @@ header {
 }
 
 .copy-btn:hover { border-color: var(--text); color: var(--text); }
-.copy-btn.copied { border-color: var(--green); color: var(--green); }
+.copy-btn.copied { border-color: var(--green); color: var(--green); background: var(--green-dim); }
 
 .expand-btn {
   font-family: var(--mono);
@@ -1310,6 +1310,7 @@ function renderGrid() {
       <div class="card-body" id="body-${p.id}">${escHtml(p.body)}</div>
       <div style="display:flex;gap:6px;margin-bottom:12px;">
         <button class="expand-btn" id="expand-${p.id}">expand ↓</button>
+        <button class="expand-btn" id="fullview-${p.id}" style="flex:1;text-align:center;">view fullscreen</button>
       </div>
       <div class="card-meta">
         <div class="card-models">${models}</div>
@@ -1330,6 +1331,47 @@ function renderGrid() {
       const btn = card.querySelector(`#expand-${p.id}`);
       body.classList.toggle('card-body-full');
       btn.textContent = body.classList.contains('card-body-full') ? 'collapse ↑' : 'expand ↓';
+    };
+
+    card.querySelector(`#fullview-${p.id}`).onclick = () => {
+      const modal = document.getElementById('modalOverlay');
+      modal.innerHTML = `
+        <div class="modal" style="max-width:800px;">
+          <div class="modal-header">
+            <div>
+              <div class="modal-title">${p.title}</div>
+              <div style="font-size:10px;color:var(--text3);margin-top:6px;">${p.tag} · ${p.category}</div>
+            </div>
+            <button class="modal-close" onclick="document.getElementById('modalOverlay').classList.remove('open');">×</button>
+          </div>
+          <div class="modal-body">
+            <div style="margin-bottom:1.5rem;padding:12px;background:var(--bg3);border-left:2px solid var(--red);">
+              <div style="font-size:11px;color:var(--text2);">${p.description}</div>
+            </div>
+            <div style="margin-bottom:1.5rem;">
+              <div style="font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Prompt Body</div>
+              <div style="background:var(--bg);border:1px solid var(--border);padding:12px;font-size:11px;color:var(--text2);line-height:1.7;white-space:pre-wrap;max-height:400px;overflow-y:auto;">${escHtml(p.body)}</div>
+            </div>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+              <div style="flex:1;min-width:150px;">
+                <div style="font-size:9px;color:var(--text3);text-transform:uppercase;margin-bottom:6px;">Models</div>
+                <div style="display:flex;gap:4px;flex-wrap:wrap;">${models}</div>
+              </div>
+              <div style="flex:1;min-width:150px;">
+                <div style="font-size:9px;color:var(--text3);text-transform:uppercase;margin-bottom:6px;">Use Cases</div>
+                <div style="display:flex;gap:4px;flex-wrap:wrap;">
+                  ${(p.usecase||[]).map(t => `<span style="font-size:10px;padding:2px 8px;background:var(--bg3);color:var(--text2);border:1px solid var(--border);">${t}</span>`).join('')}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="contribute-hint">Author: <strong>${p.author || 'anonymous'}</strong> · Difficulty: <strong>${p.difficulty}</strong> · ID: <code style="color:var(--amber);font-size:10px;">${p.id}</code></div>
+            <button class="btn-red" id="fullview-copy" onclick="navigator.clipboard.writeText(\`${p.body.replace(/`/g, '\\`')}\`);showToast('Copied!');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy', 1500);">Copy Prompt</button>
+          </div>
+        </div>
+      `;
+      modal.classList.add('open');
     };
 
     card.querySelector(`#copy-${p.id}`).onclick = () => {
