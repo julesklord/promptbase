@@ -3,3 +3,4 @@
 .playwright-mcp
 promptbase.zip
 .eslintrc.json
+.prettierrc
