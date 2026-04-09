@@ -26,17 +26,21 @@ export async function loadPrompts() {
     if (!manifestResp.ok) throw new Error("Could not load manifest");
     const shards = await manifestResp.json();
 
-    // 2. Fetch all shards in parallel
-    const shardPromises = shards.map(async (filename) => {
-      const resp = await fetch(`${SHARD_BASE}${filename}`);
-      if (!resp.ok) {
-        console.error(`Failed to load shard: ${filename}`);
+    // 2. Fetch all shards in parallel with individual error handling
+    const results = await Promise.all(shards.map(async (filename) => {
+      try {
+        const resp = await fetch(`${SHARD_BASE}${filename}`);
+        if (!resp.ok) {
+          console.error(`Failed to load shard: ${filename}`);
+          return [];
+        }
+        const data = await resp.json();
+        return Array.isArray(data) ? data : [data];
+      } catch (err) {
+        console.error(`Syntax error in shard ${filename}:`, err);
         return [];
       }
-      return await resp.json();
-    });
-
-    const results = await Promise.all(shardPromises);
+    }));
     
     // 3. Flatten and validate
     const combined = results.flat();
