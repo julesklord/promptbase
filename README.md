@@ -1,4 +1,7 @@
-# PROMPTBASE
+<div align="center">
+  <img src="docs/logo_promptbase.png" alt="PROMPTBASE Logo" width="180" />
+  <h1>PROMPTBASE</h1>
+</div>
 
 ![Version](https://img.shields.io/badge/version-0.2.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
