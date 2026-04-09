@@ -102,5 +102,16 @@
     "author": "community",
     "votes": 8,
     "difficulty": "advanced"
+  },
+  {
+    "id": "security-csp-strict-063",
+    "category": "Security & Auth",
+    "tag": "security · headers",
+    "title": "Security - Strict Content Security Policy (CSP)",
+    "description": "Harden web application security by engineering a strict, nonce-based CSP header configuration.",
+    "body": "<task>\nFormulate a production-grade Content Security Policy (CSP) header string.\nRequirements:\n1. Strictly prohibit generic `unsafe-inline` and `unsafe-eval`.\n2. Design a dynamic `nonce` injection strategy for SSR frameworks (e.g., Next.js or Express) to authorize specific first-party scripts.\n3. Configure `report-uri` to ingest violation payloads for security telemetry.\n</task>",
+    "author": "secOps_Lead",
+    "votes": 8,
+    "difficulty": "advanced"
   }
 ]
