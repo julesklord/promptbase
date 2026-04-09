@@ -18,7 +18,7 @@
     "description": "Improve decision-making efficiency in agents using the Reason + Act pattern to reduce latency and prevent infinite loops.",
     "body": "<context>\nAnalyze the following agent reasoning trace:\n[INSERT_THOUGHT_TRACE]\n</context>\n\n<task>\nApply 2026 state-of-the-art optimizations to the ReAct loop:\n1. Implement 'Static Analysis' of the generated plan prior to tool execution.\n2. Refine the 'Stopping Criteria' to proactively detect redundancy and prevent infinite loops.\n3. Structure the final output in strict XML format for deterministic parsing.\n4. Introduce a 'Reflection Step' every 3 iterations to correct goal deviation.\n</task>",
     "author": "community",
-    "votes": 0,
+    "votes": 8,
     "difficulty": "advanced"
   },
   {
@@ -29,7 +29,7 @@
     "description": "Define a message-passing and task-delegation protocol between multiple specialized AI agents.",
     "body": "<task>\nDesign the architecture of a multi-agent system to resolve [COMPLEX_TASK].\n\nThe system must include:\n- Leader Agent (Planner)\n- Worker Agents (Specialists in [X, Y, Z])\n- Audit Agent (Security and Quality Assurance)\n</task>\n\n<constraints>\nDesign the communication protocol between these agents using a 'Handover Document' format that strictly includes:\n1. The current context of the task.\n2. The state of critical variables.\n3. Hard boundaries of authority (Constraints).\n4. The exact response format expected by the subsequent agent in the pipeline.\n</constraints>",
     "author": "community",
-    "votes": 0,
+    "votes": 12,
     "difficulty": "advanced"
   },
   {
@@ -51,7 +51,7 @@
     "description": "Maintain coherence for agents operating over hours or days using recursive memory summarization.",
     "body": "Act as a Memory Manager for an agentic thread exceeding 100k tokens.\n\n<task>\n1. Extract and isolate the 'Core Facts' that strictly must persist.\n2. Eliminate conversational redundancies, tool-use scratchpads, and intermediate 'noise' from previous turns.\n3. Generate a precise 'State Snapshot' that occupies under 1000 tokens but allows the primary agent to resume the task without intent degradation.\n</task>\n\n<format>\nUse the following structure for output:\n<memory_snapshot>\n[CONTENT]\n</memory_snapshot>\n</format>",
     "author": "community",
-    "votes": 0,
+    "votes": 5,
     "difficulty": "advanced"
   },
   {

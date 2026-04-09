@@ -7,7 +7,7 @@
     "description": "Analyze technical maturity and organizational readiness to transition from a monolith to a microservices architecture.",
     "body": "Act as a Principal System Architect. Perform a definitive analysis on whether to split the [APPLICATION_NAME] monolith into microservices.\n\n<context>\nCurrent Architecture State:\n- Structure: [Monolith/Modular Monolith]\n- Codebase Size: [LINES_OF_CODE]\n- Team Size: [N Engineers]\n- Traffic Load: [REQUESTS_PER_SEC/MAU]\n- Deployment Frequency: [N TIMES/WEEK]\n\nCurrent Pain Points:\n[INSERT_LIST_OF_ISSUES]\n</context>\n\n<task>\nEvaluate the migration against the following framework:\n1. **Core Advantages**: Independent scaling variables, language agnosticism (Polyglot), fault radius reduction, and targeted deployments.\n2. **Operational Overhead**: Inter-service network latency, distributed telemetry/debugging, absolute consistency vs eventual consistency, and CI/CD explosion.\n3. **Maturity Prerequisites**: Assess current state of Observability (Logging/Tracing pipelines), Service Mesh necessity, and API Gateway readiness.\n\nProvide:\n- A definitive architectural recommendation with strict justification.\n- A proposed high-level roadmap/timeline for the strangler fig migration.\n- A logical proposal for establishing strict Service Boundaries (Domain-Driven Design).\n- Recommended technology stack for the orchestration layer.\n</task>",
     "author": "community",
-    "votes": 0,
+    "votes": 16,
     "model": [
       "claude",
       "gpt"
@@ -27,7 +27,7 @@
     "description": "Design the optimal data caching topology based strictly on read/write latency requirements.",
     "body": "Architect an enterprise caching strategy for [APPLICATION_NAME].\n\n<context>\nWorkload Parameters:\n- Data Footprint: [SIZE_TB]\n- Read/Write Ratio: [PATTERN]\n- Consistency Requirement: [STRICT/EVENTUAL]\n- Latency SLA: [MAX_MS]\n- Geographic Distribution: [YES/NO]\n</context>\n\n<task>\nCompare and definitively select the optimal mechanism:\n1. **Cache-Aside (Lazy Loading)**: Ideal for generic read-heavy workloads but incurs a cache-miss penalty.\n2. **Write-Through**: Absolute data consistency guarantees but induces write latency.\n3. **Write-Behind (Write-Back)**: High-throughput write capabilities but introduces critical risk of volatile data loss upon cache failure.\n\nProvide the implementation spec:\n1. Recommending the Cache Layer engine (e.g., Redis/Memcached/CDN).\n2. Defining exact Time-To-Live (TTL) baseline algorithms.\n3. Structuring Cache Invalidation patterns handling database mutations.\n4. Detailing a Cache Warm-up strategy post-deployment.\n5. Establishing monitoring metrics (Hit-ratio limits, Eviction tracking).\n</task>",
     "author": "community",
-    "votes": 0,
+    "votes": 11,
     "model": [
       "claude",
       "gpt"
@@ -78,7 +78,7 @@
     "description": "Design an enterprise system where the immutable event log acts as the absolute source of truth.",
     "body": "Architect a highly consistent [ORDER_PROCESSING / FINANCIAL_TRANSACTION] system utilizing Event Sourcing paired directly with CQRS.\n\n<task>\nEngineer the core mechanics:\n1. **Command Side**: Detail payload validation, business invariant protection, and appending to the Event Store.\n2. **Event Store Layer**: Guarantee absolute append-only immutability and linear execution ordering.\n3. **Read Side**: Define highly optimized read projections written into a fast retrieval database [NoSQL / Elasticsearch].\n4. **Event Handlers**: Establish processes for periodically rebuilding internal state utilizing memory Snapshots to avoid infinite log traversal.\n\nProvide a technical explanation defending how you will orchestrate Eventual Consistency within the user-facing UI, and precisely how the system handles a Distributed 'Compensating Transaction' when downstream failures occur.\n</task>",
     "author": "community",
-    "votes": 0,
+    "votes": 1,
     "difficulty": "advanced"
   },
   {
@@ -89,7 +89,7 @@
     "description": "Design an absolute mission-critical system with global latency reduction and total region-loss resilience.",
     "body": "Design a planetary-scale infrastructure for an active [LIVE_SERVICE] with simultaneous presence operating in US, EU, and Asia data centers.\n\n<task>\nProvide an infrastructure strategy covering:\n1. Global traffic load balancing utilization (Anycast protocols/Latency-based DNS routing).\n2. Database topology implementation (Multi-Master cluster replication vs Local-Writes/Global-Reads).\n3. Strict handling of absolute 'Data Sovereignty' rules (GDPR / CCPA isolation requirements).\n4. Configuration logic for regional Health Checks ensuring total region evacuation/failover is initiated in under 60 seconds.\n\nProvide the architectural diagram schema and a deep-dive analysis on the theoretical data consistency hazards involved.\n</task>",
     "author": "community",
-    "votes": 0,
+    "votes": 25,
     "difficulty": "advanced"
   },
   {

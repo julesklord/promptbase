@@ -7,7 +7,7 @@
     "description": "Engineer a complete local environment utilizing hot-reload, volume sync, and structured networking.",
     "body": "Generate a production-mirrored `docker-compose.yml` for local development on [PROJECT_NAME].\n\n<context>\nRequired Infrastructure Stack:\n- API Backend: [LANGUAGE/FRAMEWORK]\n- Primary Database: [PostgreSQL / MySQL / MongoDB]\n- In-Memory Cache: [Redis / Memcached]\n- Message Broker: [RabbitMQ / Kafka] (If applicable)\n- Frontend: [Node/Python Dev Server]\n</context>\n\n<task>\nThe compose configuration must support:\n- Codebase hot-reloading.\n- Exposed debugger ports.\n- Synchronized local volume mounts.\n- Explicit internal Docker networking.\n- Isolated persistent data volumes.\n- Centralized JSON logging.\n\nProvide:\n1. The complete `docker-compose.yml`.\n2. Highly optimized `.Dockerfile` templates for each custom service.\n3. A robust `.env` variable template.\n4. A `Makefile` containing common developer proxy commands (up, down, format, test).\n5. Hardware optimization recommendations specifically addressing M-Series Mac architecture and Windows WSL2 filesystem limits.\n</task>",
     "author": "community",
-    "votes": 0,
+    "votes": 13,
     "model": [
       "claude",
       "gpt"
@@ -129,7 +129,7 @@
     "description": "Stabilize persistent internet availability in WSL2 when operating behind strict Corporate VPNs.",
     "body": "Configure the network layer in WSL2 to regain outbound internet access while forced behind a restrictive Enterprise VPN ([Cisco AnyConnect / GlobalProtect / Zscaler]).\n\n<context>\nCurrent Symptoms:\n- WSL2 instantly drops inbound/outbound packets upon VPN connection.\n- `/etc/resolv.conf` is aggressively overwritten rendering DNS dead.\n- Severe MTU byte fragmentation causing stalled HTTP requests.\n</context>\n\n<task>\nProvide a comprehensive bash/powershell remediation guide:\n1. Configure the Windows `.wslconfig` establishing `networkingMode=mirrored` or the equivalent NAT override.\n2. Create an immutable script to lock and sync a reliable `nameserver` in `resolv.conf`.\n3. Implement a bridging bypass using `wsl-vpnkit` or `socat` tunnels.\n4. Output the commands to dynamically drop the vEth MTU size to strictly match the VPN payload limit.\n</task>",
     "author": "jules",
-    "votes": 0,
+    "votes": 25,
     "model": [
       "gpt",
       "claude"

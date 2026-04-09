@@ -7,7 +7,7 @@
     "description": "Architect an aggressive indexing strategy prioritizing critical queries while minimizing disk footprint and write latency.",
     "body": "Act as a Database Administrator. Design an optimal index topology for the following [PostgreSQL / MySQL / Snowflake] dataset.\n\n<context>\nTarget Table Name: [TABLE_NAME]\nCurrent Schema:\n[INSERT_SCHEMA]\n\nExecution Bottlenecks (Primary Queries):\n[INSERT_SLOW_SQL_QUERIES]\n\nCurrent Concerns:\n- Heavy latency on specific `JOIN` and `ORDER BY` operations.\n- Potential redundant index bloat consuming [N] GB of disk space.\n</context>\n\n<task>\nExecute a tactical database analysis:\n1. Analyze query execution patterns focusing on filters and aggregations.\n2. Evaluate column cardinality to determine index viability (B-Tree vs Hash vs GIN).\n3. Assess the explicit trade-off: Write/Mutation cost vs Read velocity.\n4. Evaluate index maintenance overhead (e.g., PostgreSQL `VACUUM` impact).\n\nProvide:\n- The exact `CREATE INDEX` SQL statements establishing single and composite structures.\n- A list of existing redundant indexes safe for deprecation.\n- Internal monitoring queries to track index cache-hit rates moving forward.\n</task>",
     "author": "community",
-    "votes": 0,
+    "votes": 10,
     "model": [
       "claude",
       "gpt"
@@ -27,7 +27,7 @@
     "description": "Analyze sluggish queries using execution plans, identify bottlenecks, and restructure syntax for rapid retrieval.",
     "body": "Act as a Senior Database Engineer. Heavily optimize the following sluggish SQL query targeting [PostgreSQL / MySQL / SQL Server].\n\n<context>\nCurrent Query:\n[INSERT_SQL_QUERY]\n\nScale Characteristics:\n- Active Tables: [LIST_TABLES]\n- Row Volume per Table: [ROW_COUNTS]\n- Current Execution Latency: [TIME_MS]\n- System Load: Evaluating against a live production environment handling [N] QPS.\n</context>\n\n<task>\nExecute the refactoring process:\n1. Verbally map out the presumed Execution Plan (Seq Scan, Hash Join, Index Scan).\n2. Identify structural bottlenecks (e.g., N+1 queries, implicit casting, correlated subqueries).\n3. Propose strategic query adjustments utilizing CTEs, window functions, or lateral joins.\n4. Output the finalized optimized SQL snippet.\n5. Suggest denormalization or alternate schema topologies if the relational model is fundamentally flawed for this query.\n</task>",
     "author": "jules",
-    "votes": 14,
+    "votes": 28,
     "model": [
       "claude",
       "gemini",
@@ -69,7 +69,7 @@
     "description": "Implement masking, hashing, and synthetic data injection methodologies to secure sensitive records targeting GDPR/HIPAA compliance.",
     "body": "Design a programmatic pipeline to aggressively anonymize the provided raw dataset.\n\n<context>\nTarget Dataset Type: [SQL Dump / JSON Array / CSV]\nIdentified PII (Personally Identifiable Information): Standardized Full Names, Direct Emails, IPv4/IPv6 Addresses, Plaintext Credit Cards.\n</context>\n\n<task>\nImplement the pipeline utilizing the following security methodologies:\n1. **Masking**: Implement partial obfuscation retaining structural format (e.g., `u***r@d****.com`).\n2. **One-way Hashing**: Apply Salted SHA-256 (or stronger) hashing enabling statistical correlation without identity exposure.\n3. **Pseudonymization**: Generate and replace distinct user handles with cryptographic UUIDs/Synthetic IDs.\n4. **Bucketization**: Dilute specific numeric vectors (e.g., transforming an exact `age: 26` into a grouped integer range `20-30`).\n\nProvide:\n- A complete execution script written in [Python (Pandas) / raw SQL].\n- A concise report analyzing the residual risk of 'Re-identification' via aggregate linkage.\n- A basic compliance checklist verification against strict data privacy laws.\n</task>",
     "author": "community",
-    "votes": 0,
+    "votes": 2,
     "model": [
       "claude",
       "gpt",

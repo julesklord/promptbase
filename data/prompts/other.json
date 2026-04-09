@@ -7,7 +7,7 @@
     "description": "Generate powerful Lua scripts to expedite tasks, audio workflows, and DSP handling within REAPER 7.x.",
     "body": "Act as an Audio Programming Specialist. Write a ReaScript utilizing Lua specifically designed for the REAPER DAW environment.\n\n<context>\nTask Objective: [DESCRIPTION OF THE AUTOMATION TASK]\nSession Context: [TYPE_OF_SESSION_E.G._MIXING/SOUND_DESIGN]\nTarget Entities: [TRACKS / ITEMS / FX CHAINS / TIMELINE MARKERS]\n</context>\n\n<task>\nGenerate the script strictly adhering to these constraints:\n- Absolute compatibility targeted at REAPER 7.x API standards.\n- Formulate robust error catching utilizing native console tracing (`reaper.ShowConsoleMsg`).\n- The script must run natively possessing zero external dependency requirements.\n- Maintain absolutely clean code; apply comments exclusively where native API logic is un-intuitive.\n- If user interaction is requested, execute GUI controls exclusively via the native REAPER API (ReaScript dialogs or native ImGui implementations).\n\nFinalize by providing explicit installation and triggering instructions for the end user.\n</task>",
     "author": "jules",
-    "votes": 19,
+    "votes": 40,
     "model": [
       "claude",
       "gemini"

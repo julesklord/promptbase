@@ -7,7 +7,7 @@
     "description": "Identify and resolve unnecessary re-renders, bundle bloat, and First Contentful Paint (FCP) latency.",
     "body": "Act as a Frontend Performance Engineer. Optimize the performance of the following React application:\n\n<context>\nApplication Metrics:\n- Current Bundle Size: [SIZE]\n- Time to Interactive (TTI): [TIME]\n- Lighthouse Score: [SCORE]\n- Target Device Constraints: [Desktop/Mobile]\n\nObserved Bottlenecks:\n- Spurious re-renders in [COMPONENT_NAME].\n- Unoptimized chunking/bundle size.\n- High latency on First Contentful Paint.\n</context>\n\n<task>\nProvide diagnostic steps and code-level solutions targeting:\n1. **React Profiler**: How to pinpoint the specific rendering culprits.\n2. **Memoization**: Strategic application of `React.memo`, `useMemo`, and `useCallback` without memory leaking.\n3. **Code Splitting**: Implementation of `React.lazy` bundled with `Suspense` boundaries.\n4. **Bundle Analysis**: Setup guide for `webpack-bundle-analyzer` or Vite equivalents.\n5. **Asset Optimization**: Implementing modern image loading (e.g., `next/image`).\n6. **Virtualization**: Windowing techniques for rendering massive data arrays.\n\nProvide a targeted refactor alongside a projected before/after Lighthouse improvement analysis.\n</task>",
     "author": "community",
-    "votes": 0,
+    "votes": 3,
     "model": [
       "claude",
       "gpt"
@@ -27,7 +27,7 @@
     "description": "Systematically refactor legacy Vue 2 Option API components into the modern Vue 3 Composition API format.",
     "body": "Migrate the provided Vue 2 component to the Vue 3 Composition API.\n\n<context>\nLegacy Component:\n[INSERT_VUE2_OPTIONS_API_CODE]\n\nTarget Framework: Vue 3.3+\n</context>\n\n<task>\nRefactor according to the following priorities:\n1. Strictly enforce the `<script setup>` syntax paradigm.\n2. Extract cross-component logic into standalone, reusable `composables`.\n3. Implement strict type-safety utilizing TypeScript interfaces.\n4. Correctly assign reactive references (`ref` vs `reactive`).\n5. Migrate legacy lifecycle hooks to their modern equivalents.\n\nAddress these specific architectural patterns:\n- Defining Custom Composables for shared domain logic.\n- The semantic difference and application of `reactive()` vs `ref()`.\n- Modern Computed Properties and deep Watchers.\n- Utilizing `Teleport` for robust modal rendering.\n\nProvide the refactored code, the newly abstracted composables, necessary TypeScript definitions, and a basic Vitest testing strategy.\n</task>",
     "author": "community",
-    "votes": 0,
+    "votes": 11,
     "model": [
       "claude",
       "gpt"
@@ -108,7 +108,7 @@
     "description": "Strictly prevent performance regressions by configuring hard budgets that block PR merges.",
     "body": "Establish an automated Performance Budget architecture for a modern frontend repository.\n\n<context>\nDesired Hard Limits:\n- Largest Contentful Paint (LCP) < 2.5s\n- Total Blocking Time (TBT) < 200ms\n- Compiled JS Bundle Size < 200KB (Gzipped)\n</context>\n\n<task>\nGenerate the following configuration suite:\n1. Construct the complete `lighthouserc.json` file configuring assertions for every defined metric.\n2. Write a GitHub Actions workflow script designed to run this analysis on every pull request.\n3. Define the protocol for generating regression diff reports within the PR comments.\n\nProvide the configuration files and a troubleshooting guide outlining optimization methods when the build budget inherently fails.\n</task>",
     "author": "community",
-    "votes": 0,
+    "votes": 8,
     "model": [
       "claude",
       "gpt"

@@ -18,7 +18,7 @@
     "description": "Design a highly modular, decoupled Flutter architecture utilizing Riverpod 2.x and Clean Architecture principles.",
     "body": "Act as a Principal Flutter Architect. Architect the directory structure and core boilerplate components for a new isolated feature: [FEATURE_NAME].\n\n<task>\nExecute the architectural design meeting these strict requirements:\n1. Utilize Riverpod 2.0+ (specifically `AsyncNotifier` and code generation tools).\n2. Enforce strict layer separation:\n   - **Data Layer**: Repositories, Data Sources, and DTOs.\n   - **Domain Layer**: Core Entities and Use Cases/Interactors.\n   - **Presentation Layer**: UI Widgets and State Controllers.\n3. Implement explicit asynchronous state handling (Loading, Loaded, Error variants).\n4. Generate the foundational code for the primary `StateProvider` and the entry-point Widget, demonstrating the data flow.\n</task>",
     "author": "community",
-    "votes": 0,
+    "votes": 20,
     "difficulty": "advanced"
   },
   {
@@ -62,7 +62,7 @@
     "description": "Architect persistent local storage solutions paired with robust, conflict-free background network synchronization.",
     "body": "Design a highly resilient Offline-First data flow architecture for a high-priority [TIER] mobile application.\n\n<context>\nTechnology Stack:\n- Local Data Persistence: [SQLite / Realm / Hive / WatermelonDB]\n- Sync Mechanism: [Background OS Tasks / Periodic Polling / WebSocket Recovery]\n</context>\n\n<task>\nGenerate the architectural logic required to execute the following:\n1. Instantaneously write mutated data to the local store to guarantee zero UI latency.\n2. Reliably queue network synchronization payloads for execution when connectivity is restored.\n3. Formulate a definitive data conflict resolution strategy (e.g., Client 'Last Write Wins' vs Server-side merging).\n4. Implement an unobtrusive system to notify the end-user regarding real-time connectivity and sync queue status.\n</task>",
     "author": "community",
-    "votes": 0,
+    "votes": 8,
     "difficulty": "advanced"
   },
   {

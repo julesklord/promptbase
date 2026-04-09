@@ -47,7 +47,7 @@
     "description": "Select the correct API architecture based on use case, team scale, and data requirements.",
     "body": "Act as a Solutions Architect. Determine whether REST or GraphQL is the optimal choice for the [PROJECT_DESCRIPTION].\n\n<context>\nProject Parameters:\n- Application Type: [SPA/Mobile/SSR/Desktop]\n- Expected API Surface: [NUMBER OF ENDPOINTS]\n- Client Platforms: [Web/Mobile/Both]\n- Team Composition: [N Engineers], [Experience Level]\n- Scale/Throughput: [USERS/RPS]\n</context>\n\n<task>\nExecute a comparative analysis focusing on:\n1. **Performance**: Caching capabilities, payload optimization, and round-trip reduction.\n2. **Complexity**: Development velocity, testing overhead, and debugging friction.\n3. **Scalability**: Rate limiting implementation and deep infrastructure monitoring.\n4. **Developer Experience**: API Documentation and required client-side tooling.\n5. **Evolution**: Long-term versioning strategy and schema deprecation.\n\nProvide:\n- A definitive architecture recommendation with a supporting technical justification.\n- Concrete architectural trade-offs specific to this project.\n- A potential hybrid approach (if highly applicable).\n</task>",
     "author": "community",
-    "votes": 0,
+    "votes": 22,
     "model": [
       "claude",
       "gpt"

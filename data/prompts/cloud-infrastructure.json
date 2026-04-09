@@ -40,7 +40,7 @@
     "description": "Implement a continuous deployment architecture driven strictly by Git state for production clusters.",
     "body": "Architect a complete GitOps deployment pipeline for a production-grade Kubernetes application.\n\n<context>\nTarget Stack:\n- GitOps Controller: [ArgoCD / FluxCD]\n- Manifest Templating: [Helm / Kustomize]\n</context>\n\n<task>\nGenerate the foundational YAML configurations to deploy this system:\n1. Formulate the `Application` Custom Resource Definition (CRD) for ArgoCD or the equivalent GitRepository/Kustomization for Flux.\n2. Configure explicit auto-synchronization rules and resource pruning policies.\n3. Define the automated rollback strategy triggered by failing health/liveness probes.\n4. Document the authentication integration establishing a secure tunnel between the cluster and a private GitHub/GitLab repository.\n</task>",
     "author": "community",
-    "votes": 0,
+    "votes": 12,
     "difficulty": "advanced"
   },
   {
@@ -51,7 +51,7 @@
     "description": "Design a highly resilient disaster recovery architecture ensuring minimal RTO and RPO limits.",
     "body": "Formulate a strict Disaster Recovery (DR) strategy for a mission-critical [SYSTEM_TYPE].\n\n<task>\nEvaluate the following architectural methodologies and select the most appropriate given the system type:\n- Backup & Restore\n- Pilot Light\n- Warm Standby\n- Multi-region Active-Active\n\nProvide the implementation blueprint containing:\n1. Database cross-region replication configuration.\n2. An automated DNS failover/traffic routing script using Route53/Traffic Manager.\n3. A Post-Incident verification checklist to confirm data integrity.\n4. A theoretical schedule and protocol for bi-annual DR mock failover drills.\n</task>",
     "author": "community",
-    "votes": 0,
+    "votes": 24,
     "difficulty": "advanced"
   },
   {

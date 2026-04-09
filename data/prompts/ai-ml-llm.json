@@ -107,7 +107,7 @@
     "description": "Utilize step-by-step reasoning to evaluate complex ethical problems in AI deployment.",
     "body": "Act as an Ethical Advisor specializing in modern technology.\n\n<context>\nAnalyze the following dilemma:\n[DILEMMA: Privacy vs Security / Algorithmic Bias / etc.]\n</context>\n\n<task>\nExecute the following evaluation process:\n1. **Stakeholder Identification**: Detail exactly who is affected by this scenario.\n2. **Principles Analysis**: Evaluate the scenario against Beneficence, Autonomy, Justice, and Non-maleficence.\n3. **Step-by-Step Reasoning (CoT)**: Critically evaluate the pros and cons of 3 distinct courses of action.\n4. **Recommendation**: Propose the path that minimizes harm while maximizing transparency.\n\nOutput the final result as a [PROFESSIONAL REPORT FORMAT].\n</task>",
     "author": "community",
-    "votes": 0,
+    "votes": 15,
     "model": [
       "claude-3-opus",
       "gpt-4"
