@@ -58,6 +58,7 @@
                         "remediation"
                     ],
         "difficulty":  "intermediate"
+    },
     {
         "id": "security-red-team-nested-007",
         "category": "Security & Auth",

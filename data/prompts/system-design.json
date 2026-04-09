@@ -58,6 +58,7 @@
                         "scalability"
                     ],
         "difficulty":  "advanced"
+    },
     {
         "id": "system-design-microfrontends-054",
         "category": "System Design",

@@ -59,6 +59,7 @@
                         "communication"
                     ],
         "difficulty":  "beginner"
+    },
     {
         "id": "code-quality-refactor-loop-058",
         "category": "Code Quality & Practices",
