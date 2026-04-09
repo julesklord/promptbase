@@ -119,5 +119,16 @@
       "reliability"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "id": "backend-rust-wasm-059",
+    "category": "Backend Development",
+    "tag": "rust · wasm",
+    "title": "Rust - WebAssembly Module Integration",
+    "description": "Compile high-performance Rust logic to WASM and bridge it seamlessly with frontend bundlers.",
+    "body": "<context>\nTarget: Exporting a CPU-intensive [ALGORITHM] to the browser.\n</context>\n\n<task>\nProvide the following:\n1. The `Cargo.toml` configuration utilizing `wasm-bindgen`.\n2. The Rust library code exposing the exported function.\n3. The exact build commands (`wasm-pack`).\n4. An example of instantiating and calling the WASM memory buffer from a modern Vite/React application.\n</task>",
+    "author": "ferrisCoder99",
+    "votes": 1,
+    "difficulty": "advanced"
   }
 ]
