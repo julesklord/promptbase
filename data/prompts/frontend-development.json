@@ -119,5 +119,16 @@
       "devops"
     ],
     "difficulty": "intermediate"
+  },
+  {
+    "id": "frontend-css-containers-060",
+    "category": "Frontend Development",
+    "tag": "css · architecture",
+    "title": "CSS - Modern Container Queries Architecture",
+    "description": "Implement intrinsic web design replacing strict media queries with semantic container queries.",
+    "body": "<task>\nRefactor the given legacy CSS utilizing `@media (min-width: ...)` into modern `@container` strategies.\nExplain how to configure the overarching `container-type: inline-size` on the parent node and provide a polyfill strategy if supporting legacy browser variants.\n</task>",
+    "author": "pixelPusher_x",
+    "votes": 5,
+    "difficulty": "intermediate"
   }
 ]
