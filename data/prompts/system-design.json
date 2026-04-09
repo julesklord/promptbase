@@ -1,0 +1,105 @@
+[
+    {
+        "id":  "system-design-microservices-013",
+        "category":  "System Design",
+        "tag":  "architecture · microservices",
+        "title":  "System Design - Monolith vs Microservices decision",
+        "description":  "Analiza si es el momento de pasar a microservicios",
+        "body":  "¿Debería splitear mi [APLICACIÓN] a microservicios?\n\nContexto actual:\n- Arquitectura: [Monolith/Modular]\n- Size: [Lines of code]\n- Team: [N engineers]\n- Tráfico: [Requests/sec]\n- Deployment frequency: [N times/week]\n\nPain points:\n- [LISTADO]\n\nConsideraciones:\n1. **Ventajas**:\n   - Independent scaling\n   - Polyglot programming\n   - Fault isolation\n   - Faster deployment\n\n2. **Costos operacionales**:\n   - Network latency\n   - Distributed debugging\n   - Consistency challenges\n   - Monitoring complexity\n\n3. **Maturity required**:\n   - CI/CD pipeline\n   - Observability (logging, tracing)\n   - Service mesh (sí/no)\n   - API gateway\n\nProporciona:\n- Recomendación justificada\n- Timeline de migración\n- Service boundary proposal\n- Technology stack",
+        "author":  "community",
+        "votes":  0,
+        "model":  [
+                      "claude",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "architecture",
+                        "system-design",
+                        "devops"
+                    ],
+        "difficulty":  "advanced"
+    },
+    {
+        "id":  "system-design-caching-strategy-014",
+        "category":  "System Design",
+        "tag":  "performance · caching",
+        "title":  "Caching Strategy - Cache-aside, write-through, write-behind",
+        "description":  "Diseña estrategia de caching óptima para tu workload",
+        "body":  "Diseña caching strategy para [APLICACIÓN]:\n\nWorkload:\n- Data: [SIZE]\n- Read:write ratio: [PATRÓN]\n- Consistency requirement: [STRICT/EVENTUAL]\n- Latency SLA: [MS]\n- Geographic distribution: [SÍ/NO]\n\nOpciones:\n1. **Cache-aside (lazy loading)**:\n   - Pro: Simple, resilient\n   - Con: Cache miss penalty\n   - Uso: Read-heavy\n\n2. **Write-through**:\n   - Pro: Data consistency\n   - Con: Latency on write\n   - Uso: Mission-critical\n\n3. **Write-behind (write-back)**:\n   - Pro: Fast writes\n   - Con: Data loss risk\n   - Uso: High throughput\n\nImplementación:\n1. Cache layer: [Redis/Memcached/CDN]\n2. TTL strategy\n3. Invalidation patterns\n4. Warm-up strategy\n5. Monitoring (hit rate, evictions)\n\nProporciona:\n- Architecture diagram\n- Code skeleton [Redis/Memcached]\n- Invalidation logic\n- Performance estimates",
+        "author":  "community",
+        "votes":  0,
+        "model":  [
+                      "claude",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "architecture",
+                        "performance",
+                        "system-design"
+                    ],
+        "difficulty":  "advanced"
+    },
+    {
+        "id":  "system-event-driven-scale-027",
+        "category":  "System Design",
+        "tag":  "architecture · event-driven",
+        "title":  "Scalability - Event-Driven Architecture para transacciones masivas",
+        "description":  "Diseña un sistema desacoplado usando colas (Kafka/RabbitMQ) y worker pools",
+        "body":  "Diseña la arquitectura para procesar [N] eventos por segundo de [TIPO DE EVENTO]:\n\nComponentes:\n1. **Producer**: Ingestión de datos con baja latencia.\n2. **Message Broker**: Configuración de particiones y retención (Kafka) o exchanges (RabbitMQ).\n3. **Consumers**: Estrategia de escalado horizontal y manejo de idempotencia.\n4. **Storage**: DLQ (Dead Letter Queue) y base de datos de auditoría.\n\nProporciona:\n- Diagrama de arquitectura lógico.\n- Escenario de fallo: ¿Qué pasa si el broker cae? ¿Qué pasa si el consumer es lento?\n- Ejemplo de consumer idempotente en [LENGUAJE].",
+        "author":  "community",
+        "votes":  0,
+        "model":  [
+                      "claude",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "system-design",
+                        "backend",
+                        "scalability"
+                    ],
+        "difficulty":  "advanced"
+    {
+        "id": "system-design-microfrontends-054",
+        "category": "System Design",
+        "tag": "architecture · micro-frontends",
+        "title": "Micro-frontends - Orquestación con Module Federation",
+        "description": "Diseña una arquitectura de frontend distribuida para equipos independientes.",
+        "body": "Estamos migrando un monolito React a Micro-frontends.\n\nRequerimientos:\n1. Usa Webpack/Vite Module Federation.\n2. Container (Shell) que orquesta el routing y el auth.\n3. Micro-apps independientes para [CHECKOUT/SEARCH/USER_PROFILE].\n4. Compartición de librerías core (React, Design System) para evitar bundle bloat.\n\nProporciona:\n- Configuración de `remotes` y `exposes`.\n- Estrategia de manejo de errores si un micro-app falla al cargar.\n- Protocolo de comunicación (Events vs Shared State).",
+        "author": "community",
+        "votes": 0,
+        "difficulty": "advanced"
+    },
+    {
+        "id": "system-event-sourcing-cqrs-055",
+        "category": "System Design",
+        "tag": "architecture · event-sourcing",
+        "title": "Event Sourcing & CQRS - Consistencia Eventual",
+        "description": "Diseña un sistema de alta consistencia para banca o retail usando el log de eventos como fuente de verdad.",
+        "body": "Diseña un sistema de [PEDIDOS/TRANSACCIONES] usando Event Sourcing y CQRS.\n\nArquitectura:\n1. **Command Side**: Validación de invariantes y escritura en Event Store.\n2. **Event Store**: Inmutabilidad y 'Order guarantee'.\n3. **Read Side**: Proyecciones optimizadas en [NoSQL/Elasticsearch].\n4. **Event Handlers**: Reconstrucción de estado (Snapshots).\n\nExplica cómo manejarás la consistencia eventual en la UI y cómo realizarás una 'Compensating Transaction' ante fallos.",
+        "author": "community",
+        "votes": 0,
+        "difficulty": "advanced"
+    },
+    {
+        "id": "system-multi-region-active-056",
+        "category": "System Design",
+        "tag": "reliability · multi-region",
+        "title": "Arquitectura Multi-region Active-Active",
+        "description": "Diseña un sistema con latencia mínima global y alta resiliencia ante caídas de regiones completas de cloud.",
+        "body": "Diseña un sistema global para [SERVICIO_LIVE] con presencia en US, EU y Asia.\n\nEstrategia:\n1. Global Load Balancing (Anycast/DNS).\n2. Replicación de base de datos Multi-Master (o Local Writes/Global Reads).\n3. Manejo de 'Data Sovereignty' (GDPR/etc).\n4. Configuración de 'Health Checks' para evacuación de región en <60s.\n\nProporciona el diagrama de infraestructura y los retos de consistencia de datos.",
+        "author": "community",
+        "votes": 0,
+        "difficulty": "advanced"
+    },
+    {
+        "id": "system-modern-api-gateway-057",
+        "category": "System Design",
+        "tag": "gateway · protocol-buffers",
+        "title": "API Gateway Moderno - gRPC-Web y Passkeys",
+        "description": "Implementa una capa de entrada segura y eficiente para servicios modernos.",
+        "body": "Propón la configuración para un Gateway que actúe como buffer para microservicios gRPC.\n\nFuncionalidades requeridas:\n1. Transcodificación de gRPC-Web a gRPC.\n2. Terminación de TLS 1.3 y soporte inicial para Passkeys (WebAuthn).\n3. Rate Limiting adaptativo basado en comportamiento (no solo IP).\n4. Inyección dinámica de headers de trazabilidad distribuida (OpenTelemetry).",
+        "author": "community",
+        "votes": 0,
+        "difficulty": "advanced"
+    }
+]

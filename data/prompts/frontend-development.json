@@ -1,0 +1,123 @@
+[
+    {
+        "id":  "frontend-react-perf-007",
+        "category":  "Frontend Development",
+        "tag":  "react · performance",
+        "title":  "React - Performance optimization for large applications",
+        "description":  "Identifica y resuelve re-renders innecesarios, bundle size, y lazy loading",
+        "body":  "Optimiza la performance de tu app React:\n\nApp info:\n- Bundle size actual: [SIZE]\n- Time to interactive: [TIME]\n- Lighthouse score: [SCORE]\n- Device target: [Desktop/Mobile]\n\nProblemas observados:\n- Re-renders innecesarios en [COMPONENTE]\n- Bundle size issue\n- First contentful paint lento\n\nDiagnóstico \u0026 soluciones:\n1. React Profiler: identificar renders culpritos\n2. Memoization: React.memo, useMemo, useCallback\n3. Code splitting: React.lazy + Suspense\n4. Bundle analysis: webpack-bundle-analyzer\n5. Images: next/image o similar\n6. Virtualization: windowing para listas largas\n\nProporciona:\n- Refactorización específica\n- Lighthouse improvements esperado\n- Before/after bundle analysis",
+        "author":  "community",
+        "votes":  0,
+        "model":  [
+                      "claude",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "react",
+                        "frontend",
+                        "performance"
+                    ],
+        "difficulty":  "intermediate"
+    },
+    {
+        "id":  "frontend-vue-composition-008",
+        "category":  "Frontend Development",
+        "tag":  "vue · composition-api",
+        "title":  "Vue 3 - Composition API patterns y reutilización",
+        "description":  "Refactoriza componentes Vue 2 Option API a Composition API moderna",
+        "body":  "Migra el siguiente componente Vue a Composition API:\n\n[CÓDIGO ACTUAL]\n\nOA:\n1. Usar `\u003cscript setup\u003e` syntax\n2. Extract composables reutilizables\n3. Mejor type-safety (TypeScript)\n4. Reactive references correctly\n5. Lifecycle hooks modernos\n\nPatterns a considerar:\n- Custom composables para lógica compartida\n- Reactive() vs ref() - cuándo usar cada uno\n- Computed properties\n- Watchers\n- Teleport para modales\n\nProporciona:\n- Código refactorizado\n- Composables extraídos\n- TypeScript types si aplica\n- Testing strategy (Vitest)\n\nContexto: [Vue 3.3+]",
+        "author":  "community",
+        "votes":  0,
+        "model":  [
+                      "claude",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "vue",
+                        "frontend",
+                        "refactoring"
+                    ],
+        "difficulty":  "intermediate"
+    },
+    {
+        "id":  "dev-react-refactor-005-old",
+        "category":  "Frontend Development",
+        "tag":  "react · refactor",
+        "title":  "Refactorización de componentes React con hooks",
+        "description":  "Moderniza componentes class a functional con useCallback, useMemo",
+        "body":  "Refactoriza el siguiente componente React de class a hooks:\n\nComponente actual:\n[CÓDIGO]\n\nOA:\n- Mantener funcionalidad idéntica\n- Optimizar re-renders con useMemo/useCallback\n- Extraer custom hooks si hay lógica reutilizable\n- Añadir TypeScript si corresponde\n\nConsideraciones:\n- Props: [LISTADO]\n- State: [LISTADO]\n- Listeners/timers: [LISTADO]\n- Ciclo de vida: [MÉTODOS]\n\nProporciona: código refactorizado + explicación de optimizaciones.",
+        "author":  "jules",
+        "votes":  9,
+        "model":  [
+                      "claude",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "frontend",
+                        "react",
+                        "refactoring"
+                    ],
+        "difficulty":  "intermediate"
+    },
+    {
+        "id":  "frontend-accessibility-a11y-020",
+        "category":  "Frontend Development",
+        "tag":  "a11y · accessibility",
+        "title":  "Accesibilidad (A11y) - Auditoría y Fixes WCAG 2.1",
+        "description":  "Evalúa y mejora la accesibilidad de tus componentes web siguiendo estándares WCAG",
+        "body":  "Realiza una auditoría de accesibilidad para el siguiente componente/página:\n\n[CÓDIGO/URL]\n\nEnfoque:\n1. **Semántica HTML**: Uso correcto de landmarks y encabezados.\n2. **ARIA Roles**: Atributos aria-* necesarios y su estado.\n3. **Keyboard Navigation**: Gestión del foco y orden de tabulación.\n4. **Color Contrast**: Verificación de ratios mínimos.\n5. **Screen Readers**: Texto alternativo y descripciones.\n\nProporciona:\n- Listado de problemas encontrados (Nivel A/AA/AAA).\n- Código corregido con mejores prácticas de a11y.\n- Herramientas de testing recomendadas (axe-core, Lighthouse).\n\nContexto: [TIPO DE APP: e-commerce/dashboard/blog]",
+        "author":  "community",
+        "votes":  0,
+        "model":  [
+                      "claude",
+                      "gpt",
+                      "gemini"
+                  ],
+        "usecase":  [
+                        "frontend",
+                        "accessibility",
+                        "best-practices"
+                    ],
+        "difficulty":  "intermediate"
+    },
+    {
+        "id":  "frontend-a11y-audit-026",
+        "category":  "Frontend Development",
+        "tag":  "a11y · accessibility",
+        "title":  "A11y Audit - Navegación por teclado y Modales",
+        "description":  "Asegura que tus componentes interactivos sean 100% accesibles para lectores de pantalla",
+        "body":  "Audita la accesibilidad del siguiente Modal/Dropdown:\n\n[CÓDIGO HTML/JSX]\n\nChecklist Crítico:\n1. **Focus Trap**: El foco no debe salir del modal mientras está abierto.\n2. **Esc to Close**: Manejo de eventos de teclado.\n3. **ARIA Attributes**: `aria-modal`, `aria-hidden` en el background, labels.\n4. **Role Management**: `role=\"dialog\"` o `role=\"menu\"` correctamente.\n\nProporciona:\n- Código corregido con gestión de foco.\n- Guía de navegación esperada (Tab, Shift+Tab, Enter).\n- Demo de cómo un lector de pantalla (NVDA/VoiceOver) anunciaría el componente.",
+        "author":  "community",
+        "votes":  0,
+        "model":  [
+                      "claude",
+                      "gemini"
+                  ],
+        "usecase":  [
+                        "frontend",
+                        "accessibility",
+                        "ux"
+                    ],
+        "difficulty":  "intermediate"
+    },
+    {
+        "id":  "frontend-perf-budget-031",
+        "category":  "Frontend Development",
+        "tag":  "performance · budget",
+        "title":  "Perf Budget - Enforcement con Lighthouse CI",
+        "description":  "Configura presupuestos de performance (bundle size, LCP) que bloqueen el PR",
+        "body":  "Establece un Performance Budget para una aplicación web moderna:\n\nLímites deseados:\n- LCP \u003c 2.5s\n- Total Blocking Time \u003c 200ms\n- Bundle size (JS) \u003c 200KB comprimido\n\nConfiguración:\n1. Crear `lighthouserc.json`.\n2. Configurar assertions para cada métrica.\n3. Script de integración con GitHub Actions / Vercel Checks.\n4. Reportes de regresión en PR comments.\n\nProporciona:\n- El archivo de configuración completo.\n- Workflow de GitHub Actions sugerido.\n- Guía de qué hacer cuando el budget falla.",
+        "author":  "community",
+        "votes":  0,
+        "model":  [
+                      "claude",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "frontend",
+                        "performance",
+                        "devops"
+                    ],
+        "difficulty":  "intermediate"
+    }
+]

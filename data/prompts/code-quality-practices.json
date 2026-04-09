@@ -1,0 +1,73 @@
+[
+    {
+        "id":  "code-quality-design-patterns-015",
+        "category":  "Code Quality \u0026 Practices",
+        "tag":  "oop · design-patterns",
+        "title":  "Design Patterns - Cuándo usar Observer, Factory, Strategy, etc.",
+        "description":  "Identifica el patrón correcto para tu problema de diseño",
+        "body":  "¿Qué design pattern usar para [PROBLEMA]?\n\nProblema:\n[DESCRIPCIÓN DEL ISSUE]\n\nContexto:\n- Lenguaje: [Python/JS/Java/Rust]\n- Scope: [Class refactor / Platform architecture]\n- Team experience: [Beginner/Intermediate/Expert]\n\nPatterns a considerar:\n1. **Creational**:\n   - Singleton: Garantizar única instancia\n   - Factory: Crear objetos sin especificar clase\n   - Builder: Objetos complejos paso a paso\n\n2. **Structural**:\n   - Adapter: Interfaz incompatible\n   - Decorator: Añadir responsabilidades\n   - Proxy: Placeholder/surrogate\n\n3. **Behavioral**:\n   - Observer: Notificar múltiples objetos\n   - Strategy: Intercambiable algoritmos\n   - State: Comportamiento basado en estado\n   - Command: Encapsular acciones\n\nProporciona:\n- Pattern recomendado + justificación\n- Código ejemplo\n- Alternativas consideradas\n- Trade-offs",
+        "author":  "community",
+        "votes":  0,
+        "model":  [
+                      "claude",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "code-design",
+                        "architecture",
+                        "best-practices"
+                    ],
+        "difficulty":  "intermediate"
+    },
+    {
+        "id":  "dev-code-review-007-old",
+        "category":  "Code Quality \u0026 Practices",
+        "tag":  "review · template",
+        "title":  "Template de code review estructurado",
+        "description":  "Framework para reviews efectivos con checklist de calidad",
+        "body":  "Como revisor de código, evalúa el siguiente PR usando esta estructura:\n\nPR info:\n- Cambios: [DESCRIPCIÓN]\n- Archivos: [LISTADO]\n- Líneas: [+/- N]\n\nChecklist de Review:\n1. **Funcionalidad**: ¿Hace lo que promete?\n   - Tests pasan?\n   - Casos edge cubiertos?\n   - Docs actualizadas?\n\n2. **Calidad del código**:\n   - Naming claro?\n   - Complejidad ciclomática OK?\n   - DRY principle?\n\n3. **Performance**:\n   - Queries optimizadas?\n   - Memory leaks?\n   - N+1 problems?\n\n4. **Seguridad**:\n   - Input validation?\n   - SQL injection?\n   - XSS risk?\n\n5. **Mantenibilidad**:\n   - Logs suficientes?\n   - Error handling?\n   - Deuda técnica?\n\nProporciona: feedback actionable + sugerencias de mejora.",
+        "author":  "jules",
+        "votes":  16,
+        "model":  [
+                      "claude",
+                      "gemini",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "code-review",
+                        "quality",
+                        "best-practices"
+                    ],
+        "difficulty":  "beginner"
+    },
+    {
+        "id":  "doc-technical-writer-010-old",
+        "category":  "Code Quality \u0026 Practices",
+        "tag":  "docs · writing",
+        "title":  "Generador de documentación técnica profesional",
+        "description":  "Escribe docs claras con ejemplos, diagrama y FAQ",
+        "body":  "Escribe documentación técnica para [COMPONENTE/FEATURE]:\n\nInfo:\n- Audiencia: [DEVELOPERS/USERS/OPERATORS]\n- Nivel: [BEGINNER/INTERMEDIATE/EXPERT]\n- Formato: [README/TUTORIAL/API_DOCS/TROUBLESHOOTING]\n\nSecciones obligatorias:\n1. **Overview**: ¿Qué es? ¿Por qué importa?\n2. **Getting Started**: Setup mínimo funcional\n3. **Examples**: 3-5 casos de uso reales\n4. **Architecture/Concepts**: Cómo funciona internamente\n5. **API Reference**: Si aplica (tablas de parámetros)\n6. **Common Issues \u0026 FAQ**: Top 5 problemas + soluciones\n7. **Performance Tips**: Cuando optimizar\n\nEstilo: Claro, conciso, código bien formateado, diagrama ASCII si ayuda.",
+        "author":  "jules",
+        "votes":  6,
+        "model":  [
+                      "claude",
+                      "gemini"
+                  ],
+        "usecase":  [
+                        "documentation",
+                        "writing",
+                        "communication"
+                    ],
+        "difficulty":  "beginner"
+    {
+        "id": "code-quality-refactor-loop-058",
+        "category": "Code Quality & Practices",
+        "tag": "refactor · ai-assisted",
+        "title": "Bucle de Refactorización Incremental AI-Assisted",
+        "description": "Establece un flujo de trabajo de mejora continua de código usando un agente de auditoría.",
+        "body": "Actúa sobre el siguiente código: [CÓDIGO_BASE]\n\nObjetivo: Refactorización profunda para 2026.\n\nInstrucciones de loop:\n1. **Paso 1 (Auditoría)**: Identifica 'Code Smells' y violaciones de SOLID. No corregir aún.\n2. **Paso 2 (Propuesta)**: Genera 3 alternativas de refactorización con diferentes trade-offs (Performance vs Legibilidad vs Extensibilidad).\n3. **Paso 3 (Implementación)**: Una vez elegida la alternativa [1/2/3], genera el código final con tests unitarios integrados.\n4. **Paso 4 (Verificación)**: Simula una ejecución para verificar que la lógica de negocio se mantiene intacta.",
+        "author": "community",
+        "votes": 0,
+        "difficulty": "advanced"
+    }
+]

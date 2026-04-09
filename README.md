@@ -4,6 +4,8 @@
 
 Promptbase is a production-grade collection of technical prompts optimized for real-world engineering workflows. From agentic logic and DAW automation to WSL2 networking and AI safety guardrails, we curate prompts that work where it matters.
 
+**🌐 Explore the library:** [https://julesklord.github.io/promptbase/](https://julesklord.github.io/promptbase/)
+
 ## 🚀 Quick Start
 
 1. **Clone & Install**

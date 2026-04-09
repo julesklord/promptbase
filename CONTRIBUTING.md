@@ -6,8 +6,9 @@ PROMPTBASE is community-driven. Our goal is to maintain a high-quality, verified
 
 1. Fork the repository.
 2. [Generate your JSON](https://julesklord.github.io/promptbase) using the website's submission modal.
-3. Paste the entry into `prompts.json`.
-4. Open a PR.
+3. Paste the entry into the corresponding category shard within `data/prompts/` (e.g., `security-auth.json`).
+4. (Optional) If it's a new category, add the filename to `data/manifest.json`.
+5. Open a PR.
 
 ## Resource Directory
 

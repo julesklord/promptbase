@@ -1,0 +1,123 @@
+[
+    {
+        "id":  "backend-python-best-001",
+        "category":  "Backend Development",
+        "tag":  "python · best-practices",
+        "title":  "Python - Mejores prácticas y patrones modernos",
+        "description":  "Revisa código Python con enfoque en PEP 8, type hints, context managers y async/await",
+        "body":  "Revisa el siguiente código Python:\n\n[CÓDIGO]\n\nEnfoque:\n1. Adherencia a PEP 8\n2. Type hints modernos (Python 3.10+)\n3. Context managers para resource management\n4. Async/await si es I/O bound\n5. Error handling estructurado\n6. Docstrings (Google style)\n\nProporciona:\n- Refactorización con explicaciones\n- Seguridad y performance\n- Testing strategy recomendada\n- Lint/format config (ruff, black)\n\nContexto: [ENTORNO: producción/prototipo]",
+        "author":  "community",
+        "votes":  0,
+        "model":  [
+                      "claude",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "python",
+                        "backend",
+                        "code-quality"
+                    ],
+        "difficulty":  "intermediate"
+    },
+    {
+        "id":  "backend-nodejs-error-002",
+        "category":  "Backend Development",
+        "tag":  "nodejs · error-handling",
+        "title":  "Node.js - Error handling y logging en producción",
+        "description":  "Implementa error handling robusto con Winston/Pino y structured logging",
+        "body":  "Diseña un sistema de error handling para Node.js [EXPRESS/FASTIFY/NestJS]:\n\nRequerimientos:\n- Logging strukturado (JSON)\n- Error tracking (Sentry/DataDog)\n- Retry logic con exponential backoff\n- Circuit breaker para external calls\n- Graceful shutdown\n\nProporciona:\n1. Middleware de error centralizado\n2. Logger configuration (Winston/Pino)\n3. Custom error classes\n4. Ejemplos de integración\n5. Testing strategy\n\nContexto: [ESCALA: startup/enterprise]",
+        "author":  "community",
+        "votes":  0,
+        "model":  [
+                      "claude",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "nodejs",
+                        "backend",
+                        "devops"
+                    ],
+        "difficulty":  "intermediate"
+    },
+    {
+        "id":  "backend-graphql-vs-rest-003",
+        "category":  "Backend Development",
+        "tag":  "api · rest-vs-graphql",
+        "title":  "Comparativa: REST vs GraphQL - Cuándo usar cada uno",
+        "description":  "Elige la arquitectura correcta basada en use case, escala y team",
+        "body":  "¿Debería usar REST o GraphQL para [DESCRIPCIÓN DEL PROYECTO]?\n\nInfo del proyecto:\n- Tipo: [SPA/Mobile/SSR/Desktop]\n- APIs esperadas: [N endpoints]\n- Clientes: [Web/Mobile/Ambos]\n- Team: [N engineers], [Experiencia]\n- Escala: [Users/requests por segundo]\n\nAnálisis comparativo:\n1. **Performance**: Caching, payload size, round trips\n2. **Complejidad**: Development, testing, debugging\n3. **Escalabilidad**: Rate limiting, monitoring\n4. **Developer Experience**: Documentation, tooling\n5. **Evolución**: Versioning strategy\n\nProporciona:\n- Recomendación justificada\n- Trade-offs específicos\n- Hybrid approach si aplica",
+        "author":  "community",
+        "votes":  0,
+        "model":  [
+                      "claude",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "api-design",
+                        "architecture",
+                        "backend"
+                    ],
+        "difficulty":  "intermediate"
+    },
+    {
+        "id":  "dev-api-design-003-old",
+        "category":  "Backend Development",
+        "tag":  "api · design",
+        "title":  "Diseño de API REST desde requerimientos",
+        "description":  "Genera una especificación OpenAPI y estructura de endpoints desde máquina de estados",
+        "body":  "Diseña una API REST para [CONTEXTO]\n\nRequerimientos:\n- Entidades principales: [LISTA]\n- Operaciones críticas: [ACCIONES]\n- Restricciones: [LÍMITES]\n- Autenticación: [TIPO]\n\nProporciona:\n1. Estructura de endpoints con verbos HTTP + paths RESTful\n2. Schemas de request/response en JSON\n3. Códigos de error y casos edge\n4. Especificación OpenAPI 3.0 (YAML)\n5. Consideraciones de rate-limiting y paginación\n\nSeguir principios: stateless, versionable, cacheable.",
+        "author":  "jules",
+        "votes":  7,
+        "model":  [
+                      "claude",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "api-design",
+                        "backend",
+                        "architecture"
+                    ],
+        "difficulty":  "intermediate"
+    },
+    {
+        "id":  "mcp-server-001-old",
+        "category":  "Backend Development",
+        "tag":  "mcp · server",
+        "title":  "Scaffold de MCP server (FastMCP)",
+        "description":  "Genera un servidor MCP completo con tools, validación y manejo de errores",
+        "body":  "Crea un MCP server en Python (FastMCP) para exponer las siguientes capacidades:\n\nCapacidades: [LISTA DE TOOLS]\nTransporte: [stdio / SSE / websocket]\nAutenticación: [ninguna / API key / OAuth]\nContexto de despliegue: [local / WSL2 / Docker / remoto]\n\nPara cada tool incluye:\n- Nombre y descripción (como aparece en el LLM)\n- Schema de parámetros con validación Pydantic\n- Manejo de errores con mensajes descriptivos\n- Ejemplo de llamada y respuesta\n\nSigue el protocolo MCP spec 2024. No añadas dependencias innecesarias.",
+        "author":  "jules",
+        "votes":  15,
+        "model":  [
+                      "claude",
+                      "gemini",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "mcp",
+                        "backend",
+                        "agents"
+                    ],
+        "difficulty":  "intermediate"
+    },
+    {
+        "id":  "backend-rust-error-handling-030",
+        "category":  "Backend Development",
+        "tag":  "rust · error-handling",
+        "title":  "Rust - Robust Error Handling con `anyhow` y `thiserror`",
+        "description":  "Implementa patrones de propagación de errores idiomáticos y eficientes en Rust",
+        "body":  "Refactoriza el manejo de errores del siguiente proyecto Rust:\n\n[CÓDIGO RUST CON `unwrap()` O `panic!()`]\n\nObjetivo:\n1. Usar `Result\u003cT, E\u003e` sistemáticamente.\n2. Implementar custom errors usando la crate `thiserror` (para librerías).\n3. Usar `anyhow` para aplicaciones (context wrapping).\n4. Propagación limpia con el operador `?`.\n\nProporciona:\n- Código refactorizado.\n- Ejemplo de `match` para control detallado.\n- Unit test que verifique el tipo de error devuelto.",
+        "author":  "community",
+        "votes":  0,
+        "model":  [
+                      "claude",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "rust",
+                        "backend",
+                        "reliability"
+                    ],
+        "difficulty":  "intermediate"
+    }
+]

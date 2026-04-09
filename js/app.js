@@ -103,6 +103,7 @@ function generateJSON() {
     "Testing & QA": "testing",
     "System Design": "system",
     "AI/ML & LLM": "ai",
+    "AI Agents & MCP": "agents",
     Other: "other",
   };
   
@@ -128,7 +129,7 @@ document.getElementById("copyJson")?.addEventListener("click", () => {
     const val = outputEl.value;
     if (!val) generateJSON();
     navigator.clipboard.writeText(outputEl.value);
-    showToast("JSON copied — paste it in prompts.json and open a PR");
+    showToast("JSON copied — paste it in the correct file in data/prompts/");
   }
 });
 

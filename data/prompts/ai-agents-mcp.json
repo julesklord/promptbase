@@ -1,0 +1,68 @@
+[
+  {
+    "id": "agent-mcp-server-gen-001",
+    "category": "AI Agents & MCP",
+    "tag": "mcp · development",
+    "title": "MCP Server - Scaffold y Generacin de Herramientas",
+    "description": "Genera un servidor MCP (Model Context Protocol) completo con herramientas personalizadas y manejadores de recursos.",
+    "body": "Acta como un Ingeniero Senior de MCP. Debo crear un servidor MCP en [LENGUAJE: TypeScript/Python].\n\nEspecificaciones:\n1. Integracin con: [SERVICIO/API/DB]\n2. Herramientas necesarias: [LISTA]\n3. Recursos expuestos: [DESCRIBE]\n\nGenera:\n- `index.ts/main.py` con el loop del servidor\n- Definicin de esquemas JSON para cada herramienta\n- Lgica de manejo de errores y timeouts\n- Documentacin de capacidades para el cliente MCP\n\nAsegrate de seguir el protocolo oficial de Model Context Protocol 2025.",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "advanced"
+  },
+  {
+    "id": "agent-react-loop-opt-002",
+    "category": "AI Agents & MCP",
+    "tag": "agents · reasoning",
+    "title": "Optimizacin de Bucle ReAct para Agentes Autnomos",
+    "description": "Mejora la eficiencia de deciscin en agentes que usan el patrn Reason + Act para reducir latencia y bucles infinitos.",
+    "body": "Analiza el siguiente bucle de razonamiento de un agente:\n\n[TRABZA DE PENSAMIENTO]\n\nAplica optimizaciones de 2026:\n1. Implementa 'Static Analysis' del plan antes de ejecutar herramientas.\n2. Refina los 'Stopping Criteria' para evitar loops detectando redundancia.\n3. Estructura el output en XML para parsing determinista.\n4. Propn un 'Reflection Step' cada 3 iteraciones para corregir desviacin de objetivos.",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "advanced"
+  },
+  {
+    "id": "agent-multi-orchestrator-003",
+    "category": "AI Agents & MCP",
+    "tag": "multi-agent · system",
+    "title": "Orquestador Multi-Agente - Protocolo de Comunicación",
+    "description": "Define un protocolo de paso de mensajes y delegación de tareas entre múltiples agentes especializados.",
+    "body": "Define la arquitectura de un sistema multi-agente para [TASK COMPLEJA].\n\nIncluye:\n- Agente Lder (Planificador)\n- Agentes Trabajadores (Especialistas en [X, Y, Z])\n- Agente de Auditora (Seguridad y Calidad)\n\nPrompt:\n\"Disea el protocolo de comunicacin entre estos agentes usando un formato de 'Handover Document' que incluya:\n1. Contexto actual de la tarea\n2. Estado de las variables crticas\n3. Lmites de autoridad (Constraints)\n4. Formato de respuesta esperado por el siguiente agente.\"",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "advanced"
+  },
+  {
+    "id": "agent-tool-use-defense-004",
+    "category": "AI Agents & MCP",
+    "tag": "security · agents",
+    "title": "Defensa de Inyección de Prompts en Tool-Use",
+    "description": "Protege a los agentes que tienen acceso a herramientas (escritura en DB, ejecución de shell) contra inputs maliciosos indirectos.",
+    "body": "Tengo un agente con acceso a la herramienta `[NOMBRE_HERRAMIENTA]`. El input proviene de [FUENTE EXTERNA NO CONFIABLE].\n\nConstruye un prompt de seguridad de 'Gateway' que:\n1. Sanitice los argumentos de la funcin antes de la llamada.\n2. Verifique si el comando intentado rompe la 'Constitucin' del agente.\n3. Implemente un paso de validacin semntica: 'Este input intenta subvertir mis instrucciones originales?'\n4. Requiera confirmacin humana explcita para acciones de alta sensibilidad.",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "advanced"
+  },
+  {
+    "id": "agent-context-compression-005",
+    "category": "AI Agents & MCP",
+    "tag": "context · reasoning",
+    "title": "Compresión de Contexto para Agentes de Larga Duración",
+    "description": "Mantiene la coherencia de agentes que operan durante horas o días mediante resúmenes recursivos de memoria.",
+    "body": "Acta como un Gestor de Memoria para un hilo de conversacin de +100k tokens.\n\nTarea:\n1. Identifica los 'Core Facts' que deben persistir.\n2. Elimina redundancias y 'noise' de turnos intermedios.\n3. Genera un 'Snapshot' de estado actual que ocupe menos de 1000 tokens pero permita al agente continuar la tarea sin prdida de intencin.\n\nUsa el formato: <memory_snapshot> [CONTENIDO] </memory_snapshot>",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "advanced"
+  },
+  {
+    "id": "agent-agentic-rag-router-006",
+    "category": "AI Agents & MCP",
+    "tag": "rag · router",
+    "title": "Agentic RAG - Enrutador Inteligente",
+    "description": "Clasifica consultas para decidir entre respuesta directa, búsqueda simple en vectores o flujo complejo de orquestación.",
+    "body": "Analiza la consulta del usuario: \"[QUERY]\"\n\nDecide el flujo de RAG 2.0:\n- **Direct**: Si es conversacional o informacin general.\n- **Simple RAG**: Si requiere un dato puntual de la base de conocimiento.\n- **Agentic RAG**: Si requiere razonamiento sobre mltiples documentos, comparaciones o validacin cruzada.\n\nOutput: JSON con el campo `route` y `reasoning`.",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "intermediate"
+  }
+]

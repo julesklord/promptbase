@@ -1,0 +1,20 @@
+{
+    "id":  "reaper-lua-001-old",
+    "category":  "Other",
+    "tag":  "reaper · lua",
+    "title":  "ReaScript Lua para automatización",
+    "description":  "Genera scripts Lua para automatizar tareas en REAPER 7.x",
+    "body":  "Escribe un ReaScript en Lua para REAPER que realice la siguiente tarea:\n\nTarea: [DESCRIPCIÓN]\nContexto del proyecto: [TIPO DE SESIÓN]\nElementos involucrados: [TRACKS / ITEMS / FX / MARKERS]\n\nRequisitos:\n- Compatible con REAPER 7.x\n- Manejo de errores con mensajes en consola\n- Sin dependencias externas\n- Comentarios solo donde la lógica no sea obvia\n\nSi requiere UI, usa el API nativo de REAPER (ImGui o ReaScript dialog).\nIncluye instrucciones de instalación/uso.",
+    "author":  "jules",
+    "votes":  19,
+    "model":  [
+                  "claude",
+                  "gemini"
+              ],
+    "usecase":  [
+                    "audio",
+                    "daw",
+                    "automation"
+                ],
+    "difficulty":  "intermediate"
+}

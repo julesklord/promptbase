@@ -1,0 +1,79 @@
+[
+  {
+    "id": "mobile-react-native-setup-016",
+    "category": "Mobile Development",
+    "tag": "react-native · setup",
+    "title": "React Native - Project setup y debugging",
+    "description": "Configura proyecto React Native con TypeScript, navigation y testing",
+    "body": "Setup React Native project [iOS/Android/Both]:\n\nRequisitos:\n- TypeScript: [Sí/No]\n- Navigation: [React Navigation/expo-router]\n- State management: [Redux/Zustand/MobX]\n- API calls: [Axios/Fetch]\n- Testing: [Jest/Detox]\n- Versioning: [Expo/Bare]\n\nSetup checklist:\n1. **Proyecto base**: Expo vs React Native CLI\n2. **Navigation**: Stack/Tab/Drawer\n3. **State management**: Providers, hooks\n4. **Networking**: API client setup\n5. **Storage**: AsyncStorage, SQLite\n6. **Debugging**: Hermes, Chrome DevTools\n7. **CI/CD**: EAS Build (Expo) o fastlane\n\nGenera:\n- package.json con deps recomendadas\n- Navigation structure\n- API client (axios)\n- Environment setup (.env)\n- ESLint + Prettier\n- GitHub Actions workflow\n\nIncluye: Common gotchas para iOS/Android",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "beginner"
+  },
+  {
+    "id": "mobile-flutter-riverpod-040",
+    "category": "Mobile Development",
+    "tag": "flutter · architecture",
+    "title": "Flutter Clean Architecture con Riverpod",
+    "description": "Diseña una arquitectura escalable para Flutter usando Riverpod 2.x y principios de Clean Architecture.",
+    "body": "Actúa como un Arquitecto de Flutter.\nGenera la estructura de directorios y los componentes base para un feature de [NOMBRE_FEATURE].\n\nRequisitos:\n1. Usa Riverpod (AsyncNotifier/Generator).\n2. Separa en capas: Data (Repositories/DTOs), Domain (Entities/UseCases), Presentation (UI/Controllers).\n3. Incluye manejo de estados (Loading, Data, Error).\n4. Genera código para el `StateProvider` y el Widget de entrada.",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "advanced"
+  },
+  {
+    "id": "mobile-swiftui-concurrency-041",
+    "category": "Mobile Development",
+    "tag": "ios · swiftui",
+    "title": "SwiftUI - Concurrencia Moderna (Async/Await)",
+    "description": "Implementa flujos de datos asíncronos en SwiftUI evitando race conditions y problemas de UI hang.",
+    "body": "Refactoriza el siguiente código Swift antiguo a la sintaxis moderna de concurrencia:\n\n[CÓDIGO OLD_SWIFT]\n\nGuía:\n1. Usa `@MainActor` para actualizaciones de UI.\n2. Implementa `Task` y `.task` modifier.\n3. Asegura el manejo de errores con `try-catch` y `Result` type si aplica.\n4. Optimizando para iOS 17/18.",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "mobile-kotlin-multiplatform-042",
+    "category": "Mobile Development",
+    "tag": "kmp · shared-logic",
+    "title": "Kotlin Multiplatform (KMP) - Setup de Lógica Compartida",
+    "description": "Configura un módulo compartido entre Android e iOS para validación de datos y peticiones de red.",
+    "body": "Configura un módulo KMP compartido.\n\nContenido:\n- `expect/actual` para [FUNCIONALIDAD_PLATAFORMA].\n- Implementación de Ktor para networking.\n- Serialización con Kotlinx.serialization.\n- Ejemplo de cómo consumir el módulo en Swift y en Kotlin (Android).",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "advanced"
+  },
+  {
+    "id": "mobile-performance-optimization-043",
+    "category": "Mobile Development",
+    "tag": "performance · debugging",
+    "title": "Mobile Performance - Auditoría de FPS y Memoria",
+    "description": "Analiza problemas de rendimiento como jank en listas largas o memory leaks en apps móviles.",
+    "body": "Mi aplicación [React Native/Flutter/Native] presenta caídas de frames en [PANTALLA_CRÍTICA].\n\nPasos de diagnóstico:\n1. Instrucciones para usar Profiler/DevTools.\n2. Identificación de bridge traffic excesivo (si aplica).\n3. Estrategias de optimización: Image caching, virtualization de listas, debouncing de eventos.\n4. Propón un fix preventivo.",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "advanced"
+  },
+  {
+    "id": "mobile-offline-sync-044",
+    "category": "Mobile Development",
+    "tag": "offline-first · sync",
+    "title": "Estrategia Offline-First con Sincronización",
+    "description": "Implementa almacenamiento local persistente con sincronización inteligente en segundo plano.",
+    "body": "Diseña un flujo Offline-First para una app de [TIER].\n\nStack:\n- Local Store: [SQLite/Realm/Hive]\n- Sync: [Background Tasks/Periodic Sync]\n\nPrompt:\n\"Crea la lógica para: \n1. Guardar datos localmente de inmediato.\n2. Encolar tareas de red.\n3. Manejar conflictos de sincronización (Last write wins vs Merge).\n4. Notificar al usuario sobre el estado de la conexión.\"",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "advanced"
+  },
+  {
+    "id": "mobile-design-system-comp-045",
+    "category": "Mobile Development",
+    "tag": "design-system · component",
+    "title": "Componente de Design System Atómico (Mobile)",
+    "description": "Genera componentes de UI altamente reutilizables y consistentes para apps móviles móviles.",
+    "body": "Crea un componente de [NOMBRE_COMPONENTE] siguiendo el Design System corporativo.\n\nAtributos:\n- Tematizado dinámico (Light/Dark).\n- Accesibilidad (ARIA/Semantics).\n- Estados: Hover (si aplica), Active, Disabled, Loading.\n- Documentación de props y variantes.",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "intermediate"
+  }
+]

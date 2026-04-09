@@ -1,7 +1,8 @@
 import { state, applyFilters } from "./state.js";
 import { renderSkeletons } from "./renderer.js";
 
-const PROMPTS_URL = "prompts.json";
+const MANIFEST_URL = "data/manifest.json";
+const SHARD_BASE = "data/prompts/";
 
 /**
  * Validates a prompt object against the required schema.
@@ -20,20 +21,34 @@ function validatePrompt(p) {
 export async function loadPrompts() {
   renderSkeletons();
   try {
-    const r = await fetch(PROMPTS_URL);
-    if (!r.ok) throw new Error(`HTTP error! status: ${r.status}`);
-    const data = await r.json();
+    // 1. Fetch the manifest
+    const manifestResp = await fetch(MANIFEST_URL);
+    if (!manifestResp.ok) throw new Error("Could not load manifest");
+    const shards = await manifestResp.json();
+
+    // 2. Fetch all shards in parallel
+    const shardPromises = shards.map(async (filename) => {
+      const resp = await fetch(`${SHARD_BASE}${filename}`);
+      if (!resp.ok) {
+        console.error(`Failed to load shard: ${filename}`);
+        return [];
+      }
+      return await resp.json();
+    });
+
+    const results = await Promise.all(shardPromises);
     
-    // Phase 3: Validation
-    state.allPrompts = data.filter(validatePrompt);
+    // 3. Flatten and validate
+    const combined = results.flat();
+    state.allPrompts = combined.filter(validatePrompt);
     
-    // Small delay to let skeletons shimmer (UX)
+    // UX delay for skeletons
     setTimeout(() => {
       window.dispatchEvent(new CustomEvent("dataLoaded"));
-    }, 300);
+    }, 400);
     
   } catch (e) {
-    console.error("Error loading prompts:", e);
+    console.error("Critical error in data pipeline:", e);
     state.allPrompts = [];
     window.dispatchEvent(new CustomEvent("dataLoaded"));
   }

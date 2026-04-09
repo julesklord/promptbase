@@ -6,11 +6,17 @@ This document defines the data structures and internal interfaces used by Prompt
 
 ## Core Concepts
 
-The "API" of Promptbase consists of a centralized JSON database (`prompts.json`) and the exported members of the core ES modules.
+The "API" of Promptbase consists of a sharded JSON database managed via a central manifest (`data/manifest.json`) and the exported members of the core ES modules.
 
-## Resource: prompts.json
+## Resource: Sharded Database
 
-The root file is an array of objects.
+Instead of a single heavy file, the database is split into category shards located in `data/prompts/`.
+
+### Manifest (`data/manifest.json`)
+An array of strings listing all active shard filenames (e.g., `["backend-development.json", "security-auth.json", ...]`).
+
+### Shards (`data/prompts/*.json`)
+Each shard is an array of objects belonging to that specific category.
 
 ### Object Schema
 

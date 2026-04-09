@@ -1,0 +1,82 @@
+[
+    {
+        "id":  "testing-pytest-fixtures-011",
+        "category":  "Testing \u0026 QA",
+        "tag":  "python · pytest",
+        "title":  "Python Testing - Pytest fixtures y mocking strategy",
+        "description":  "Diseña suite de tests con fixtures reutilizables y mocks efectivos",
+        "body":  "Crea tests para [MÓDULO/FEATURE] usando pytest:\n\nMódulo a testear:\n- Funcionalidad: [DESCRIPCIÓN]\n- Dependencias: [APIs/DBs/etc]\n- Criticidad: [BAJA/MEDIA/ALTA]\n\nRequisitos:\n- Unit tests (mocks externos)\n- Integration tests (DB real o testcontainers)\n- E2E tests (si aplica)\n- Coverage target: [%]\n- CI-friendly\n\nPatterns a usar:\n1. Pytest fixtures (scope, autouse)\n2. Factories vs. fixtures\n3. Mocking: unittest.mock vs. pytest-mock\n4. Parametrization para test cases\n5. Markers para categorizar tests\n6. Conftest.py strategies\n\nProporciona:\n- Fixtures skeleton\n- Test cases (happy path + edge cases)\n- Mocking strategy\n- pytest.ini configuration\n- tox / GitHub Actions integration",
+        "author":  "community",
+        "votes":  0,
+        "model":  [
+                      "claude",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "python",
+                        "testing",
+                        "qa"
+                    ],
+        "difficulty":  "intermediate"
+    },
+    {
+        "id":  "testing-jest-setup-012",
+        "category":  "Testing \u0026 QA",
+        "tag":  "javascript · jest",
+        "title":  "JavaScript Testing - Jest setup para React y Node.js",
+        "description":  "Configura Jest con coverage, snapshots y mocking patterns",
+        "body":  "Setup Jest testing para [React/Node.js]:\n\nProyecto:\n- Framework: [React/Express/Custom]\n- TypeScript: [Sí/No]\n- Coverage target: [%]\n- Scale: [Tests proyectados]\n\nRequisitos:\n1. Unit tests\n2. React component testing (React Testing Library)\n3. Snapshot testing (cuándo usarlos)\n4. Async/await handling\n5. Mocking: jest.mock() patterns\n6. Coverage reports\n\nGenera:\n1. jest.config.js with TypeScript\n2. Setup files (globals, mocks)\n3. Test examples (unit + component)\n4. Mock patterns (modules, fetch, date)\n5. GitHub Actions workflow\n\nBest practices:\n- Test behavior, not implementation\n- Avoid snapshot overuse\n- Mock wisely\n- Performance: test isolation",
+        "author":  "community",
+        "votes":  0,
+        "model":  [
+                      "claude",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "javascript",
+                        "testing",
+                        "qa"
+                    ],
+        "difficulty":  "beginner"
+    },
+    {
+        "id":  "dev-test-strategy-006-old",
+        "category":  "Testing \u0026 QA",
+        "tag":  "testing · strategy",
+        "title":  "Estrategia de testing para módulos críticos",
+        "description":  "Diseña suite de tests unitarios, integración y E2E",
+        "body":  "Diseña una estrategia de testing para [MÓDULO/FEATURE]:\n\nContexto:\n- Lenguaje/framework: [STACK]\n- Criticidad: [BAJA/MEDIA/ALTA]\n- Cobertura target: [%]\n- Plataforma: [WEB/API/CLI]\n\nProporciona:\n1. Pirámide de tests (% unitarios/integración/E2E)\n2. Casos de test por categoría (mínimo 5 por nivel)\n3. Setup/fixtures necesarios\n4. Herramientas recomendadas + configuración\n5. CI/CD integration points\n\nFoco: Happy path + edge cases + error handling.",
+        "author":  "jules",
+        "votes":  12,
+        "model":  [
+                      "claude",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "testing",
+                        "qa",
+                        "backend"
+                    ],
+        "difficulty":  "intermediate"
+    },
+    {
+        "id":  "testing-playwright-visual-029",
+        "category":  "Testing \u0026 QA",
+        "tag":  "testing · playwright",
+        "title":  "Testing - Visual Regression con Playwright",
+        "description":  "Configura comparativas de screenshots (snapshots) para evitar regresiones de UI",
+        "body":  "Implementa Visual Regression Testing en Playwright para [PROYECTO/COMPONENTE]:\n\nRequerimientos:\n1. Configurar `expect(page).toHaveScreenshot()`.\n2. Manejar variaciones dinámicas (dates, random IDs) usando mascaras.\n3. Setup para múltiples viewports (Mobile/Desktop).\n4. Integración en CI para fallar si el delta de pixels es mayor al [%].\n\nProporciona:\n- Configuración de `playwright.config.ts`.\n- Test case de ejemplo.\n- Script para actualizar snapshots localmente.",
+        "author":  "jules",
+        "votes":  0,
+        "model":  [
+                      "claude",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "testing",
+                        "qa",
+                        "frontend"
+                    ],
+        "difficulty":  "intermediate"
+    }
+]

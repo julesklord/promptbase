@@ -1,0 +1,79 @@
+[
+  {
+    "id": "cloud-serverless-aws-022",
+    "category": "Cloud & Infrastructure",
+    "tag": "aws · serverless",
+    "title": "Serverless - Arquitectura orientada a eventos en AWS",
+    "description": "Diseña un flujo escalable con Lambda, SQS, SNS y EventBridge",
+    "body": "Diseña una arquitectura serverless en AWS para [PROCESO]:\n\nRequerimientos:\n- Trigger: [HTTP API / S3 Upload / Cron / Event]\n- Procesamiento: [Lógica de negocio]\n- Integraciones: [Servicios externos/DBs]\n- Retries/DLQ: Manejo de fallos.\n\nComponentes:\n1. **AWS Lambda**: Configuración de memoria y timeout.\n2. **Messaging**: SQS vs SNS vs EventBridge para desacoplamiento.\n3. **API Gateway**: Auth y throttling.\n4. **IaC**: Código en [Terraform/CDK/SAM].\n\nProporciona:\n- Diagrama de flujo lógico.\n- Configuración de recursos (IaC skeleton).\n- Estrategia de observabilidad (CloudWatch/X-Ray).\n- Estimación de costos aproximada.",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "advanced"
+  },
+  {
+    "id": "cloud-terraform-multi-cloud-046",
+    "category": "Cloud & Infrastructure",
+    "tag": "terraform · multi-cloud",
+    "title": "Terraform - Módulos para Multi-Cloud (AWS/Azure)",
+    "description": "Crea una capa de abstracción en Terraform para desplegar infraestructura en múltiples proveedores simultáneamente.",
+    "body": "Actúa como un DevOps Architect.\nDiseña un módulo de Terraform que abstraiga la creación de una VPC/VNet y un Cluster de K8s en AWS y Azure.\n\nEstructura:\n- Uso de conditional expression para habilitar/deshabilitar proveedores.\n- Estandarización de tags y outputs.\n- Manejo de state remoto en S3/Blob Storage centralizado.\n- Ejemplo de `main.tf` invocando el módulo con diferentes variables de ambiente.",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "advanced"
+  },
+  {
+    "id": "cloud-finops-optimization-047",
+    "category": "Cloud & Infrastructure",
+    "tag": "finops · cost-optimization",
+    "title": "FinOps - Auditoría y Optimización de Costes Cloud",
+    "description": "Identifica desperdicios en tu infraestructura Cloud y propón un plan de ahorro inmediato.",
+    "body": "Analiza este reporte de facturación de [AWS/GCP/Azure]:\n\n[DETALLE_DE_GASTOS]\n\nObjetivos:\n1. Identificar recursos 'idle' o sobreprovisionados.\n2. Recomendar el uso de Spot Instances o Savings Plans.\n3. Proponer políticas de ciclo de vida para almacenamiento (S3/Glacier).\n4. Estimar el porcentaje de ahorro potencial tras aplicar los cambios.",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "cloud-kubernetes-gitops-048",
+    "category": "Cloud & Infrastructure",
+    "tag": "kubernetes · gitops",
+    "title": "Kubernetes - Workflow de GitOps con ArgoCD",
+    "description": "Implementa despliegue continuo basado en Git para clusters de producción.",
+    "body": "Configura un pipeline de GitOps para una aplicación en K8s.\n\nHerramientas:\n- ArgoCD o Flux.\n- Helm o Kustomize para el templating.\n\nPrompt:\n\"Genera los archivos YAML para: \n1. Definición de la `Application` en ArgoCD.\n2. Configuración de sincronicación automática y pruning.\n3. Estrategia de Rollback si el health check falla.\n4. Integración con un repositorio privado de GitHub.\"",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "advanced"
+  },
+  {
+    "id": "cloud-disaster-recovery-049",
+    "category": "Cloud & Infrastructure",
+    "tag": "dr · business-continuity",
+    "title": "Disaster Recovery - Plan de Continuidad 2026",
+    "description": "Diseña un plan de recuperación ante desastres con RTO y RPO mínimos.",
+    "body": "Define la estrategia de DR para un sistema crítico de [TIPO_SISTEMA].\n\nOpciones:\n- Backup & Restore\n- Pilot Light\n- Warm Standby\n- Multi-site Active-Active\n\nProporciona:\n1. Configuración de replicación de base de datos cross-region.\n2. Script de failover automatizado.\n3. Checklist de verificación post-incidente.\n4. Plan de pruebas de recuperación semestral.",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "advanced"
+  },
+  {
+    "id": "cloud-edge-computing-050",
+    "category": "Cloud & Infrastructure",
+    "tag": "edge · latency",
+    "title": "Edge Computing - Distribución de Carga en CDN",
+    "description": "Usa Cloudfront Functions o Lambda@Edge para procesar datos cerca del usuario final.",
+    "body": "Necesito reducir la latencia de procesamiento para usuarios en [REGIÓN GLOBAL].\n\nTarea:\n- Implementa una función de Edge en [Cloudfront/Cloudflare Workers] que:\n  1. Realice redireccionamiento dinámico basado en headers de geolocalización.\n  2. Realice validación de JWT antes de llegar al origin.\n  3. Cachee fragmentos HTML dinámicos para reducir carga en el backend.",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "advanced"
+  },
+  {
+    "id": "cloud-cloud-security-iam-051",
+    "category": "Cloud & Infrastructure",
+    "tag": "iam · security",
+    "title": "IAM - Políticas de Mínimo Privilegio",
+    "description": "Diseña políticas de acceso granulares para servicios y usuarios cloud.",
+    "body": "Crea una política IAM en JSON para un rol que solo debe tener acceso a:\n- Lectura en el bucket S3 'public-assets'.\n- Escritura en el bucket S3 'user-uploads'.\n- Re-inicio de una instancia EC2 específica con ID [ID_INSTANCIA].\n\nAsegura que la política use condiciones de IP o tiempo para mayor seguridad.",
+    "author": "community",
+    "votes": 0,
+    "difficulty": "intermediate"
+  }
+]

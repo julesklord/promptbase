@@ -1,0 +1,85 @@
+[
+    {
+        "id":  "database-sql-indexing-004",
+        "category":  "Database \u0026 Data",
+        "tag":  "sql · indexing-strategy",
+        "title":  "SQL - Estrategia de indexación para tablas grandes",
+        "description":  "Diseña índices eficientes considerando queries, mutations y espacio",
+        "body":  "Diseña índices para la siguiente tabla [PostgreSQL/MySQL/Snowflake]:\n\nTabla: [NOMBRE]\nSchema:\n[ESQUEMA]\n\nQueries principales:\n[SQL QUERIES]\n\nProblemas actuales:\n- Query lenta: [TABLA]\n- Índices redundantes?\n- Espacio de disco: [GB]\n\nAnálisis:\n1. Query patterns (WHERE, JOIN, ORDER BY)\n2. Cardinality de cada columna\n3. Índices existentes vs. needed\n4. Trade-off: write performance vs. read\n5. Maintenance cost (VACUUM, ANALYZE)\n\nProporciona:\n- Índices recomendados (CREATE INDEX statements)\n- Composite index strategy\n- Índices a deprecar\n- Monitoring queries",
+        "author":  "community",
+        "votes":  0,
+        "model":  [
+                      "claude",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "database",
+                        "performance",
+                        "sql"
+                    ],
+        "difficulty":  "advanced"
+    },
+    {
+        "id":  "dev-sql-opt-004-old",
+        "category":  "Database \u0026 Data",
+        "tag":  "sql · performance",
+        "title":  "Optimización de queries SQL complejas",
+        "description":  "Analiza y optimiza queries lentas con índices y ejecuciones plan",
+        "body":  "Optimiza la siguiente query SQL [DIALECTO: PostgreSQL/MySQL/SQLite]:\n\nQuery actual:\n[SQL]\n\nDatos:\n- Tablas involucradas: [LISTADO]\n- Volumen de registros: [NÚMEROS]\n- Tiempo actual: [TIEMPOS]\n\nAnálisis:\n1. Explica el plan de ejecución actual\n2. Identifica cuellos de botella\n3. Propone índices (estrategia)\n4. Reescribe la query optimizada\n5. Sugiere schematización alternativa si aplica\n\nContexto: producción, [N] queries/segundo.",
+        "author":  "jules",
+        "votes":  14,
+        "model":  [
+                      "claude",
+                      "gemini",
+                      "gpt"
+                  ],
+        "usecase":  [
+                        "database",
+                        "performance",
+                        "backend"
+                    ],
+        "difficulty":  "advanced"
+    },
+    {
+        "id":  "database-nosql-modeling-021",
+        "category":  "Database \u0026 Data",
+        "tag":  "nosql · mongodb",
+        "title":  "NoSQL - Modelado de datos en MongoDB (Embedding vs Referencing)",
+        "description":  "Decide la mejor estructura de documentos basada en patrones de acceso",
+        "body":  "Diseña el esquema de base de datos para [SISTEMA] usando MongoDB:\n\nEntidades:\n[LISTADO DE ENTIDADES Y RELACIONES]\n\nPatrones de acceso (Queries más frecuentes):\n1. [QUERY 1]\n2. [QUERY 2]\n\nAnálisis de modelado:\n1. **Embedding**: Cuándo duplicar datos para lectura rápida.\n2. **Referencing**: Cuándo normalizar para evitar documentos gigantes.\n3. **Indexación**: Índices compuestos y multikey.\n4. **Agregaciones**: Pipelines necesarios para reportes.\n\nProporciona:\n- JSON Schema sugerido.\n- Justificación de Embedding vs Referencing para cada relación.\n- Índices recomendados.\n- Ejemplo de query de agregación compleja.",
+        "author":  "community",
+        "votes":  0,
+        "model":  [
+                      "claude",
+                      "gpt",
+                      "gemini"
+                  ],
+        "usecase":  [
+                        "mongodb",
+                        "database",
+                        "architecture"
+                    ],
+        "difficulty":  "intermediate"
+    },
+    {
+        "id":  "data-privacy-anonymization-032",
+        "category":  "Database \u0026 Data",
+        "tag":  "data · privacy",
+        "title":  "Data Privacy - Anonymization de PII en datasets",
+        "description":  "Implementa técnicas de enmascaramiento y hashing para datos sensibles (GDPR/HIPAA)",
+        "body":  "Diseña un proceso para anonimizar el siguiente dataset [SQL/JSON/CSV]:\n\nDatos sensibles detectados: Nombres, Emails, IPs, Tarjetas de Crédito.\n\nEnfoque Requerido:\n1. **Masking**: Mantener formato (e.g. `user@****.com`).\n2. **One-way Hashing**: Para IDs correlacionables (Salted SHA-256).\n3. **Pseudonymization**: Reemplazo por IDs sintéticos.\n4. **Bucketization**: Convertir edades exactas a rangos (e.g. 25 -\u003e 20-30).\n\nProporciona:\n- Script en [LENGUAJE: Python/SQL] para el procesamiento.\n- Informe de riesgos de re-identificación.\n- Checklist de cumplimiento normativo básico.",
+        "author":  "community",
+        "votes":  0,
+        "model":  [
+                      "claude",
+                      "gpt",
+                      "gemini"
+                  ],
+        "usecase":  [
+                        "data-science",
+                        "privacy",
+                        "security"
+                    ],
+        "difficulty":  "advanced"
+    }
+]
