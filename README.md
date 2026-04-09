@@ -1,5 +1,11 @@
 # PROMPTBASE
 
+![Version](https://img.shields.io/badge/version-0.2.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Build](https://img.shields.io/github/actions/workflow/status/julesklord/promptbase/playwright.yml?branch=main)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+![GitHub pages](https://img.shields.io/badge/GitHub%20Pages-deployed-success)
+
 > **The community-driven LLM prompt library for builders.**
 
 Promptbase is a production-grade collection of technical prompts optimized for real-world engineering workflows. From agentic logic and DAW automation to WSL2 networking and AI safety guardrails, we curate prompts that work where it matters.
