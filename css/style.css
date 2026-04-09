@@ -20,6 +20,26 @@
   --display: "Syne", sans-serif;
 }
 
+[data-theme="light"] {
+  --bg: #fafafa;
+  --bg2: #ffffff;
+  --bg3: #f0f0f4;
+  --bg4: #e4e4e9;
+  --border: rgba(0, 0, 0, 0.08);
+  --border2: rgba(0, 0, 0, 0.15);
+  --red: #d1303d;
+  --red-dim: rgba(230, 57, 70, 0.1);
+  --amber: #e7823a;
+  --amber-dim: rgba(244, 162, 97, 0.15);
+  --green: #40916c;
+  --green-dim: rgba(82, 183, 136, 0.15);
+  --blue: #3a9cbd;
+  --blue-dim: rgba(76, 201, 240, 0.15);
+  --text: #1a1a1c;
+  --text2: #4a4a58;
+  --text3: #757585;
+}
+
 *,
 *::before,
 *::after {

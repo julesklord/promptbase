@@ -77,6 +77,28 @@ document.getElementById("backToTop")?.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
+// Theme Toggle
+const themeToggle = document.getElementById("themeToggle");
+const currentTheme = localStorage.getItem("theme");
+
+if (currentTheme === "light") {
+  document.documentElement.setAttribute("data-theme", "light");
+  if (themeToggle) themeToggle.innerText = "☾";
+}
+
+themeToggle?.addEventListener("click", () => {
+  let theme = document.documentElement.getAttribute("data-theme");
+  if (theme === "light") {
+    document.documentElement.removeAttribute("data-theme");
+    localStorage.setItem("theme", "dark");
+    themeToggle.innerText = "☀";
+  } else {
+    document.documentElement.setAttribute("data-theme", "light");
+    localStorage.setItem("theme", "light");
+    themeToggle.innerText = "☾";
+  }
+});
+
 // JSON Generation Logic
 function generateJSON() {
   const title = document.getElementById("f-title").value.trim();
