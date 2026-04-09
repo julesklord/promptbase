@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="docs/logo_promptbase.png" alt="PROMPTBASE Logo" width="180" />
+  <img src="docs/logo_promptbase.png" alt="PROMPTBASE Logo" width="450" />
   <h1>PROMPTBASE</h1>
 </div>
 
