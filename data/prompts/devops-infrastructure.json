@@ -1,144 +1,144 @@
 [
-    {
-        "id":  "devops-docker-compose-009",
-        "category":  "DevOps \u0026 Infrastructure",
-        "tag":  "docker · local-development",
-        "title":  "Docker Compose - Setup local development stack completo",
-        "description":  "Crea docker-compose.yml para desarrollo con hot-reload y debugging",
-        "body":  "Genera docker-compose.yml para desarrollar localmente [PROYECTO]:\n\nStack necesario:\n- API: [LENGUAJE/FRAMEWORK]\n- Database: [PostgreSQL/MySQL/MongoDB]\n- Cache: [Redis/Memcached]\n- Message queue: [RabbitMQ/Kafka] (opcional)\n- Frontend: [Node/Python dev server]\n\nRequisitos:\n- Hot-reload en código\n- Debugging habilitado\n- Volúmenes sincronizados\n- Network entre servicios\n- Datos persistentes localmente\n- Logs centralizados\n\nProporciona:\n1. docker-compose.yml completo\n2. .dockerfiles para cada servicio\n3. .env template\n4. Makefile con common commands\n5. Documentation para onboarding\n\nConsideraciones:\n- M1/M2 Mac compatibility\n- Windows WSL2 optimizations\n- CI/CD compatibility",
-        "author":  "community",
-        "votes":  0,
-        "model":  [
-                      "claude",
-                      "gpt"
-                  ],
-        "usecase":  [
-                        "docker",
-                        "devops",
-                        "development"
-                    ],
-        "difficulty":  "beginner"
-    },
-    {
-        "id":  "devops-kubernetes-basics-010",
-        "category":  "DevOps \u0026 Infrastructure",
-        "tag":  "kubernetes · getting-started",
-        "title":  "Kubernetes - Migrate from Docker Compose to K8s",
-        "description":  "Convierte docker-compose a Kubernetes manifests (Deployment, Service, ConfigMap)",
-        "body":  "Convierte tu docker-compose.yml a Kubernetes manifests:\n\nCompose actual:\n[COMPOSE]\n\nPlataforma eventual:\n- Local: [Minikube/Docker Desktop]\n- Cloud: [EKS/AKS/GKE]\n- Managed: [Yes/No]\n\nRequisitos:\n- Stateless services\n- Database con PersistentVolume\n- ConfigMap para config\n- Secrets para credentials\n- Ingress para external access\n- Health checks (liveness/readiness)\n\nGenera:\n1. Deployment manifests (replicas, resources, affinity)\n2. Service definitions (ClusterIP, LoadBalancer)\n3. ConfigMap + Secrets templates\n4. PersistentVolumeClaim para data\n5. Ingress rules\n6. kustomization.yaml para environments\n\nIncluye:\n- kubectl commands para deploy\n- Monitoring/logging strategy\n- Scaling considerations",
-        "author":  "community",
-        "votes":  0,
-        "model":  [
-                      "claude",
-                      "gpt"
-                  ],
-        "usecase":  [
-                        "kubernetes",
-                        "devops",
-                        "infrastructure"
-                    ],
-        "difficulty":  "advanced"
-    },
-    {
-        "id":  "dev-docker-opt-008-old",
-        "category":  "DevOps \u0026 Infrastructure",
-        "tag":  "docker · optimization",
-        "title":  "Optimización de Dockerfile y build times",
-        "description":  "Reduce tamaño de imagen y acelera builds con multi-stage",
-        "body":  "Optimiza el siguiente Dockerfile:\n\nDockerfile actual:\n[CONTENIDO]\n\nProblema:\n- Build time: [TIEMPO]\n- Image size: [SIZE]\n- Context: [DESCRIPCIÓN]\n\nAnálisis:\n1. Identifica capas grandes e ineficientes\n2. Sugiere multi-stage si aplica\n3. Optimiza layer caching\n4. Propone .dockerignore improvements\n5. Considera builder patterns\n\nObjetivo:\n- Build \u003c [TIEMPO TARGET]\n- Image \u003c [SIZE TARGET]\n- Mantener reproducibilidad\n\nProporciona: Dockerfile optimizado + explicación de gains.",
-        "author":  "jules",
-        "votes":  18,
-        "model":  [
-                      "claude",
-                      "gpt"
-                  ],
-        "usecase":  [
-                        "devops",
-                        "docker",
-                        "cicd"
-                    ],
-        "difficulty":  "intermediate"
-    },
-    {
-        "id":  "system-git-workflow-009-old",
-        "category":  "DevOps \u0026 Infrastructure",
-        "tag":  "git · workflow",
-        "title":  "Diseño de workflow Git para equipos",
-        "description":  "Estructura de branches, commits y releases con convenciones",
-        "body":  "Diseña un workflow Git completo para [CONTEXTO]:\n\nEquipo:\n- Size: [N developers]\n- Cadence: [RELEASE CYCLE]\n- Plataforma: [GitHub/GitLab/Gitea]\n\nRequisitos:\n- Feature isolation\n- Code review mandatory\n- Hotfix management\n- Release versioning ([SEMVER/CALVER])\n\nProporciona:\n1. Estrategia de branching (Gitflow/Trunk-based/GitLab Flow)\n2. Naming conventions: branches, commits, tags\n3. PR template + merge strategy\n4. Release checklist\n5. Rollback procedure\n6. Protecting rules (branch policies)\n\nIncluye: comandos prácticos + scripts auxiliares.",
-        "author":  "jules",
-        "votes":  10,
-        "model":  [
-                      "claude",
-                      "gemini",
-                      "gpt"
-                  ],
-        "usecase":  [
-                        "devops",
-                        "git",
-                        "team-workflow"
-                    ],
-        "difficulty":  "beginner"
-    },
-    {
-        "id":  "system-cicd-troubleshoot-013-old",
-        "category":  "DevOps \u0026 Infrastructure",
-        "tag":  "cicd · debugging",
-        "title":  "Diagnóstico de pipelines CI/CD fallidos",
-        "description":  "Framework para debuggear GitHub Actions, GitLab CI o similar",
-        "body":  "Diagnostica el error en tu pipeline [PLATAFORMA]:\n\nInfo del error:\n- Stage que falla: [NOMBRE]\n- Logs:\n[LOGS AQUÍ]\n- Artifacts disponibles: [SÍ/NO]\n- Último commit exitoso: [SHA]\n\nFramework de diagnóstico:\n1. **Contexto**: ¿Qué cambió últimamente?\n   - Git diffs\n   - Secrets/env vars modificadas?\n\n2. **Análisis de logs**: \n   - Sección exacta del error\n   - Stack trace completo\n   - Dependencias que fallaron\n\n3. **Causas probables**:\n   - Timing/race condition?\n   - Falta de recurso?\n   - Permiso?\n   - Versión incompatible?\n\n4. **Solución**:\n   - Fix + validación\n   - Cómo prevenir\n\nIncluye: pasos para local reproduce + fix validation.",
-        "author":  "jules",
-        "votes":  13,
-        "model":  [
-                      "claude",
-                      "gpt"
-                  ],
-        "usecase":  [
-                        "devops",
-                        "cicd",
-                        "debugging"
-                    ],
-        "difficulty":  "advanced"
-    },
-    {
-        "id":  "wsl2-ports-001-old",
-        "category":  "DevOps \u0026 Infrastructure",
-        "tag":  "wsl2 · ports",
-        "title":  "Port forwarding y networking WSL2 ↔ Windows",
-        "description":  "Diagnostica y resuelve problemas de conectividad de red entre WSL2 y Windows host",
-        "body":  "Necesito que un servicio corriendo en [Arch Linux WSL2 / Windows host] sea accesible desde [el otro lado / red local / contenedor Docker].\n\nServicio: [NOMBRE]\nPuerto: [PORT]\nBinding actual: [127.0.0.1 / 0.0.0.0 / hostname]\nProblema: [DESCRIPCIÓN]\n\nProporciona:\n1. Diagnóstico de por qué no es accesible\n2. Comandos para verificar el estado actual\n3. Configuración de port forwarding si aplica (netsh / .wslconfig / socat)\n4. Solución permanente vs. temporal\n\nConsidera: WSL2 tiene NAT por defecto, la IP de WSL2 cambia en cada restart.",
-        "author":  "jules",
-        "votes":  24,
-        "model":  [
-                      "claude",
-                      "gemini",
-                      "gpt"
-                  ],
-        "usecase":  [
-                        "sysadmin",
-                        "wsl2",
-                        "networking"
-                    ],
-        "difficulty":  "intermediate"
-    },
-    {
-        "id":  "devops-wsl2-proxy-024",
-        "category":  "DevOps \u0026 Infrastructure",
-        "tag":  "wsl2 · networking",
-        "title":  "WSL2 - Proxy transparente y VPN Bridge",
-        "description":  "Configura connectividad persistente en WSL2 cuando estás detrás de una VPN corporativa",
-        "body":  "Configura el entorno de red en WSL2 (Arch/Ubuntu) para funcionar con [VPN: Cisco AnyConnect/GlobalProtect]:\n\nProblema:\n- WSL2 pierde internet al conectar VPN.\n- Resolv.conf se sobrescribe.\n- MTU issues.\n\nSolución requerida:\n1. Configurar `.wslconfig` (networkingMode=mirrored o similar).\n2. Script de sincronización de `/etc/resolv.conf`.\n3. Configuración de `wsl-vpnkit` o `socat` bridges.\n4. Ajuste automático de MTU.\n\nProporciona:\n- Guía step-by-step.\n- Comandos PowerShell y Bash.\n- Verificación de conectividad (ping/curl tests).",
-        "author":  "jules",
-        "votes":  0,
-        "model":  [
-                      "gpt",
-                      "claude"
-                  ],
-        "usecase":  [
-                        "wsl2",
-                        "networking",
-                        "sysadmin"
-                    ],
-        "difficulty":  "advanced"
-    }
+  {
+    "id": "devops-docker-compose-009",
+    "category": "DevOps & Infrastructure",
+    "tag": "docker · local-development",
+    "title": "Docker Compose - Comprehensive Local Development Stack",
+    "description": "Engineer a complete local environment utilizing hot-reload, volume sync, and structured networking.",
+    "body": "Generate a production-mirrored `docker-compose.yml` for local development on [PROJECT_NAME].\n\n<context>\nRequired Infrastructure Stack:\n- API Backend: [LANGUAGE/FRAMEWORK]\n- Primary Database: [PostgreSQL / MySQL / MongoDB]\n- In-Memory Cache: [Redis / Memcached]\n- Message Broker: [RabbitMQ / Kafka] (If applicable)\n- Frontend: [Node/Python Dev Server]\n</context>\n\n<task>\nThe compose configuration must support:\n- Codebase hot-reloading.\n- Exposed debugger ports.\n- Synchronized local volume mounts.\n- Explicit internal Docker networking.\n- Isolated persistent data volumes.\n- Centralized JSON logging.\n\nProvide:\n1. The complete `docker-compose.yml`.\n2. Highly optimized `.Dockerfile` templates for each custom service.\n3. A robust `.env` variable template.\n4. A `Makefile` containing common developer proxy commands (up, down, format, test).\n5. Hardware optimization recommendations specifically addressing M-Series Mac architecture and Windows WSL2 filesystem limits.\n</task>",
+    "author": "community",
+    "votes": 0,
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "docker",
+      "devops",
+      "development"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "devops-kubernetes-basics-010",
+    "category": "DevOps & Infrastructure",
+    "tag": "kubernetes · getting-started",
+    "title": "Kubernetes - Migration from Docker Compose to K8s",
+    "description": "Translate imperative Compose stacks into declarative Kubernetes manifests (Deployment, SVC, ConfigMap).",
+    "body": "Act as a Kubernetes Administrator. Migrate the provided `docker-compose.yml` into production-ready Kubernetes manifests.\n\n<context>\nCurrent Compose Stack:\n[INSERT_COMPOSE_YML]\n\nTarget Platform:\nLocal: [Minikube / Docker Desktop]\nCloud: [EKS / AKS / GKE]\n</context>\n\n<task>\nGenerate the corresponding declarative YAML manifests satisfying the following:\n- Stateless application Deployments with explicit Resource Quotas and Anti-Affinity rules.\n- Stateful database pods utilizing StatefulSets and PersistentVolumeClaims.\n- Configuration abstraction utilizing ConfigMaps.\n- Credential injection using securely mounted Secrets.\n- External routing configuration via Ingress objects.\n- Functional Liveness and Readiness probes to ensure zero-downtime rolling updates.\n\nProvide the manifests alongside a `kustomization.yaml` file to demonstrate environment overlay mechanics (Base vs Prod).\n</task>",
+    "author": "community",
+    "votes": 0,
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "kubernetes",
+      "devops",
+      "infrastructure"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "dev-docker-opt-008-old",
+    "category": "DevOps & Infrastructure",
+    "tag": "docker · optimization",
+    "title": "Dockerfile Optimization and Build Velocity",
+    "description": "Significantly reduce container image bloat and accelerate CI build times utilizing multi-stage builds.",
+    "body": "Optimize the following Dockerfile to meet modern containerized best practices.\n\n<context>\nCurrent Dockerfile:\n[INSERT_DOCKERFILE_CONTENT]\n\nIdentified Bottlenecks:\n- Current Build Time: [TIME]\n- Current Image Size: [SIZE]\n</context>\n\n<task>\nPerform a structural review and implementation focusing on:\n1. Identification of bloated layers causing cache invalidation.\n2. Implementation of a Multi-Stage build pattern to strip build-tools from the final runtime image.\n3. Strategic instruction ordering to maximize Docker Layer Caching.\n4. Drafting a granular `.dockerignore` file.\n5. Utilization of non-root user execution directives.\n\nProvide the optimized `Dockerfile` and a breakdown of the architectural gains.\n</task>",
+    "author": "jules",
+    "votes": 18,
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "devops",
+      "docker",
+      "cicd"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "system-git-workflow-009-old",
+    "category": "DevOps & Infrastructure",
+    "tag": "git · workflow",
+    "title": "Git Workflow Design for Development Teams",
+    "description": "Establish a structural repository branching, commit, and release strategy enforcing team conventions.",
+    "body": "Design a comprehensive Git workflow tailored for a growing engineering organization.\n\n<context>\nTeam Topology:\n- Size: [N Developers]\n- Release Cadence: [Sprint/Continuous]\n- VCS Platform: [GitHub / GitLab / Bitbucket]\n</context>\n\n<task>\nEstablish a workflow architecture covering the following parameters:\n- Selection and justification of the Branching Strategy (Gitflow vs Trunk-based vs GitLab Flow).\n- Strict Naming Conventions for branches, commits (e.g., Conventional Commits), and release tags.\n- Pull Request templates enforcing mandatory Code Review checklists.\n- A semantic or calendar-based (SEMVER/CALVER) versioning strategy.\n- Protocol for emergency Hotfix injections into production.\n- Repository protection rules (branch policies) required on the main branches.\n</task>",
+    "author": "jules",
+    "votes": 10,
+    "model": [
+      "claude",
+      "gemini",
+      "gpt"
+    ],
+    "usecase": [
+      "devops",
+      "git",
+      "team-workflow"
+    ],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "system-cicd-troubleshoot-013-old",
+    "category": "DevOps & Infrastructure",
+    "tag": "cicd · debugging",
+    "title": "CI/CD Pipeline Failure Diagnostics",
+    "description": "A methodical framework for debugging broken GitHub Actions, GitLab CI, or Jenkins pipelines.",
+    "body": "Act as a Release Engineer. Diagnose the failure in my continuous integration pipeline on [PLATFORM].\n\n<context>\nFailure Telemetry:\n- Failing Stage: [STAGE_NAME]\n- Execution Logs:\n[INSERT_LOG_OUTPUT]\n- Base Commit: [SHA]\n</context>\n\n<task>\nExecute a diagnostic review adhering to this framework:\n1. **Context Assessment**: Determine if recent environment variables, runner AMI updates, or dependency caches triggered the failure.\n2. **Log Triage**: Pinpoint the precise sub-process failure within the stack trace.\n3. **Root Cause Analysis**: Isolate the variable (e.g., OOM kill, network timeout, package version mismatch, race condition).\n4. **Remediation**: Provide the exact YAML or script fix required.\n\nProvide the code correction alongside a command snippet required to reproduce the specific failing test execution locally.\n</task>",
+    "author": "jules",
+    "votes": 13,
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "devops",
+      "cicd",
+      "debugging"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "wsl2-ports-001-old",
+    "category": "DevOps & Infrastructure",
+    "tag": "wsl2 · ports",
+    "title": "WSL2 Port Forwarding and Bridge Networking",
+    "description": "Diagnose and resolve intricate TCP/UDP connectivity issues between a Windows Host and WSL2 subsystems.",
+    "body": "Act as a Systems Administrator specializing in Windows Subsystem for Linux (WSL2).\n\n<context>\nA background daemon running on [WSL2 Arch/Ubuntu OR Windows Host] is failing to receive traffic from the opposing OS boundary.\n\nTarget Service: [SERVICE_NAME]\nTarget Port: [PORT]\nCurrent Interface Binding: [127.0.0.1 / 0.0.0.0 / HOSTNAME]\n</context>\n\n<task>\nProvide the following:\n1. An immediate diagnosis of the routing failure (addressing WSL's default Hyper-V NAT isolation behavior).\n2. CLI commands (`netstat`, `ss`, `ip route`) to verify the exact binding state on both Linux and Windows.\n3. The explicit port proxying solution using Windows `netsh interface portproxy` or Linux `socat` commands.\n4. Instructions on persisting this configuration across host reboots taking into account dynamic WSL2 IP allocations.\n</task>",
+    "author": "jules",
+    "votes": 24,
+    "model": [
+      "claude",
+      "gemini",
+      "gpt"
+    ],
+    "usecase": [
+      "sysadmin",
+      "wsl2",
+      "networking"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "devops-wsl2-proxy-024",
+    "category": "DevOps & Infrastructure",
+    "tag": "wsl2 · networking",
+    "title": "WSL2 - Transparent Proxy and Enterprise VPN Bridging",
+    "description": "Stabilize persistent internet availability in WSL2 when operating behind strict Corporate VPNs.",
+    "body": "Configure the network layer in WSL2 to regain outbound internet access while forced behind a restrictive Enterprise VPN ([Cisco AnyConnect / GlobalProtect / Zscaler]).\n\n<context>\nCurrent Symptoms:\n- WSL2 instantly drops inbound/outbound packets upon VPN connection.\n- `/etc/resolv.conf` is aggressively overwritten rendering DNS dead.\n- Severe MTU byte fragmentation causing stalled HTTP requests.\n</context>\n\n<task>\nProvide a comprehensive bash/powershell remediation guide:\n1. Configure the Windows `.wslconfig` establishing `networkingMode=mirrored` or the equivalent NAT override.\n2. Create an immutable script to lock and sync a reliable `nameserver` in `resolv.conf`.\n3. Implement a bridging bypass using `wsl-vpnkit` or `socat` tunnels.\n4. Output the commands to dynamically drop the vEth MTU size to strictly match the VPN payload limit.\n</task>",
+    "author": "jules",
+    "votes": 0,
+    "model": [
+      "gpt",
+      "claude"
+    ],
+    "usecase": [
+      "wsl2",
+      "networking",
+      "sysadmin"
+    ],
+    "difficulty": "advanced"
+  }
 ]
