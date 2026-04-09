@@ -1,6 +1,6 @@
 {
   "name": "promptbase",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Community-driven LLM prompt library for builders — agents, MCP, DAW automation, WSL2, and more.",
   "main": "js/app.js",
   "scripts": {
