@@ -1,17 +1,21 @@
 # API & Schema Reference - Promptbase
 
 ## Overview
+
 This document defines the data structures and internal interfaces used by Promptbase. It serves as a contract for both data contributors and module developers.
 
 ## Core Concepts
+
 The "API" of Promptbase consists of a centralized JSON database (`prompts.json`) and the exported members of the core ES modules.
 
 ## Resource: prompts.json
+
 The root file is an array of objects.
 
 ### Object Schema
+
 | Property | Type | Required | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `id` | `string` | Yes | Unique slug. Pattern: `category-title-random`. |
 | `category` | `string` | Yes | Functional group (e.g., "Backend Development"). |
 | `tag` | `string` | Yes | Inline categorization (e.g., "node · auth"). |
@@ -25,6 +29,7 @@ The root file is an array of objects.
 | `difficulty` | `string` | Yes | Enum: `beginner`, `intermediate`, `advanced`. |
 
 ### Example
+
 ```json
 {
   "id": "devops-wsl-024",
@@ -44,20 +49,23 @@ The root file is an array of objects.
 ## Internal Module Interface
 
 ### api.js
+
 | Method | Params | Returns | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `loadPrompts()` | N/A | `Promise<void>` | Fetches data, validates schema, and dispatches `dataLoaded`. |
 
 ### state.js
+
 | Property | Type | Description |
 |---|---|---|
 | `state` | `Object` | Global state object containing `allPrompts`, `filtered`, and active filters. |
 
 | Method | Params | Returns | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `applyFilters()` | N/A | `void` | Mutates `state.filtered` based on current UI inputs and dispatches `stateChange`. |
 
 ## Error Conditions
+
 - **Missing Required Field**: Logged as a `warn` in the console; the prompt is skipped from the render grid.
 - **HTTP 404/500**: Triggers an empty state in the UI via the `dataLoaded` cleanup logic.
 
