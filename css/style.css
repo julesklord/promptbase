@@ -40,6 +40,18 @@
   --text3: #757585;
 }
 
+.xml-tag {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.inline-code {
+  color: var(--amber);
+  background: var(--bg3);
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+
 *,
 *::before,
 *::after {
@@ -711,6 +723,28 @@ header {
   border-color: var(--red);
   color: var(--red);
   background: var(--red-dim);
+}
+
+.fav-btn {
+  font-family: var(--mono);
+  font-size: 14px;
+  padding: 0px 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text3);
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+}
+.fav-btn:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+.fav-btn.faved {
+  border-color: var(--amber);
+  color: var(--amber);
+  background: var(--amber-dim);
 }
 
 .copy-btn {

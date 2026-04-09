@@ -24,6 +24,16 @@ function init() {
   buildTagCloud();
   buildDiffCounts();
   applyFilters();
+
+  // Deep linking auto-open
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+  if (id) {
+    setTimeout(() => {
+      const btn = document.getElementById(`fullview-${id}`);
+      if (btn) btn.click();
+    }, 100);
+  }
 }
 
 // UI Event Listeners

@@ -1,5 +1,5 @@
 import { state, applyFilters } from "./state.js";
-import { escHtml, showToast, animateNum } from "./utils.js";
+import { escHtml, formatPromptBody, showToast, animateNum } from "./utils.js";
 
 export function renderSkeletons() {
   const grid = document.getElementById("promptGrid");
@@ -31,13 +31,19 @@ export function buildStats() {
 export function buildCategories() {
   const tabs = document.getElementById("filterTabs");
   if (!tabs) return;
-  const cats = ["all", ...new Set(state.allPrompts.map((p) => p.category))];
+  const cats = ["all", "favorites", ...new Set(state.allPrompts.map((p) => p.category))];
   tabs.innerHTML = "";
   cats.forEach((cat) => {
     const btn = document.createElement("button");
     btn.className = "filter-tab" + (cat === "all" ? " active" : "");
     btn.dataset.cat = cat;
-    btn.textContent = cat === "all" ? "All" : cat;
+    if (cat === "all") btn.textContent = "All";
+    else if (cat === "favorites") {
+      btn.textContent = "★ Favorites";
+      btn.style.color = "var(--amber)";
+    }
+    else btn.textContent = cat;
+
     btn.onclick = () => {
       document.querySelectorAll(".filter-tab").forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
@@ -134,6 +140,9 @@ export function renderGrid() {
     const models = (p.model || []).map((m) => `<span class="model-badge model-${m}">${m}</span>`).join("");
     const diff = p.difficulty || "intermediate";
 
+    const isFav = !!state.favorites[p.id];
+    const favText = isFav ? "★" : "☆";
+
     card.innerHTML = `
       <div class="card-top">
         <span class="card-tag">${p.tag}</span>
@@ -141,7 +150,7 @@ export function renderGrid() {
       </div>
       <div class="card-title">${p.title}</div>
       <div class="card-desc">${p.description}</div>
-      <div class="card-body" id="body-${p.id}">${escHtml(p.body)}</div>
+      <div class="card-body" id="body-${p.id}">${formatPromptBody(p.body)}</div>
       <div style="display:flex;gap:6px;margin-bottom:12px;">
         <button class="expand-btn" id="expand-${p.id}" aria-label="Expand or collapse prompt">expand ↓</button>
         <button class="expand-btn" id="fullview-${p.id}" style="flex:1;text-align:center;" aria-label="View prompt in full screen">view fullscreen</button>
@@ -149,6 +158,7 @@ export function renderGrid() {
       <div class="card-meta">
         <div class="card-models">${models}</div>
         <div class="card-actions">
+          <button class="fav-btn ${isFav ? "faved" : ""}" id="fav-${p.id}" aria-label="Favorite this prompt">${favText}</button>
           <button class="vote-btn ${isVoted ? "voted" : ""}" id="vote-${p.id}" aria-label="Vote for this prompt">▲ ${voteCount}</button>
           <button class="copy-btn" id="copy-${p.id}" aria-label="Copy prompt text">Copy</button>
         </div>
@@ -172,6 +182,7 @@ export function renderGrid() {
 
     const openModalFn = () => {
       const modal = document.getElementById("fullViewModal");
+      const currentFav = !!state.favorites[p.id];
       modal.innerHTML = `
         <div class="modal" style="max-width:800px;">
           <div class="modal-header">
@@ -187,7 +198,7 @@ export function renderGrid() {
             </div>
             <div style="margin-bottom:1.5rem;">
               <div style="font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Prompt Body</div>
-              <div style="background:var(--bg);border:1px solid var(--border);padding:12px;font-size:11px;color:var(--text2);line-height:1.7;white-space:pre-wrap;max-height:400px;overflow-y:auto;">${escHtml(p.body)}</div>
+              <div style="background:var(--bg);border:1px solid var(--border);padding:12px;font-size:11px;color:var(--text2);line-height:1.7;white-space:pre-wrap;max-height:400px;overflow-y:auto;">${formatPromptBody(p.body)}</div>
             </div>
             <div style="display:flex;gap:1rem;flex-wrap:wrap;">
               <div style="flex:1;min-width:150px;">
@@ -204,19 +215,52 @@ export function renderGrid() {
           </div>
           <div class="modal-footer">
             <div class="contribute-hint">Author: <strong>${p.author || "anonymous"}</strong> · Difficulty: <strong>${p.difficulty}</strong> · ID: <code style="color:var(--amber);font-size:10px;">${p.id}</code></div>
-            <button class="btn-red" id="fullview-copy">Copy Prompt</button>
+            <div style="display:flex;gap:8px;">
+              <button class="btn-ghost fav-btn ${currentFav ? 'faved' : ''}" id="fullview-fav" style="border: 1px solid var(--amber) !important; color: var(--amber);">${currentFav ? '★ Saved' : '☆ Save'}</button>
+              <button class="btn-ghost" id="fullview-share">🔗 Share Link</button>
+              <button class="btn-red" id="fullview-copy">Copy Prompt</button>
+            </div>
           </div>
         </div>
       `;
       modal.classList.add("open");
       
       document.getElementById("closeFullView").onclick = () => modal.classList.remove("open");
+      
+      document.getElementById("fullview-share").onclick = () => {
+        const url = window.location.origin + window.location.pathname + "?id=" + p.id;
+        navigator.clipboard.writeText(url);
+        showToast("Link Copied!");
+      };
+
       document.getElementById("fullview-copy").onclick = () => {
         navigator.clipboard.writeText(p.body);
         showToast("Copied!");
         const btn = document.getElementById("fullview-copy");
         btn.textContent = "Copied!";
         setTimeout(() => (btn.textContent = "Copy Prompt"), 1500);
+      };
+
+      document.getElementById("fullview-fav").onclick = () => {
+        const modalFavBtn = document.getElementById("fullview-fav");
+        const cardFavBtn = document.getElementById(`fav-${p.id}`);
+        if (state.favorites[p.id]) {
+          delete state.favorites[p.id];
+          if (modalFavBtn) modalFavBtn.innerHTML = "☆ Save";
+          if (modalFavBtn) modalFavBtn.classList.remove("faved");
+          if (cardFavBtn) cardFavBtn.innerHTML = "☆";
+          if (cardFavBtn) cardFavBtn.classList.remove("faved");
+          showToast("Removed from favorites");
+        } else {
+          state.favorites[p.id] = true;
+          if (modalFavBtn) modalFavBtn.innerHTML = "★ Saved";
+          if (modalFavBtn) modalFavBtn.classList.add("faved");
+          if (cardFavBtn) cardFavBtn.innerHTML = "★";
+          if (cardFavBtn) cardFavBtn.classList.add("faved");
+          showToast("Saved to favorites!");
+        }
+        localStorage.setItem("pb-favs", JSON.stringify(state.favorites));
+        if (state.activeCategory === "favorites") applyFilters(); 
       };
     };
 
@@ -230,6 +274,23 @@ export function renderGrid() {
       // Do not open if clicking a button (expand, copy, vote, etc.)
       if (e.target.closest("button") || e.target.closest("a")) return;
       openModalFn();
+    };
+
+    card.querySelector(`#fav-${p.id}`).onclick = () => {
+      const btn = card.querySelector(`#fav-${p.id}`);
+      if (state.favorites[p.id]) {
+        delete state.favorites[p.id];
+        btn.innerHTML = "☆";
+        btn.classList.remove("faved");
+        showToast("Removed from favorites");
+      } else {
+        state.favorites[p.id] = true;
+        btn.innerHTML = "★";
+        btn.classList.add("faved");
+        showToast("Saved to favorites!");
+      }
+      localStorage.setItem("pb-favs", JSON.stringify(state.favorites));
+      if (state.activeCategory === "favorites") applyFilters();
     };
 
     card.querySelector(`#copy-${p.id}`).onclick = () => {

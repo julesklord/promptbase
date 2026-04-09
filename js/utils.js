@@ -2,6 +2,14 @@ export function escHtml(str) {
   return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
+export function formatPromptBody(str) {
+  let esc = escHtml(str);
+  esc = esc.replace(/(&lt;\/?\w+&gt;)/gi, '<span class="xml-tag">$1</span>');
+  esc = esc.replace(/\*\*(.*?)\*\*/g, '<strong style="color:var(--text)">$1</strong>');
+  esc = esc.replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>');
+  return esc;
+}
+
 export function showToast(msg) {
   const t = document.getElementById("toast");
   const msgEl = document.getElementById("toastMsg");
