@@ -170,7 +170,7 @@ export function renderGrid() {
       btn.textContent = body.classList.contains("card-body-full") ? "collapse ↑" : "expand ↓";
     };
 
-    card.querySelector(`#fullview-${p.id}`).onclick = () => {
+    const openModalFn = () => {
       const modal = document.getElementById("fullViewModal");
       modal.innerHTML = `
         <div class="modal" style="max-width:800px;">
@@ -218,6 +218,18 @@ export function renderGrid() {
         btn.textContent = "Copied!";
         setTimeout(() => (btn.textContent = "Copy Prompt"), 1500);
       };
+    };
+
+    card.querySelector(`#fullview-${p.id}`).onclick = (e) => {
+      e.stopPropagation();
+      openModalFn();
+    };
+
+    card.style.cursor = "pointer";
+    card.onclick = (e) => {
+      // Do not open if clicking a button (expand, copy, vote, etc.)
+      if (e.target.closest("button") || e.target.closest("a")) return;
+      openModalFn();
     };
 
     card.querySelector(`#copy-${p.id}`).onclick = () => {
