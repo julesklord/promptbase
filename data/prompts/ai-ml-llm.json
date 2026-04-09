@@ -118,6 +118,7 @@
                         "ai-safety"
                     ],
         "difficulty":  "advanced"
+    },
     {
         "id": "ai-reasoning-o1-opt-052",
         "category": "AI/ML & LLM",
