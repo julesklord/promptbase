@@ -75,5 +75,16 @@
     "author": "community",
     "votes": 0,
     "difficulty": "intermediate"
+  },
+  {
+    "id": "mobile-realm-offline-062",
+    "category": "Mobile Development",
+    "tag": "mobile · realm-db",
+    "title": "React Native - RealmDB Offline-First Architecture",
+    "description": "Implement an entirely local-first persistence layer utilizing RealmDB.",
+    "body": "<task>\nEngineer a React Native architectural snippet utilizing `@realm/react`.\nDesign a Schema for `[ENTITY]` and specifically demonstrate how to observe live queries (Reactive UI) so the React components update instantly upon background write events seamlessly without manual state flushing.\n</task>",
+    "author": "mobile_ninja_22",
+    "votes": 3,
+    "difficulty": "intermediate"
   }
 ]
