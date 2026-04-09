@@ -13,9 +13,11 @@ The "API" of Promptbase consists of a sharded JSON database managed via a centra
 Instead of a single heavy file, the database is split into category shards located in `data/prompts/`.
 
 ### Manifest (`data/manifest.json`)
+
 An array of strings listing all active shard filenames (e.g., `["backend-development.json", "security-auth.json", ...]`).
 
 ### Shards (`data/prompts/*.json`)
+
 Each shard is an array of objects belonging to that specific category.
 
 ### Object Schema
