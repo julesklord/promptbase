@@ -1,39 +1,47 @@
 # PROMPTBASE
 
-> Community-driven LLM prompt library for builders — agents, MCP, DAW automation, WSL2, and more.
+> **The community-driven LLM prompt library for builders.**
 
-**[→ Open the library](https://julesklord.github.io/promptbase)**
+Promptbase is a production-grade collection of technical prompts optimized for real-world engineering workflows. From agentic logic and DAW automation to WSL2 networking and AI safety guardrails, we curate prompts that work where it matters.
 
-## What is this?
+## 🚀 Quick Start
 
-A community-maintained, zero-backend prompt library. Prompts live in `prompts.json`. The site is pure HTML/JS, hosted on GitHub Pages.
+1. **Clone & Install**
+   ```bash
+   git clone https://github.com/julesklord/promptbase.git
+   cd promptbase
+   npm install
+   ```
+2. **Launch Dev Server**
+   ```bash
+   npm start
+   ```
+3. **Explore**
+   Navigate to `http://localhost:5500` to browse the library.
 
-No login. No database. Just a JSON file and GitHub PRs.
+## 📚 Technical Documentation
 
-## Stack
+We maintain a distributed documentation suite following the `/make-doc` standard for maximum clarity and maintainability.
 
-- `index.html` — the entire frontend (vanilla HTML/CSS/JS)
-- `prompts.json` — the database
-- `CONTRIBUTING.md` — how to submit prompts
-- GitHub Pages — hosting
+| Document | Description |
+|---|---|
+| [🏗️ Architecture](/g:/DEVELOPMENT/promptbase/docs/ARCHITECTURE.md) | Technical deep-dive into the modular ESM and event-driven state. |
+| [📋 API & Schema](/g:/DEVELOPMENT/promptbase/docs/API_SCHEMA.md) | Definition of `prompts.json` and internal module interfaces. |
+| [🧪 Testing](/g:/DEVELOPMENT/promptbase/docs/TESTING.md) | E2E validation strategy using Playwright. |
+| [⚖️ Governance](/g:/DEVELOPMENT/promptbase/docs/GOVERNANCE.md) | Approval authority and contribution policies. |
+| [🤝 Contributing](/g:/DEVELOPMENT/promptbase/CONTRIBUTING.md) | How to submit your own prompts to the community. |
 
-## Quick contribute
+## 🛠️ Technology Stack
 
-1. Edit `prompts.json` directly on GitHub
-2. Add your prompt following the schema in [CONTRIBUTING.md](CONTRIBUTING.md)
-3. Open a PR
+- **Frontend**: Vanilla HTML/JS (ES6+ Modules).
+- **Styling**: Zero-framework CSS (Custom Properties, Flexbox, Grid).
+- **Data**: Static JSON persistence.
+- **Testing**: Playwright.
+- **DevOps**: GitHub Pages (hosting) + browser-sync.
 
-Or use the [submit form](https://julesklord.github.io/promptbase) on the site.
+## ⚖️ License
 
-## Run locally
+Promptbase is Open Source and licensed under the [MIT License](LICENSE).
 
-```bash
-git clone https://github.com/julesklord/promptbase
-cd promptbase
-python -m http.server 8080
-# open http://localhost:8080
-```
-
-## License
-
-MIT
+---
+Built with 🔴 by **Jules Martins** and the dev community.
