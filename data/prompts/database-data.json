@@ -81,5 +81,16 @@
       "security"
     ],
     "difficulty": "advanced"
+  },
+  {
+    "id": "database-postgres-pgvector-061",
+    "category": "Database & Data",
+    "tag": "postgres · ai-vectors",
+    "title": "PostgreSQL - pgvector Similarity Search Strategy",
+    "description": "Store and query AI knowledge vectors natively inside PostgreSQL without external vector databases.",
+    "body": "<context>\nTarget: RAG Knowledge base utilizing OpenAI 1536-dimensional embeddings.\n</context>\n\n<task>\nGenerate the SQL schema required to:\n1. Enable the `pgvector` extension.\n2. Create the target table utilizing the `vector(1536)` datatype.\n3. Implement a high-performance `HNSW` index optimized for Exact Nearest Neighbor (ENN) distance search.\n4. Write the query to retrieve the top 5 semantically similar rows using the `<->` cosine distance operator.\n</task>",
+    "author": "dataWhiz",
+    "votes": 12,
+    "difficulty": "advanced"
   }
 ]
