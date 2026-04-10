@@ -8,15 +8,8 @@
     "body": "Act as a Principal Software Engineer. Analyze the following architectural problem and definitively select the optimal Design Pattern.\n\n<context>\nProblem Statement:\n[INSERT_PROBLEM_DESCRIPTION]\n\nContext Variables:\n- Target Language: [Python/JS/Java/Rust]\n- Refactor Scope: [Class-level Module / System Platform Architecture]\n- Base Team Experience: [Beginner/Intermediate/Expert]\n</context>\n\n<task>\nConsider and rule out patterns across the following categories:\n1. **Creational**: Evaluate Singleton, Factory Method, Abstract Factory, or Builder.\n2. **Structural**: Evaluate Adapter, Decorator, Proxy, or Facade.\n3. **Behavioral**: Evaluate Observer, Strategy, State, or Command.\n\nProvide:\n- The definitive recommended design pattern with explicit justification.\n- A concrete implementation code skeleton demonstrating exactly how the pattern resolves the issue.\n- One highly plausible alternative pattern that was considered and ultimately rejected.\n- Architectural trade-offs inherent to the chosen pattern (e.g., added verbosity or memory overhead).\n</task>",
     "author": "community",
     "votes": 0,
-    "model": [
-      "claude",
-      "gpt"
-    ],
-    "usecase": [
-      "code-design",
-      "architecture",
-      "best-practices"
-    ],
+    "model": ["claude", "gpt"],
+    "usecase": ["code-design", "architecture", "best-practices"],
     "difficulty": "intermediate"
   },
   {
@@ -28,16 +21,8 @@
     "body": "Act as a Senior Code Reviewer. Explicitly evaluate the provided Pull Request code patch against this structured quality framework.\n\n<context>\nPull Request Telemetry:\n- PR Description: [CHANGES_INTENT]\n- Critical Files: [LIST_FILES]\n- Delta: [+/- N Lines]\n</context>\n\n<task>\nPerform the audit according to this sequence:\n1. **Functional Integrity**: Does the logic satisfy the requirements? Are edge cases successfully trapped? Is documentation updated?\n2. **Code Quality**: Evaluate naming clarity, cyclomatic complexity reduction, and strict adherence to the DRY principle.\n3. **Performance Metrics**: Identify N+1 query hazards, computational bottlenecks, or potential memory leak vectors.\n4. **Security Vulnerabilities**: Scan for input validation failures, injection vectors, and raw unescaped payloads.\n5. **Maintainability**: Ensure logging is adequate, error handling is graceful and not suppressed, and technical debt is noted.\n\nProvide immediately actionable feedback and precise inline code amendment suggestions.\n</task>",
     "author": "jules",
     "votes": 16,
-    "model": [
-      "claude",
-      "gemini",
-      "gpt"
-    ],
-    "usecase": [
-      "code-review",
-      "quality",
-      "best-practices"
-    ],
+    "model": ["claude", "gemini", "gpt"],
+    "usecase": ["code-review", "quality", "best-practices"],
     "difficulty": "beginner"
   },
   {
@@ -49,15 +34,8 @@
     "body": "Act as a dedicated Technical Writer. Draft comprehensive documentation for the requested component.\n\n<context>\nTarget Component:\n[COMPONENT/FEATURE_NAME]\n\nTarget Demographics:\n- Primary Audience: [DEVELOPERS/END_USERS/OPERATORS]\n- Technical Level: [BEGINNER/INTERMEDIATE/EXPERT]\n- Output Format: [README / TUTORIAL / API_DOCS / TROUBLESHOOTING]\n</context>\n\n<task>\nThe compiled documentation must enforce the following structural segments:\n1. **Overview**: Executive summary defining what it is and its core value proposition.\n2. **Getting Started**: The minimum viable setup logic required to run correctly.\n3. **Practical Examples**: 3-5 real-world, highly relevant programmatic use cases.\n4. **Internal Architecture**: A conceptual breakdown of how it operates under the hood.\n5. **API Reference** (If Applicable): Detailed parameter tables outlining required types and schemas.\n6. **Common Issues & FAQ**: Preventative solutions for the top 5 most frequent friction points.\n7. **Performance Tuning**: Instructions on scaling or optimizing execution.\n\nFormatting Constraint: Utilize clear markdown, concise language, impeccably formatted code blocks, and an ASCII structural diagram if beneficial to spatial understanding.\n</task>",
     "author": "jules",
     "votes": 6,
-    "model": [
-      "claude",
-      "gemini"
-    ],
-    "usecase": [
-      "documentation",
-      "writing",
-      "communication"
-    ],
+    "model": ["claude", "gemini"],
+    "usecase": ["documentation", "writing", "communication"],
     "difficulty": "beginner"
   },
   {
