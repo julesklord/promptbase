@@ -6,7 +6,7 @@
   "scripts": {
     "start": "browser-sync start --server --files '*.html, css/*.css, js/*.js, prompts.json' --port 5500",
     "format": "prettier --write .",
-    "lint": "eslint js/*.js",
+    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint js/*.js",
     "test": "jest"
   },
   "jest": {

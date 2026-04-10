@@ -442,8 +442,8 @@ header {
 }
 
 .sidebar-paragraph {
-  font-size: 11px; 
-  color: var(--text3); 
+  font-size: 11px;
+  color: var(--text3);
   line-height: 1.7;
 }
 
@@ -849,13 +849,13 @@ header {
 }
 
 .form-output-json {
-  min-height: 120px; 
-  color: var(--amber); 
+  min-height: 120px;
+  color: var(--amber);
   font-size: 10px;
 }
 
 .modal-actions-row {
-  display: flex; 
+  display: flex;
   gap: 8px;
 }
 
@@ -887,12 +887,7 @@ header {
   bottom: 0;
   left: 0;
   transform: translateX(-100%);
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.03),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
   animation: shimmer 1.5s infinite;
 }
 

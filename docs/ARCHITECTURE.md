@@ -23,10 +23,10 @@ Promptbase is built on three architectural pillars:
            |
            v
    +-------+--------+
-   |     api.js     | (Fetch, HTTP Handler, 
+   |     api.js     | (Fetch, HTTP Handler,
    | (Validation)   |  Schema Guard)
    +-------+--------+
-           | 
+           |
            | [Trigger: dataLoaded Event]
            v
    +-------+--------+      +----------------+
@@ -44,13 +44,13 @@ Promptbase is built on three architectural pillars:
 
 ### Module Responsibilities
 
-| Module | Responsibility | Key Export(s) |
-| --- | --- | --- |
-| `api.js` | Fetching data and verifying schema integrity. | `loadPrompts()` |
-| `state.js` | Managing active filters, search queries, and prompt subsets. | `state`, `applyFilters()` |
+| Module        | Responsibility                                                   | Key Export(s)                  |
+| ------------- | ---------------------------------------------------------------- | ------------------------------ |
+| `api.js`      | Fetching data and verifying schema integrity.                    | `loadPrompts()`                |
+| `state.js`    | Managing active filters, search queries, and prompt subsets.     | `state`, `applyFilters()`      |
 | `renderer.js` | Pure UI generation from state. Handles cards, stats, and modals. | `renderGrid()`, `buildStats()` |
-| `utils.js` | Reusable helpers: text escaping, toasts, and animations. | `escHtml()`, `showToast()` |
-| `app.js` | Binds DOM listeners and coordinates cross-module lifecycle. | (Entry point) |
+| `utils.js`    | Reusable helpers: text escaping, toasts, and animations.         | `escHtml()`, `showToast()`     |
+| `app.js`      | Binds DOM listeners and coordinates cross-module lifecycle.      | (Entry point)                  |
 
 ## Design Decisions
 
@@ -68,5 +68,6 @@ Instead of direct coupling between `state.js` and `renderer.js`, we use `window.
 - **Version**: Native JS (ES2022+ recommended).
 
 ---
+
 Last updated: 2026-04-09
 Maintainer: Jules Martins (@julesklord)

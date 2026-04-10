@@ -1,11 +1,11 @@
 import { state, applyFilters } from "./state.js";
 import { loadPrompts } from "./api.js";
-import { 
-  buildStats, 
-  buildCategories, 
-  buildTagCloud, 
-  buildDiffCounts, 
-  renderGrid 
+import {
+  buildStats,
+  buildCategories,
+  buildTagCloud,
+  buildDiffCounts,
+  renderGrid,
 } from "./renderer.js";
 import { showToast } from "./utils.js";
 
@@ -63,9 +63,15 @@ document.getElementById("sortSelect")?.addEventListener("change", applyFilters);
 const submitOverlay = document.getElementById("submitModal");
 const fullViewOverlay = document.getElementById("fullViewModal");
 
-document.getElementById("openModal")?.addEventListener("click", () => submitOverlay?.classList.add("open"));
-document.getElementById("openModal2")?.addEventListener("click", () => submitOverlay?.classList.add("open"));
-document.getElementById("closeSubmitModal")?.addEventListener("click", () => submitOverlay?.classList.remove("open"));
+document
+  .getElementById("openModal")
+  ?.addEventListener("click", () => submitOverlay?.classList.add("open"));
+document
+  .getElementById("openModal2")
+  ?.addEventListener("click", () => submitOverlay?.classList.add("open"));
+document
+  .getElementById("closeSubmitModal")
+  ?.addEventListener("click", () => submitOverlay?.classList.remove("open"));
 
 window.addEventListener("click", (e) => {
   if (e.target === submitOverlay) submitOverlay?.classList.remove("open");
@@ -115,8 +121,10 @@ function generateJSON() {
     .value.split(",")
     .map((s) => s.trim())
     .filter(Boolean);
-    
-  const models = ["claude", "gemini", "gpt", "ollama"].filter((m) => document.getElementById("m-" + m).checked);
+
+  const models = ["claude", "gemini", "gpt", "ollama"].filter(
+    (m) => document.getElementById("m-" + m).checked,
+  );
 
   const catMap = {
     "Backend Development": "backend",
@@ -130,16 +138,38 @@ function generateJSON() {
     "AI Agents & MCP": "agents",
     Other: "other",
   };
-  
-  const prefix = catMap[cat] || cat.split(" ")[0].toLowerCase().replace(/[^a-z]/g, "");
-  const id = (prefix + "-" + title.toLowerCase().replace(/[^a-z]/g, "-")).replace(/-+/g, "-").slice(0, 40) + "-" + Math.floor(Math.random() * 1000).toString().padStart(3, "0");
+
+  const prefix =
+    catMap[cat] ||
+    cat
+      .split(" ")[0]
+      .toLowerCase()
+      .replace(/[^a-z]/g, "");
+  const id =
+    (prefix + "-" + title.toLowerCase().replace(/[^a-z]/g, "-")).replace(/-+/g, "-").slice(0, 40) +
+    "-" +
+    Math.floor(Math.random() * 1000)
+      .toString()
+      .padStart(3, "0");
 
   if (!title || !tag || !cat || !diff || !body) {
     showToast("Fill required fields first");
     return;
   }
 
-  const entry = { id, category: cat, tag, title, description: desc, body, author, votes: 0, model: models, usecase: usecases, difficulty: diff };
+  const entry = {
+    id,
+    category: cat,
+    tag,
+    title,
+    description: desc,
+    body,
+    author,
+    votes: 0,
+    model: models,
+    usecase: usecases,
+    difficulty: diff,
+  };
   const outputEl = document.getElementById("f-output");
   if (outputEl instanceof HTMLTextAreaElement) {
     outputEl.value = JSON.stringify(entry, null, 2);
