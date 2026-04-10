@@ -8,8 +8,15 @@
     "body": "Act as a Python QA Automation Engineer. Design a complete test suite for [TARGET_MODULE] exclusively utilizing `pytest`.\n\n<context>\nTest Subject Specifications:\n- Core Functionality: [DESCRIPTION]\n- External Dependencies: [APIs/Databases/Filesystem]\n- System Criticality: [LOW/MEDIUM/HIGH]\n- Compliance Coverage Target: [%]\n</context>\n\n<task>\nGenerate a robust testing architecture satisfying the following requirements:\n- Unit Tests: Isolate internal logic via strict external mocking.\n- Integration Tests: Connect utilizing deterministic databases or `testcontainers`.\n- E2E Tests: End-to-end traversal (if deemed applicable based on the module).\n- CI/CD Configuration: Headless, fast-execution optimization.\n\nUtilize the following advanced patterns:\n1. Implement Pytest fixtures prioritizing correct `scope` and `autouse` configurations.\n2. Demonstrate Factory patterns vs. static Fixtures for object generation.\n3. Explicitly compare and select mocking via native `unittest.mock` vs the `pytest-mock` plugin.\n4. Heavily utilize `@pytest.mark.parametrize` to cover massive matrix test cases cleanly.\n5. Establish custom `markers` to categorize slow vs fast testing tiers.\n6. Provide `conftest.py` optimization strategies.\n\nProvide the generated fixture skeleton, fully implemented happy-path and edge-case execution blocks, and the required `pytest.ini` setup variables.\n</task>",
     "author": "community",
     "votes": 0,
-    "model": ["claude", "gpt"],
-    "usecase": ["python", "testing", "qa"],
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "python",
+      "testing",
+      "qa"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -21,8 +28,15 @@
     "body": "Generate a comprehensive `Jest` configuration and testing scaffold targeting a [React / Node.js] environment.\n\n<context>\nEnvironment Variables:\n- Web Framework: [React / Express / Custom Vanilla]\n- TypeScript Enabled: [True / False]\n- Hard Coverage Target: [%]\n- Execution Scale: [Projected test count]\n</context>\n\n<task>\nProduce an architecture accommodating the following criteria:\n1. Execution of pure logic unit tests.\n2. Implementation of DOM interaction testing via React Testing Library (RTL).\n3. Deployment of Snapshot testing (with a strict outline determining exactly when it is an anti-pattern).\n4. Reliable resolution formulas for `async/await` state assertions.\n5. Deep integration of `jest.mock()` and `jest.spyOn()` intercept patterns.\n6. Automated generation of integrated coverage reporting pipelines.\n\nProvide:\n- The exact `jest.config.ts/js` required.\n- A global setup configuration file injecting required polyfills and DOM parsers.\n- Detailed execution templates covering Node API routing and isolated React Component interaction.\n- Reusable mock blueprints intercepting global timers, the `Fetch` API, and standard ES modules.\n</task>",
     "author": "community",
     "votes": 0,
-    "model": ["claude", "gpt"],
-    "usecase": ["javascript", "testing", "qa"],
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "javascript",
+      "testing",
+      "qa"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -34,8 +48,15 @@
     "body": "Design a complete quality assurance strategy enveloping the specified feature.\n\n<context>\nFeature Topology:\n- Target Feature/Module: [MODULE_NAME]\n- Stack Ecosystem: [LANGUAGE/FRAMEWORKS]\n- SLA Criticality: [LOW / MEDIUM / HIGH FATALITY]\n- Expected Code Coverage: [%]\n- Execution Platform: [WEB / NATIVE API / CLI]\n</context>\n\n<task>\nDeliver the architectural strategy covering the following vectors:\n1. Calculate and justify the specific Testing Pyramid distribution ratio (Unit % vs Integration % vs E2E %).\n2. Compile a minimum viable test matrix containing at least 5 absolute distinct scenarios per testing layer.\n3. Detailed blueprint defining the injection of global setup variables and deterministic fixture data.\n4. Recommend a modern testing suite stack and any required CI/CD interception points required to fail bad pull requests.\n\nConstrain focus on aggressive edge cases, explicit error handling assertions, and the fundamental happy path sequence.\n</task>",
     "author": "jules",
     "votes": 12,
-    "model": ["claude", "gpt"],
-    "usecase": ["testing", "qa", "backend"],
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "testing",
+      "qa",
+      "backend"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -47,8 +68,26 @@
     "body": "Implement a Visual Regression Testing pipeline relying exclusively on Playwright for [TARGET_CLIENT_APP].\n\n<task>\nExecute the architectural design meeting these specifications:\n1. Configure exact global behaviors for `expect(page).toHaveScreenshot()`.\n2. Engineer dynamic data masking rules to block false-positive test failures induced by random IDs, animations, or rolling timestamps.\n3. Setup contextual emulation covering diverse resolutions (Mobile vs Desktop matrices).\n4. Programmatic integration into standard CI/CD capable of failing executing pipelines if the visual pixel delta exceeds a defined [%] threshold.\n\nProvide:\n- The exact additions required inside `playwright.config.ts`.\n- A complete executable test case verifying visual persistence with applied mask overlays.\n- Command instructions to accurately regenerate and sync root baseline snapshots locally without triggering CI caching issues.\n</task>",
     "author": "jules",
     "votes": 0,
-    "model": ["claude", "gpt"],
-    "usecase": ["testing", "qa", "frontend"],
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "testing",
+      "qa",
+      "frontend"
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "test-property-based-025",
+    "category": "Testing & QA",
+    "tag": "testing · property-based",
+    "title": "Testing - Property-Based Testing with Hypothesis",
+    "description": "Go beyond unit tests by letting the computer find edge cases automatically.",
+    "body": "<task>\nImplement a property-based test for [ALGORITHM].\nDefine strategies for inputs (integers, strings) and assert that [INVARIANTS] always hold true regardless of the input data.\n</task>",
+    "author": "anonymous",
+    "votes": 12,
     "difficulty": "intermediate"
   }
 ]
