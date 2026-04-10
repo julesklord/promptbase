@@ -8,3 +8,4 @@ promptbase.zip
 .vscode/
 .DS_Store
 *.log
+coverage/
