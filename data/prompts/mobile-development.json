@@ -86,5 +86,16 @@
     "author": "mobile_ninja_22",
     "votes": 3,
     "difficulty": "intermediate"
+  },
+  {
+    "id": "mobile-flutter-bloc-027",
+    "category": "Mobile Development",
+    "tag": "flutter · state",
+    "title": "Flutter - Clean Architecture with BLoC",
+    "description": "Separate business logic from the UI using the Business Logic Component pattern.",
+    "body": "<task>\nImplement a generic Counter BLoC.\n1. Define `Events`, `States`, and the `MapEventToState` logic.\n2. Show how to provide and consume the BLoC in the widget tree.\n</task>",
+    "author": "anonymous",
+    "votes": 29,
+    "difficulty": "intermediate"
   }
 ]
