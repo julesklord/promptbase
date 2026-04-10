@@ -91,23 +91,15 @@ document.getElementById("backToTop")?.addEventListener("click", () => {
 const themeToggle = document.getElementById("themeToggle");
 const currentTheme = localStorage.getItem("theme");
 
-if (currentTheme === "light") {
-  document.documentElement.setAttribute("data-theme", "light");
-  if (themeToggle) themeToggle.innerText = "☾";
+function initTheme() {
+  const theme = localStorage.getItem("pb-theme") || "dark";
+  document.documentElement.setAttribute("data-theme", theme);
+  document.getElementById("themeToggle")?.addEventListener("click", () => {
+    const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    localStorage.setItem("pb-theme", next);
+  });
 }
-
-themeToggle?.addEventListener("click", () => {
-  let theme = document.documentElement.getAttribute("data-theme");
-  if (theme === "light") {
-    document.documentElement.removeAttribute("data-theme");
-    localStorage.setItem("theme", "dark");
-    themeToggle.innerText = "☀";
-  } else {
-    document.documentElement.setAttribute("data-theme", "light");
-    localStorage.setItem("theme", "light");
-    themeToggle.innerText = "☾";
-  }
-});
 
 // JSON Generation Logic
 function generateJSON() {
@@ -166,4 +158,5 @@ document.getElementById("copyJson")?.addEventListener("click", () => {
 });
 
 // Bootstrap
+initTheme();
 loadPrompts();

@@ -1,5 +1,5 @@
 import { state, applyFilters } from "./state.js";
-import { escHtml, formatPromptBody, showToast, animateNum } from "./utils.js";
+import { escapeHtml, formatPromptBody, showToast, animateNum } from "./utils.js";
 
 export function renderSkeletons() {
   const grid = document.getElementById("promptGrid");
@@ -69,7 +69,7 @@ export function buildTagCloud() {
     .forEach((tag) => {
       const btn = document.createElement("button");
       btn.className = "tag-pill";
-      btn.innerHTML = `${tag} <span style="font-size:8px;opacity:0.4;margin-left:4px;">${tags[tag]}</span>`;
+      btn.innerHTML = `${escapeHtml(tag)} <span style="font-size:8px;opacity:0.4;margin-left:4px;">${tags[tag]}</span>`;
       btn.onclick = () => {
         if (state.activeTag === tag) {
           state.activeTag = null;
@@ -130,6 +130,7 @@ export function renderGrid() {
   }
 
   grid.innerHTML = "";
+  const fragment = document.createDocumentFragment();
   state.filtered.forEach((p, i) => {
     const card = document.createElement("div");
     card.className = "prompt-card";
@@ -145,11 +146,11 @@ export function renderGrid() {
 
     card.innerHTML = `
       <div class="card-top">
-        <span class="card-tag">${p.tag}</span>
-        <span class="card-diff diff-${diff}">${diff}</span>
+        <span class="card-tag">${escapeHtml(p.tag)}</span>
+        <span class="card-diff diff-${diff}">${escapeHtml(diff)}</span>
       </div>
-      <div class="card-title">${p.title}</div>
-      <div class="card-desc">${p.description}</div>
+      <div class="card-title">${escapeHtml(p.title)}</div>
+      <div class="card-desc">${escapeHtml(p.description)}</div>
       <div class="card-body" id="body-${p.id}">${formatPromptBody(p.body)}</div>
       <div style="display:flex;gap:6px;margin-bottom:12px;">
         <button class="expand-btn" id="expand-${p.id}" aria-label="Expand or collapse prompt">expand ↓</button>
@@ -165,10 +166,10 @@ export function renderGrid() {
       </div>
       <div class="card-author">
         <div class="author-dot"></div>
-        <span>${p.author || "anonymous"}</span>
+        <span>${escapeHtml(p.author || "anonymous")}</span>
         ${(p.usecase || [])
           .slice(0, 3)
-          .map((t) => `<span style="color:var(--text3);font-size:9px;background:var(--bg3);padding:1px 5px;">${t}</span>`)
+          .map((t) => `<span style="color:var(--text3);font-size:9px;background:var(--bg3);padding:1px 5px;">${escapeHtml(t)}</span>`)
           .join("")}
       </div>
     `;
@@ -187,14 +188,14 @@ export function renderGrid() {
         <div class="modal" style="max-width:800px;">
           <div class="modal-header">
             <div>
-              <div class="modal-title">${p.title}</div>
-              <div style="font-size:10px;color:var(--text3);margin-top:6px;">${p.tag} · ${p.category}</div>
+              <div class="modal-title">${escapeHtml(p.title)}</div>
+              <div style="font-size:10px;color:var(--text3);margin-top:6px;">${escapeHtml(p.tag)} · ${escapeHtml(p.category)}</div>
             </div>
             <button class="modal-close" id="closeFullView">×</button>
           </div>
           <div class="modal-body">
             <div style="margin-bottom:1.5rem;padding:12px;background:var(--bg3);border-left:2px solid var(--red);">
-              <div style="font-size:11px;color:var(--text2);">${p.description}</div>
+              <div style="font-size:11px;color:var(--text2);">${escapeHtml(p.description)}</div>
             </div>
             <div style="margin-bottom:1.5rem;">
               <div style="font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Prompt Body</div>
@@ -208,13 +209,13 @@ export function renderGrid() {
               <div style="flex:1;min-width:150px;">
                 <div style="font-size:9px;color:var(--text3);text-transform:uppercase;margin-bottom:6px;">Use Cases</div>
                 <div style="display:flex;gap:4px;flex-wrap:wrap;">
-                  ${(p.usecase || []).map((t) => `<span style="font-size:10px;padding:2px 8px;background:var(--bg3);color:var(--text2);border:1px solid var(--border);">${t}</span>`).join("")}
+                  ${(p.usecase || []).map((t) => `<span style="font-size:10px;padding:2px 8px;background:var(--bg3);color:var(--text2);border:1px solid var(--border);">${escapeHtml(t)}</span>`).join("")}
                 </div>
               </div>
             </div>
           </div>
           <div class="modal-footer">
-            <div class="contribute-hint">Author: <strong>${p.author || "anonymous"}</strong> · Difficulty: <strong>${p.difficulty}</strong> · ID: <code style="color:var(--amber);font-size:10px;">${p.id}</code></div>
+            <div class="contribute-hint">Author: <strong>${escapeHtml(p.author || "anonymous")}</strong> · Difficulty: <strong>${escapeHtml(p.difficulty)}</strong> · ID: <code style="color:var(--amber);font-size:10px;">${p.id}</code></div>
             <div style="display:flex;gap:8px;">
               <button class="btn-ghost fav-btn ${currentFav ? 'faved' : ''}" id="fullview-fav" style="border: 1px solid var(--amber) !important; color: var(--amber);">${currentFav ? '★ Saved' : '☆ Save'}</button>
               <button class="btn-ghost" id="fullview-share">🔗 Share Link</button>
@@ -316,6 +317,7 @@ export function renderGrid() {
       }
     };
 
-    grid.appendChild(card);
+    fragment.appendChild(card);
   });
+  grid.appendChild(fragment);
 }

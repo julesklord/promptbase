@@ -1,5 +1,16 @@
+export function escapeHtml(str) {
+  const chars = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  };
+  return str.replace(/[&<>"']/g, (m) => chars[m]);
+}
+
 export function escHtml(str) {
-  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  return escapeHtml(str);
 }
 
 export function formatPromptBody(str) {
