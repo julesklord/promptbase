@@ -28,10 +28,15 @@ export function buildStats() {
   animateNum("statVotes", totalVotes);
 }
 
+let cachedCategories = null;
+
 export function buildCategories() {
   const tabs = document.getElementById("filterTabs");
   if (!tabs) return;
-  const cats = ["all", "favorites", ...new Set(state.allPrompts.map((p) => p.category))];
+  if (!cachedCategories) {
+    cachedCategories = ["all", "favorites", ...new Set(state.allPrompts.map((p) => p.category))];
+  }
+  const cats = cachedCategories;
   tabs.innerHTML = "";
   cats.forEach((cat) => {
     const btn = document.createElement("button");
