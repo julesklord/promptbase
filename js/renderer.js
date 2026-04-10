@@ -69,7 +69,7 @@ export function buildTagCloud() {
     .forEach((tag) => {
       const btn = document.createElement("button");
       btn.className = "tag-pill";
-      btn.innerHTML = `${tag} <span style="font-size:8px;opacity:0.4;margin-left:4px;">${tags[tag]}</span>`;
+      btn.innerHTML = `${escHtml(tag)} <span style="font-size:8px;opacity:0.4;margin-left:4px;">${tags[tag]}</span>`;
       btn.onclick = () => {
         if (state.activeTag === tag) {
           state.activeTag = null;
