@@ -75,5 +75,16 @@
     "author": "community",
     "votes": 0,
     "difficulty": "intermediate"
+  },
+  {
+    "id": "cloud-serverless-aws-lambda-029",
+    "category": "Cloud Infrastructure",
+    "tag": "aws · serverless",
+    "title": "AWS - High-Performance Serverless Lambda",
+    "description": "Optimize Lambda function cold starts and execution cost.",
+    "body": "<task>\nConfigure an AWS Lambda using the Serverless Framework.\n1. Implement 'Provisioned Concurrency'.\n2. Optimize memory settings for CPU-bound tasks.\n</task>",
+    "author": "anonymous",
+    "votes": 36,
+    "difficulty": "intermediate"
   }
 ]
