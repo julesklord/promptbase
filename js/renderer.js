@@ -130,6 +130,7 @@ export function renderGrid() {
   }
 
   grid.innerHTML = "";
+  const fragment = document.createDocumentFragment();
   state.filtered.forEach((p, i) => {
     const card = document.createElement("div");
     card.className = "prompt-card";
@@ -316,6 +317,7 @@ export function renderGrid() {
       }
     };
 
-    grid.appendChild(card);
+    fragment.appendChild(card);
   });
+  grid.appendChild(fragment);
 }
