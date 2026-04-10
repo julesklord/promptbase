@@ -22,19 +22,19 @@ Each shard is an array of objects belonging to that specific category.
 
 ### Object Schema
 
-| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `id` | `string` | Yes | Unique slug. Pattern: `category-title-random`. |
-| `category` | `string` | Yes | Functional group (e.g., "Backend Development"). |
-| `tag` | `string` | Yes | Inline categorization (e.g., "node · auth"). |
-| `title` | `string` | Yes | Human-readable name. |
-| `description`| `string` | Yes | One-sentence summary. |
-| `body` | `string` | Yes | The actual prompt text. Use `[PLACEHOLDERS]`. |
-| `author` | `string` | No | GitHub username or "community". |
-| `votes` | `number` | Yes | Initial vote count (usually 0). |
-| `model` | `string[]` | Yes | Supported models: `["claude", "gemini", "gpt", "ollama"]`. |
-| `usecase` | `string[]` | Yes | Searchable specialized tags. |
-| `difficulty` | `string` | Yes | Enum: `beginner`, `intermediate`, `advanced`. |
+| Property      | Type       | Required | Description                                                |
+| ------------- | ---------- | -------- | ---------------------------------------------------------- |
+| `id`          | `string`   | Yes      | Unique slug. Pattern: `category-title-random`.             |
+| `category`    | `string`   | Yes      | Functional group (e.g., "Backend Development").            |
+| `tag`         | `string`   | Yes      | Inline categorization (e.g., "node · auth").               |
+| `title`       | `string`   | Yes      | Human-readable name.                                       |
+| `description` | `string`   | Yes      | One-sentence summary.                                      |
+| `body`        | `string`   | Yes      | The actual prompt text. Use `[PLACEHOLDERS]`.              |
+| `author`      | `string`   | No       | GitHub username or "community".                            |
+| `votes`       | `number`   | Yes      | Initial vote count (usually 0).                            |
+| `model`       | `string[]` | Yes      | Supported models: `["claude", "gemini", "gpt", "ollama"]`. |
+| `usecase`     | `string[]` | Yes      | Searchable specialized tags.                               |
+| `difficulty`  | `string`   | Yes      | Enum: `beginner`, `intermediate`, `advanced`.              |
 
 ### Example
 
@@ -58,19 +58,19 @@ Each shard is an array of objects belonging to that specific category.
 
 ### api.js
 
-| Method | Params | Returns | Description |
-| --- | --- | --- | --- |
-| `loadPrompts()` | N/A | `Promise<void>` | Fetches data, validates schema, and dispatches `dataLoaded`. |
+| Method          | Params | Returns         | Description                                                  |
+| --------------- | ------ | --------------- | ------------------------------------------------------------ |
+| `loadPrompts()` | N/A    | `Promise<void>` | Fetches data, validates schema, and dispatches `dataLoaded`. |
 
 ### state.js
 
-| Property | Type | Description |
-|---|---|---|
-| `state` | `Object` | Global state object containing `allPrompts`, `filtered`, and active filters. |
+| Property | Type     | Description                                                                  |
+| -------- | -------- | ---------------------------------------------------------------------------- |
+| `state`  | `Object` | Global state object containing `allPrompts`, `filtered`, and active filters. |
 
-| Method | Params | Returns | Description |
-| --- | --- | --- | --- |
-| `applyFilters()` | N/A | `void` | Mutates `state.filtered` based on current UI inputs and dispatches `stateChange`. |
+| Method           | Params | Returns | Description                                                                       |
+| ---------------- | ------ | ------- | --------------------------------------------------------------------------------- |
+| `applyFilters()` | N/A    | `void`  | Mutates `state.filtered` based on current UI inputs and dispatches `stateChange`. |
 
 ## Error Conditions
 
@@ -78,5 +78,6 @@ Each shard is an array of objects belonging to that specific category.
 - **HTTP 404/500**: Triggers an empty state in the UI via the `dataLoaded` cleanup logic.
 
 ---
+
 Last updated: 2026-04-09
 Maintainer: Jules Martins (@julesklord)

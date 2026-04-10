@@ -41,8 +41,7 @@ export function buildCategories() {
     else if (cat === "favorites") {
       btn.textContent = "★ Favorites";
       btn.style.color = "var(--amber)";
-    }
-    else btn.textContent = cat;
+    } else btn.textContent = cat;
 
     btn.onclick = () => {
       document.querySelectorAll(".filter-tab").forEach((b) => b.classList.remove("active"));
@@ -59,7 +58,7 @@ export function buildTagCloud() {
   state.allPrompts.forEach((p) =>
     (p.usecase || []).forEach((t) => {
       tags[t] = (tags[t] || 0) + 1;
-    })
+    }),
   );
   const cloud = document.getElementById("tagCloud");
   if (!cloud) return;
@@ -91,12 +90,15 @@ export function buildDiffCounts() {
   state.allPrompts.forEach((p) => {
     if (counts[p.difficulty] !== undefined) counts[p.difficulty]++;
   });
-  
+
   const elAll = document.getElementById("countAll");
   if (elAll) elAll.textContent = state.allPrompts.length;
-  if (document.getElementById("countBeginner")) document.getElementById("countBeginner").textContent = counts.beginner;
-  if (document.getElementById("countIntermediate")) document.getElementById("countIntermediate").textContent = counts.intermediate;
-  if (document.getElementById("countAdvanced")) document.getElementById("countAdvanced").textContent = counts.advanced;
+  if (document.getElementById("countBeginner"))
+    document.getElementById("countBeginner").textContent = counts.beginner;
+  if (document.getElementById("countIntermediate"))
+    document.getElementById("countIntermediate").textContent = counts.intermediate;
+  if (document.getElementById("countAdvanced"))
+    document.getElementById("countAdvanced").textContent = counts.advanced;
 
   document.querySelectorAll("[data-diff]").forEach((btn) => {
     btn.onclick = () => {
@@ -121,7 +123,7 @@ export function renderGrid() {
   const grid = document.getElementById("promptGrid");
   const countEl = document.getElementById("gridCount");
   if (!grid || !countEl) return;
-  
+
   countEl.textContent = `${state.filtered.length} prompt${state.filtered.length !== 1 ? "s" : ""}`;
 
   if (!state.filtered.length) {
@@ -137,7 +139,9 @@ export function renderGrid() {
 
     const voteCount = (p.votes || 0) + (state.votes[p.id] || 0);
     const isVoted = !!state.votes[p.id];
-    const models = (p.model || []).map((m) => `<span class="model-badge model-${m}">${m}</span>`).join("");
+    const models = (p.model || [])
+      .map((m) => `<span class="model-badge model-${m}">${m}</span>`)
+      .join("");
     const diff = p.difficulty || "intermediate";
 
     const isFav = !!state.favorites[p.id];
@@ -150,7 +154,7 @@ export function renderGrid() {
       </div>
       <div class="card-title">${p.title}</div>
       <div class="card-desc">${p.description}</div>
-      <div class="card-body" id="body-${p.id}">${formatPromptBody(p.body)}</div>
+      <div class="card-body" id="body-${p.id}">${p.formattedBody}</div>
       <div style="display:flex;gap:6px;margin-bottom:12px;">
         <button class="expand-btn" id="expand-${p.id}" aria-label="Expand or collapse prompt">expand ↓</button>
         <button class="expand-btn" id="fullview-${p.id}" style="flex:1;text-align:center;" aria-label="View prompt in full screen">view fullscreen</button>
@@ -168,7 +172,10 @@ export function renderGrid() {
         <span>${p.author || "anonymous"}</span>
         ${(p.usecase || [])
           .slice(0, 3)
-          .map((t) => `<span style="color:var(--text3);font-size:9px;background:var(--bg3);padding:1px 5px;">${t}</span>`)
+          .map(
+            (t) =>
+              `<span style="color:var(--text3);font-size:9px;background:var(--bg3);padding:1px 5px;">${t}</span>`,
+          )
           .join("")}
       </div>
     `;
@@ -198,7 +205,7 @@ export function renderGrid() {
             </div>
             <div style="margin-bottom:1.5rem;">
               <div style="font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Prompt Body</div>
-              <div style="background:var(--bg);border:1px solid var(--border);padding:12px;font-size:11px;color:var(--text2);line-height:1.7;white-space:pre-wrap;max-height:400px;overflow-y:auto;">${formatPromptBody(p.body)}</div>
+              <div style="background:var(--bg);border:1px solid var(--border);padding:12px;font-size:11px;color:var(--text2);line-height:1.7;white-space:pre-wrap;max-height:400px;overflow-y:auto;">${p.formattedBody}</div>
             </div>
             <div style="display:flex;gap:1rem;flex-wrap:wrap;">
               <div style="flex:1;min-width:150px;">
@@ -216,7 +223,7 @@ export function renderGrid() {
           <div class="modal-footer">
             <div class="contribute-hint">Author: <strong>${p.author || "anonymous"}</strong> · Difficulty: <strong>${p.difficulty}</strong> · ID: <code style="color:var(--amber);font-size:10px;">${p.id}</code></div>
             <div style="display:flex;gap:8px;">
-              <button class="btn-ghost fav-btn ${currentFav ? 'faved' : ''}" id="fullview-fav" style="border: 1px solid var(--amber) !important; color: var(--amber);">${currentFav ? '★ Saved' : '☆ Save'}</button>
+              <button class="btn-ghost fav-btn ${currentFav ? "faved" : ""}" id="fullview-fav" style="border: 1px solid var(--amber) !important; color: var(--amber);">${currentFav ? "★ Saved" : "☆ Save"}</button>
               <button class="btn-ghost" id="fullview-share">🔗 Share Link</button>
               <button class="btn-red" id="fullview-copy">Copy Prompt</button>
             </div>
@@ -224,9 +231,9 @@ export function renderGrid() {
         </div>
       `;
       modal.classList.add("open");
-      
+
       document.getElementById("closeFullView").onclick = () => modal.classList.remove("open");
-      
+
       document.getElementById("fullview-share").onclick = () => {
         const url = window.location.origin + window.location.pathname + "?id=" + p.id;
         navigator.clipboard.writeText(url);
@@ -260,7 +267,7 @@ export function renderGrid() {
           showToast("Saved to favorites!");
         }
         localStorage.setItem("pb-favs", JSON.stringify(state.favorites));
-        if (state.activeCategory === "favorites") applyFilters(); 
+        if (state.activeCategory === "favorites") applyFilters();
       };
     };
 
