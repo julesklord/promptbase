@@ -1,15 +1,15 @@
 [
-    "ai-agents-mcp.json",
-    "ai-ml-llm.json",
-    "backend-development.json",
-    "cloud-infrastructure.json",
-    "code-quality-practices.json",
-    "database-data.json",
-    "devops-infrastructure.json",
-    "frontend-development.json",
-    "mobile-development.json",
-    "other.json",
-    "security-auth.json",
-    "system-design.json",
-    "testing-qa.json"
+  "ai-agents-mcp.json",
+  "ai-ml-llm.json",
+  "backend-development.json",
+  "cloud-infrastructure.json",
+  "code-quality-practices.json",
+  "database-data.json",
+  "devops-infrastructure.json",
+  "frontend-development.json",
+  "mobile-development.json",
+  "other.json",
+  "security-auth.json",
+  "system-design.json",
+  "testing-qa.json"
 ]

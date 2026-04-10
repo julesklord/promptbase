@@ -8,15 +8,8 @@
     "body": "Act as a Frontend Performance Engineer. Optimize the performance of the following React application:\n\n<context>\nApplication Metrics:\n- Current Bundle Size: [SIZE]\n- Time to Interactive (TTI): [TIME]\n- Lighthouse Score: [SCORE]\n- Target Device Constraints: [Desktop/Mobile]\n\nObserved Bottlenecks:\n- Spurious re-renders in [COMPONENT_NAME].\n- Unoptimized chunking/bundle size.\n- High latency on First Contentful Paint.\n</context>\n\n<task>\nProvide diagnostic steps and code-level solutions targeting:\n1. **React Profiler**: How to pinpoint the specific rendering culprits.\n2. **Memoization**: Strategic application of `React.memo`, `useMemo`, and `useCallback` without memory leaking.\n3. **Code Splitting**: Implementation of `React.lazy` bundled with `Suspense` boundaries.\n4. **Bundle Analysis**: Setup guide for `webpack-bundle-analyzer` or Vite equivalents.\n5. **Asset Optimization**: Implementing modern image loading (e.g., `next/image`).\n6. **Virtualization**: Windowing techniques for rendering massive data arrays.\n\nProvide a targeted refactor alongside a projected before/after Lighthouse improvement analysis.\n</task>",
     "author": "community",
     "votes": 3,
-    "model": [
-      "claude",
-      "gpt"
-    ],
-    "usecase": [
-      "react",
-      "frontend",
-      "performance"
-    ],
+    "model": ["claude", "gpt"],
+    "usecase": ["react", "frontend", "performance"],
     "difficulty": "intermediate"
   },
   {
@@ -28,15 +21,8 @@
     "body": "Migrate the provided Vue 2 component to the Vue 3 Composition API.\n\n<context>\nLegacy Component:\n[INSERT_VUE2_OPTIONS_API_CODE]\n\nTarget Framework: Vue 3.3+\n</context>\n\n<task>\nRefactor according to the following priorities:\n1. Strictly enforce the `<script setup>` syntax paradigm.\n2. Extract cross-component logic into standalone, reusable `composables`.\n3. Implement strict type-safety utilizing TypeScript interfaces.\n4. Correctly assign reactive references (`ref` vs `reactive`).\n5. Migrate legacy lifecycle hooks to their modern equivalents.\n\nAddress these specific architectural patterns:\n- Defining Custom Composables for shared domain logic.\n- The semantic difference and application of `reactive()` vs `ref()`.\n- Modern Computed Properties and deep Watchers.\n- Utilizing `Teleport` for robust modal rendering.\n\nProvide the refactored code, the newly abstracted composables, necessary TypeScript definitions, and a basic Vitest testing strategy.\n</task>",
     "author": "community",
     "votes": 11,
-    "model": [
-      "claude",
-      "gpt"
-    ],
-    "usecase": [
-      "vue",
-      "frontend",
-      "refactoring"
-    ],
+    "model": ["claude", "gpt"],
+    "usecase": ["vue", "frontend", "refactoring"],
     "difficulty": "intermediate"
   },
   {
@@ -48,15 +34,8 @@
     "body": "Refactor the following legacy React Class component into a functional component utilizing Hooks.\n\n<context>\nLegacy Component:\n[INSERT_CLASS_COMPONENT_CODE]\n\nState Map:\n- Props: [LIST_PROPS]\n- Inner State: [LIST_STATE_VARIABLES]\n- Listeners/Timers: [LIST_SUBSCRIPTIONS]\n- Lifecycle Overrides: [LIST_METHODS]\n</context>\n\n<task>\nExecute the refactor with the following constraints:\n- Retain absolute functional parity with the legacy code.\n- Pre-optimize renders using `useMemo` and `useCallback` where computationally necessary.\n- Abstract any complex lifecycle logic into a custom Hook.\n- Inject comprehensive TypeScript definitions if the original code was pure JavaScript.\n\nProvide the finalized refactored code block alongside a technical brief detailing the specific optimizations made.\n</task>",
     "author": "jules",
     "votes": 9,
-    "model": [
-      "claude",
-      "gpt"
-    ],
-    "usecase": [
-      "frontend",
-      "react",
-      "refactoring"
-    ],
+    "model": ["claude", "gpt"],
+    "usecase": ["frontend", "react", "refactoring"],
     "difficulty": "intermediate"
   },
   {
@@ -68,16 +47,8 @@
     "body": "Perform a rigorous Web Accessibility (A11y) audit on the provided component markup.\n\n<context>\nTarget Component/View:\n[INSERT_HTML_JSX_CODE]\n\nApplication Context: [E-commerce/Dashboard/Blog]\n</context>\n\n<task>\nDiagnose and resolve issues across these critical pillars:\n1. **Semantic HTML**: Verify proper structural landmarks, hierarchical headings, and native element usage.\n2. **ARIA Roles**: Inject missing `aria-*` state attributes and prune redundant ones.\n3. **Keyboard Navigation**: Ensure absolute tab-index logic and visible focus management.\n4. **Color Contrast**: Validate UI ratios against WCAG AA/AAA thresholds.\n5. **Screen Readers**: Assess alternate text descriptors and content hiding mechanisms.\n\nProvide:\n- An itemized list of identified violations categorized by WCAG compliance level.\n- The fully remediated code block.\n- Suggested automated testing protocols (e.g., integrating `axe-core` into the CI pipeline).\n</task>",
     "author": "community",
     "votes": 0,
-    "model": [
-      "claude",
-      "gpt",
-      "gemini"
-    ],
-    "usecase": [
-      "frontend",
-      "accessibility",
-      "best-practices"
-    ],
+    "model": ["claude", "gpt", "gemini"],
+    "usecase": ["frontend", "accessibility", "best-practices"],
     "difficulty": "intermediate"
   },
   {
@@ -89,15 +60,8 @@
     "body": "Audit and repair the accessibility mechanics of the following highly-interactive Modal or Dropdown component.\n\n<context>\nTarget Code:\n[INSERT_HTML_JSX_CODE]\n</context>\n\n<task>\nAddress the following mandatory accessibility checklist:\n1. **Focus Trap Execution**: Ensure keyboard focus remains entirely bound within the modal overlay while active.\n2. **Event Handling**: Implement robust `Esc` key interception to trigger closures.\n3. **ARIA Directives**: Correctly apply `aria-modal=\"true\"`, `aria-hidden` on background sibling nodes, and descriptive `aria-labels`.\n4. **Role Assignments**: Ensure the root node possesses either `role=\"dialog\"` or `role=\"menu\"`.\n\nProvide:\n- The logically corrected implementation.\n- A user-flow mapping of the expected keyboard navigation sequence (Tab, Shift+Tab, Enter, Esc).\n- A simulated transcript of how an industry-standard screen reader (e.g., NVDA, VoiceOver) would announce the component's entry and exit.\n</task>",
     "author": "community",
     "votes": 0,
-    "model": [
-      "claude",
-      "gemini"
-    ],
-    "usecase": [
-      "frontend",
-      "accessibility",
-      "ux"
-    ],
+    "model": ["claude", "gemini"],
+    "usecase": ["frontend", "accessibility", "ux"],
     "difficulty": "intermediate"
   },
   {
@@ -109,15 +73,8 @@
     "body": "Establish an automated Performance Budget architecture for a modern frontend repository.\n\n<context>\nDesired Hard Limits:\n- Largest Contentful Paint (LCP) < 2.5s\n- Total Blocking Time (TBT) < 200ms\n- Compiled JS Bundle Size < 200KB (Gzipped)\n</context>\n\n<task>\nGenerate the following configuration suite:\n1. Construct the complete `lighthouserc.json` file configuring assertions for every defined metric.\n2. Write a GitHub Actions workflow script designed to run this analysis on every pull request.\n3. Define the protocol for generating regression diff reports within the PR comments.\n\nProvide the configuration files and a troubleshooting guide outlining optimization methods when the build budget inherently fails.\n</task>",
     "author": "community",
     "votes": 8,
-    "model": [
-      "claude",
-      "gpt"
-    ],
-    "usecase": [
-      "frontend",
-      "performance",
-      "devops"
-    ],
+    "model": ["claude", "gpt"],
+    "usecase": ["frontend", "performance", "devops"],
     "difficulty": "intermediate"
   },
   {
