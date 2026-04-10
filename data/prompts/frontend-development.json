@@ -138,7 +138,7 @@
     "title": "React - Advanced Render Optimization Heuristics",
     "description": "Strategy for preventing unnecessary re-renders in deep component trees.",
     "body": "<task>\nImplement a strategy utilizing `useMemo`, `useCallback`, and `React.memo`.\nExplain the pitfalls of over-optimization and show how to use the Profiler API to measure the impact of these changes.\n</task>",
-    "author": "anonymous",
+    "author": "community (rust_ace)",
     "votes": 38,
     "difficulty": "advanced"
   },
@@ -149,7 +149,7 @@
     "title": "Vue 3 - Reusable Composable for Async State",
     "description": "Unified pattern for handling loading, error, and data states in Vue components.",
     "body": "<task>\nCreate a generic `useAsyncState` composable.\nMust handle reactive state updates and provide a clean `execute()` method to trigger the operation.\n</task>",
-    "author": "anonymous",
+    "author": "community (stack_overflowed)",
     "votes": 24,
     "difficulty": "intermediate"
   },
@@ -160,7 +160,7 @@
     "title": "CSS - Holy Grail Layout with CSS Grid",
     "description": "Implement a modern, responsive landing page structure without floats or flexbox hacks.",
     "body": "<task>\nDefine a `grid-template-areas` structure for Header, Nav, Main, Aside, and Footer.\nShow the mobile-first refactor using media queries to stack elements vertically.\n</task>",
-    "author": "anonymous",
+    "author": "community (test_bot)",
     "votes": 30,
     "difficulty": "beginner"
   }

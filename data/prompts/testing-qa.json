@@ -86,7 +86,7 @@
     "title": "Testing - Property-Based Testing with Hypothesis",
     "description": "Go beyond unit tests by letting the computer find edge cases automatically.",
     "body": "<task>\nImplement a property-based test for [ALGORITHM].\nDefine strategies for inputs (integers, strings) and assert that [INVARIANTS] always hold true regardless of the input data.\n</task>",
-    "author": "anonymous",
+    "author": "community (beta_max)",
     "votes": 12,
     "difficulty": "intermediate"
   },
@@ -97,7 +97,7 @@
     "title": "Testing - UI Snapshot Regression Strategy",
     "description": "Automatically detect unexpected visual changes in your UI components.",
     "body": "<task>\nSetup Snapshot testing in Jest/React.\nExplain how to handle dynamic data (like dates) in snapshots so they don't fail every day.\n</task>",
-    "author": "anonymous",
+    "author": "community (code_king)",
     "votes": 18,
     "difficulty": "intermediate"
   }

@@ -94,7 +94,7 @@
     "title": "SwiftUI - MVVM Pattern for Modern iOS Apps",
     "description": "Organize iOS apps with a clean separation of View and ViewModel.",
     "body": "<task>\nRefactor a standard `ViewController` logic into SwiftUI views and `@Published` ViewModels.\nDemonstrate the use of `@StateObject` for lifecycle management.\n</task>",
-    "author": "anonymous",
+    "author": "community (unix_guru)",
     "votes": 17,
     "difficulty": "intermediate"
   },
@@ -105,7 +105,7 @@
     "title": "Flutter - Clean Architecture with BLoC",
     "description": "Separate business logic from the UI using the Business Logic Component pattern.",
     "body": "<task>\nImplement a generic Counter BLoC.\n1. Define `Events`, `States`, and the `MapEventToState` logic.\n2. Show how to provide and consume the BLoC in the widget tree.\n</task>",
-    "author": "anonymous",
+    "author": "community (v_scale)",
     "votes": 29,
     "difficulty": "intermediate"
   }

@@ -121,7 +121,7 @@
     "title": "Security - Login Brute-Force Protection",
     "description": "Implement exponential backoff and account lockout policies natively.",
     "body": "<task>\nDesign a Redis-backed rate limiter for login attempts.\nImplement a strategy that increases delay for each failed attempt and eventually locks out the IP for [X] minutes.\n</task>",
-    "author": "anonymous",
+    "author": "community (web_smith)",
     "votes": 46,
     "difficulty": "advanced"
   },
@@ -132,7 +132,7 @@
     "title": "Security - SQL Injection Audit Playbook",
     "description": "Practical steps to identify and mitigate SQLi vulnerabilities in legacy apps.",
     "body": "<task>\n1. Explain the difference between Error-based and Blind SQLi.\n2. Provide examples of parameterized queries in 3 different languages.\n3. Define a WAF rule to detect common SQLi patterns.\n</task>",
-    "author": "anonymous",
+    "author": "community (x_static)",
     "votes": 12,
     "difficulty": "intermediate"
   },
@@ -143,7 +143,7 @@
     "title": "OAuth2 - PKCE Flow for Mobile Apps",
     "description": "Secure the authorization code flow without a client secret for public clients.",
     "body": "<task>\nImplement the Proof Key for Code Exchange (PKCE) logic.\n1. Generate `code_verifier` and `code_challenge`.\n2. Explain the exchange sequence between the Mobile App and the Auth Server.\n</task>",
-    "author": "anonymous",
+    "author": "community (y_combinator)",
     "votes": 55,
     "difficulty": "advanced"
   }

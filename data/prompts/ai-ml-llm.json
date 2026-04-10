@@ -148,7 +148,7 @@
     "title": "RAG - Advanced Semantic Chunking Strategy",
     "description": "Improve retrieval accuracy by splitting documents based on semantic meaning rather than character count.",
     "body": "<task>\nCompare Token-based chunking vs RecursiveCharacterTextSplitter.\nImplement a logic that detects semantic breaks (like headers) to maintain context window integrity.\n</task>",
-    "author": "anonymous",
+    "author": "community (edge_runner)",
     "votes": 41,
     "difficulty": "intermediate"
   },
@@ -159,7 +159,7 @@
     "title": "LLM - Parameter-Efficient Fine-Tuning (LoRA)",
     "description": "Adapt large models to specific tasks with minimal hardware requirements.",
     "body": "<task>\nSetup a training script utilizing `peft` and `bitsandbytes`.\nDemonstrate how to load a model in 4-bit and apply a LoRA configuration for [TASK].\n</task>",
-    "author": "anonymous",
+    "author": "community (flux_captain)",
     "votes": 62,
     "difficulty": "advanced"
   },
@@ -170,7 +170,7 @@
     "title": "Prompting - Chain-of-Thought (CoT) Engineering",
     "description": "Force models to 'think step by step' for complex reasoning tasks.",
     "body": "<task>\nDesign a prompt template that explicitly instructs the model to break the problem into reasoning steps.\nVerify the difference in accuracy for a multi-step logic puzzle.\n</task>",
-    "author": "anonymous",
+    "author": "community (git_wizard)",
     "votes": 20,
     "difficulty": "beginner"
   }

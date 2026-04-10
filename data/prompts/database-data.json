@@ -100,7 +100,7 @@
     "title": "Sql - Horizontal Sharding Strategy",
     "description": "Distribute a single massive table across multiple physical database instances.",
     "body": "<task>\nDefine a sharding key selection strategy.\nImplement a middleware logic that routes queries to the correct shard based on the `tenant_id`.\n</task>",
-    "author": "anonymous",
+    "author": "community (loop_maker)",
     "votes": 27,
     "difficulty": "advanced"
   },
@@ -111,7 +111,7 @@
     "title": "MongoDB - Complex Aggregation Pipeline",
     "description": "Analyze large collections with multi-stage pipelines ($lookup, $unwind, $group).",
     "body": "<task>\nCreate an aggregation to join [COLLECTION_A] and [COLLECTION_B].\nCalculate a weighted average based on [FIELD] and filter results using `$match` after the join.\n</task>",
-    "author": "anonymous",
+    "author": "community (macro_dev)",
     "votes": 14,
     "difficulty": "intermediate"
   },
@@ -122,7 +122,7 @@
     "title": "Redis - Cache-Aside Pattern Implementation",
     "description": "Optimize read performance by caching database results with TTL.",
     "body": "<task>\nImplement the Cache-Aside logic.\n1. Check Redis for [KEY].\n2. If miss, fetch from DB and set Redis with 3600s TTL.\n3. Discuss cache invalidation strategies during write operations.\n</task>",
-    "author": "anonymous",
+    "author": "community (node_nerd)",
     "votes": 34,
     "difficulty": "intermediate"
   }

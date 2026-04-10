@@ -148,7 +148,7 @@
     "title": "Kubernetes - Pod Disruption Budgets (PDB)",
     "description": "Ensure service availability during node maintenance and upgrades.",
     "body": "<task>\nWrite a YAML manifest for a `PodDisruptionBudget`.\nConfigure `minAvailable: 75%` or `maxUnavailable: 1` and explain how the scheduler evaluates this during draining operations.\n</task>",
-    "author": "anonymous",
+    "author": "community (o_prime)",
     "votes": 21,
     "difficulty": "intermediate"
   },
@@ -159,7 +159,7 @@
     "title": "Terraform - Modular Infrastructure Pattern",
     "description": "Design reusable infrastructure components for multi-environment deployments.",
     "body": "<task>\nRefactor a single `main.tf` into a module-based structure.\nShow how to parameterize inputs and output specific resource IDs (like VPC IDs) for cross-module integration.\n</task>",
-    "author": "anonymous",
+    "author": "community (pixel_perfect)",
     "votes": 48,
     "difficulty": "advanced"
   },
@@ -170,7 +170,7 @@
     "title": "Docker - Secure Multi-Stage Builds",
     "description": "Reduce image size and attack surface by stripping build dependencies.",
     "body": "<task>\nCreate a Dockerfile with a `build` stage and a `production` stage.\nCopy only the compiled binary to a `scratch` or `alpine` base.\n</task>",
-    "author": "anonymous",
+    "author": "community (query_pro)",
     "votes": 35,
     "difficulty": "intermediate"
   }

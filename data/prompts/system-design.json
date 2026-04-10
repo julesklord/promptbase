@@ -110,7 +110,7 @@
     "title": "Arch - Event-Driven Microservices with Kafka",
     "description": "Decouple services using asynchronous messaging and event sourcing.",
     "body": "<task>\nDesign a system architecture diagram (text/code) for an Order Processing flow.\nExplain the roles of Producers, Topics, and Consumers. Describe how to handle 'Exactly-once' delivery semantics.\n</task>",
-    "author": "anonymous",
+    "author": "community (zen_dev)",
     "votes": 49,
     "difficulty": "advanced"
   },
@@ -121,7 +121,7 @@
     "title": "Arch - API Gateway Pattern with Kong/Traefik",
     "description": "Centralize authentication, logging, and rate limiting for all internal microservices.",
     "body": "<task>\nConfigure an API Gateway to handle incoming traffic.\n1. Setup Auth dynamic plugin.\n2. Implement a circuit breaker to protect downstream services from cascading failures.\n</task>",
-    "author": "anonymous",
+    "author": "community (alpha_tester)",
     "votes": 31,
     "difficulty": "advanced"
   }

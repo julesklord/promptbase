@@ -138,7 +138,7 @@
     "title": "Go - Scalable Worker Pool with Context",
     "description": "Implement a high-performance concurrent worker architecture with graceful shutdown.",
     "body": "<task>\nWrite a Go implementation for a worker pool handling tasks from a channel.\n1. Use `sync.WaitGroup` for synchronization.\n2. Implement `context.Context` to handle cancellation and timeouts.\n3. Show the main loop dispatching [N] workers.\n</task>",
-    "author": "anonymous",
+    "author": "community (hack_zero)",
     "votes": 50,
     "difficulty": "advanced"
   },
@@ -149,7 +149,7 @@
     "title": "Node.js - High-Speed CSV Processing with Streams",
     "description": "Process massive datasets without loading the entire file into RAM.",
     "body": "<task>\nUse `fs.createReadStream` and `csv-parser` to ingest a large file.\nDemonstrate piping into a `Transform` stream to sanitize data before writing to a database segment.\n</task>",
-    "author": "anonymous",
+    "author": "community (iron_coder)",
     "votes": 19,
     "difficulty": "intermediate"
   },
@@ -160,7 +160,7 @@
     "title": "FastAPI - OAuth2 with JWT Authentication",
     "description": "Implement a secure login system using JSON Web Tokens and dependency injection.",
     "body": "<task>\nConfigure `OAuth2PasswordBearer` and `jose`.\nImplement a dependency `get_current_user` that validates tokens and fetches the user from the database.\n</task>",
-    "author": "anonymous",
+    "author": "community (java_script_fan)",
     "votes": 42,
     "difficulty": "intermediate"
   }

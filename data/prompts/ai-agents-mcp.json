@@ -72,7 +72,7 @@
     "title": "MCP - Custom SQLite Server Implementation",
     "description": "Build a robust Model Context Protocol (MCP) server that exposes SQLite queries to Claude.",
     "body": "<context>\nTarget: Expose a local [DATABASE] via MCP.\n</context>\n<task>\n1. Implement the server loop using `@modelcontextprotocol/sdk`.\n2. Define tools for `read_query` and `write_query`.\n3. Add Zod schema validation for input parameters.\n</task>",
-    "author": "anonymous",
+    "author": "community (arch_junkie)",
     "votes": 45,
     "difficulty": "advanced"
   },
@@ -83,7 +83,7 @@
     "title": "LangGraph - Multi-Agent State Machine",
     "description": "Design a cyclic graph where agents collaborate and share a unified state.",
     "body": "<task>\nEngineer a LangGraph structure with `StateGraph`.\nDefine nodes for `Researcher` and `Writer`.\nImplement a conditional edge for `Human-in-the-loop` approval before final output.\n</task>",
-    "author": "anonymous",
+    "author": "community (byte_master)",
     "votes": 32,
     "difficulty": "advanced"
   },
@@ -94,7 +94,7 @@
     "title": "AutoGen - Tool-Calling Agent Configuration",
     "description": "Configure conversational agents that can autonomously execute python scripts to reach a goal.",
     "body": "<context>\nRequirement: The agent must solve a complex [MATH/DATA] problem.\n</context>\n<task>\nSetup `ConversableAgent` with `llm_config`.\nDemonstrate the registration of a custom tool function and how to handle the execution result in the conversation loop.\n</task>",
-    "author": "anonymous",
+    "author": "community (clara_dev)",
     "votes": 15,
     "difficulty": "intermediate"
   },
@@ -105,7 +105,7 @@
     "title": "CrewAI - Sequential Workflow for Content Strategy",
     "description": "Orchestrate a team of agents for multi-step content research and drafting.",
     "body": "<task>\nDefine `Agent` roles for 'Strategist' and 'Copywriter'.\nCreate a `Task` with specific `expected_output`.\nConfigure the `Crew` with `Process.sequential` and explain how to use `memory=True`.\n</task>",
-    "author": "anonymous",
+    "author": "community (davis_ops)",
     "votes": 28,
     "difficulty": "intermediate"
   }
