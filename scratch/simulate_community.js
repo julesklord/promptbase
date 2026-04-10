@@ -108,6 +108,9 @@ const newPrompts = [
     }
 ];
 
+// Cache parsed file contents to avoid repetitive I/O and parsing overhead
+const fileCache = {};
+
 newPrompts.forEach((pr, index) => {
     console.log(`\nCreando PR ${index + 1}/5: ${pr.branch}...`);
     
@@ -116,7 +119,12 @@ newPrompts.forEach((pr, index) => {
     
     // Inject prompt
     const fPath = path.join(dir, pr.file);
-    let data = JSON.parse(fs.readFileSync(fPath, 'utf8'));
+
+    if (!fileCache[pr.file]) {
+        fileCache[pr.file] = JSON.parse(fs.readFileSync(fPath, 'utf8'));
+    }
+
+    let data = [...fileCache[pr.file]];
     data.push(pr.payload);
     fs.writeFileSync(fPath, JSON.stringify(data, null, 2), 'utf8');
     
