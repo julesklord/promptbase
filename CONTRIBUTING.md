@@ -14,12 +14,12 @@ PROMPTBASE is community-driven. Our goal is to maintain a high-quality, verified
 
 Before contributing, please review the following technical standards:
 
-| Resource | Description |
-| --- | --- |
-| [Governance](/g:/DEVELOPMENT/promptbase/docs/GOVERNANCE.md) | Who approves PRs and the review process. |
-| [Prompt Schema](/g:/DEVELOPMENT/promptbase/docs/API_SCHEMA.md) | Detailed JSON field definitions and validation. |
-| [Testing Guide](/g:/DEVELOPMENT/promptbase/docs/TESTING.md) | How to run Playwright tests before submitting. |
-| [Architecture](/g:/DEVELOPMENT/promptbase/docs/ARCHITECTURE.md) | Detailed technical overview of the ESM system. |
+| Resource                                                        | Description                                     |
+| --------------------------------------------------------------- | ----------------------------------------------- |
+| [Governance](/g:/DEVELOPMENT/promptbase/docs/GOVERNANCE.md)     | Who approves PRs and the review process.        |
+| [Prompt Schema](/g:/DEVELOPMENT/promptbase/docs/API_SCHEMA.md)  | Detailed JSON field definitions and validation. |
+| [Testing Guide](/g:/DEVELOPMENT/promptbase/docs/TESTING.md)     | How to run Playwright tests before submitting.  |
+| [Architecture](/g:/DEVELOPMENT/promptbase/docs/ARCHITECTURE.md) | Detailed technical overview of the ESM system.  |
 
 ## Submission Guidelines
 
@@ -48,5 +48,6 @@ We prioritize prompts that are:
 All submissions are reviewed by **Jules Martins** (@julesklord). Expect feedback or a request for changes if the prompt is too generic or lacks clear `[PLACEHOLDERS]`.
 
 ---
+
 Last updated: 2026-04-09
 Maintainer: Jules Martins (@julesklord)

@@ -41,8 +41,7 @@ export function buildCategories() {
     else if (cat === "favorites") {
       btn.textContent = "★ Favorites";
       btn.style.color = "var(--amber)";
-    }
-    else btn.textContent = cat;
+    } else btn.textContent = cat;
 
     btn.onclick = () => {
       document.querySelectorAll(".filter-tab").forEach((b) => b.classList.remove("active"));
@@ -59,7 +58,7 @@ export function buildTagCloud() {
   state.allPrompts.forEach((p) =>
     (p.usecase || []).forEach((t) => {
       tags[t] = (tags[t] || 0) + 1;
-    })
+    }),
   );
   const cloud = document.getElementById("tagCloud");
   if (!cloud) return;
@@ -91,12 +90,15 @@ export function buildDiffCounts() {
   state.allPrompts.forEach((p) => {
     if (counts[p.difficulty] !== undefined) counts[p.difficulty]++;
   });
-  
+
   const elAll = document.getElementById("countAll");
   if (elAll) elAll.textContent = state.allPrompts.length;
-  if (document.getElementById("countBeginner")) document.getElementById("countBeginner").textContent = counts.beginner;
-  if (document.getElementById("countIntermediate")) document.getElementById("countIntermediate").textContent = counts.intermediate;
-  if (document.getElementById("countAdvanced")) document.getElementById("countAdvanced").textContent = counts.advanced;
+  if (document.getElementById("countBeginner"))
+    document.getElementById("countBeginner").textContent = counts.beginner;
+  if (document.getElementById("countIntermediate"))
+    document.getElementById("countIntermediate").textContent = counts.intermediate;
+  if (document.getElementById("countAdvanced"))
+    document.getElementById("countAdvanced").textContent = counts.advanced;
 
   document.querySelectorAll("[data-diff]").forEach((btn) => {
     btn.onclick = () => {
@@ -121,7 +123,7 @@ export function renderGrid() {
   const grid = document.getElementById("promptGrid");
   const countEl = document.getElementById("gridCount");
   if (!grid || !countEl) return;
-  
+
   countEl.textContent = `${state.filtered.length} prompt${state.filtered.length !== 1 ? "s" : ""}`;
 
   if (!state.filtered.length) {
@@ -137,19 +139,21 @@ export function renderGrid() {
 
     const voteCount = (p.votes || 0) + (state.votes[p.id] || 0);
     const isVoted = !!state.votes[p.id];
-    const models = (p.model || []).map((m) => `<span class="model-badge model-${m}">${m}</span>`).join("");
-    const diff = p.difficulty || "intermediate";
+    const models = (p.model || [])
+      .map((m) => `<span class="model-badge model-${escHtml(m)}">${escHtml(m)}</span>`)
+      .join("");
+    const diff = escHtml(p.difficulty || "intermediate");
 
     const isFav = !!state.favorites[p.id];
     const favText = isFav ? "★" : "☆";
 
     card.innerHTML = `
       <div class="card-top">
-        <span class="card-tag">${p.tag}</span>
+        <span class="card-tag">${escHtml(p.tag || "")}</span>
         <span class="card-diff diff-${diff}">${diff}</span>
       </div>
-      <div class="card-title">${p.title}</div>
-      <div class="card-desc">${p.description}</div>
+      <div class="card-title">${escHtml(p.title || "")}</div>
+      <div class="card-desc">${escHtml(p.description || "")}</div>
       <div class="card-body" id="body-${p.id}">${formatPromptBody(p.body)}</div>
       <div style="display:flex;gap:6px;margin-bottom:12px;">
         <button class="expand-btn" id="expand-${p.id}" aria-label="Expand or collapse prompt">expand ↓</button>
@@ -165,10 +169,13 @@ export function renderGrid() {
       </div>
       <div class="card-author">
         <div class="author-dot"></div>
-        <span>${p.author || "anonymous"}</span>
+        <span>${escHtml(p.author || "anonymous")}</span>
         ${(p.usecase || [])
           .slice(0, 3)
-          .map((t) => `<span style="color:var(--text3);font-size:9px;background:var(--bg3);padding:1px 5px;">${t}</span>`)
+          .map(
+            (t) =>
+              `<span style="color:var(--text3);font-size:9px;background:var(--bg3);padding:1px 5px;">${escHtml(t)}</span>`,
+          )
           .join("")}
       </div>
     `;
@@ -187,14 +194,14 @@ export function renderGrid() {
         <div class="modal" style="max-width:800px;">
           <div class="modal-header">
             <div>
-              <div class="modal-title">${p.title}</div>
-              <div style="font-size:10px;color:var(--text3);margin-top:6px;">${p.tag} · ${p.category}</div>
+              <div class="modal-title">${escHtml(p.title || "")}</div>
+              <div style="font-size:10px;color:var(--text3);margin-top:6px;">${escHtml(p.tag || "")} · ${escHtml(p.category || "")}</div>
             </div>
             <button class="modal-close" id="closeFullView">×</button>
           </div>
           <div class="modal-body">
             <div style="margin-bottom:1.5rem;padding:12px;background:var(--bg3);border-left:2px solid var(--red);">
-              <div style="font-size:11px;color:var(--text2);">${p.description}</div>
+              <div style="font-size:11px;color:var(--text2);">${escHtml(p.description || "")}</div>
             </div>
             <div style="margin-bottom:1.5rem;">
               <div style="font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Prompt Body</div>
@@ -208,15 +215,15 @@ export function renderGrid() {
               <div style="flex:1;min-width:150px;">
                 <div style="font-size:9px;color:var(--text3);text-transform:uppercase;margin-bottom:6px;">Use Cases</div>
                 <div style="display:flex;gap:4px;flex-wrap:wrap;">
-                  ${(p.usecase || []).map((t) => `<span style="font-size:10px;padding:2px 8px;background:var(--bg3);color:var(--text2);border:1px solid var(--border);">${t}</span>`).join("")}
+                  ${(p.usecase || []).map((t) => `<span style="font-size:10px;padding:2px 8px;background:var(--bg3);color:var(--text2);border:1px solid var(--border);">${escHtml(t)}</span>`).join("")}
                 </div>
               </div>
             </div>
           </div>
           <div class="modal-footer">
-            <div class="contribute-hint">Author: <strong>${p.author || "anonymous"}</strong> · Difficulty: <strong>${p.difficulty}</strong> · ID: <code style="color:var(--amber);font-size:10px;">${p.id}</code></div>
+            <div class="contribute-hint">Author: <strong>${escHtml(p.author || "anonymous")}</strong> · Difficulty: <strong>${escHtml(p.difficulty || "")}</strong> · ID: <code style="color:var(--amber);font-size:10px;">${p.id}</code></div>
             <div style="display:flex;gap:8px;">
-              <button class="btn-ghost fav-btn ${currentFav ? 'faved' : ''}" id="fullview-fav" style="border: 1px solid var(--amber) !important; color: var(--amber);">${currentFav ? '★ Saved' : '☆ Save'}</button>
+              <button class="btn-ghost fav-btn ${currentFav ? "faved" : ""}" id="fullview-fav" style="border: 1px solid var(--amber) !important; color: var(--amber);">${currentFav ? "★ Saved" : "☆ Save"}</button>
               <button class="btn-ghost" id="fullview-share">🔗 Share Link</button>
               <button class="btn-red" id="fullview-copy">Copy Prompt</button>
             </div>
@@ -224,9 +231,9 @@ export function renderGrid() {
         </div>
       `;
       modal.classList.add("open");
-      
+
       document.getElementById("closeFullView").onclick = () => modal.classList.remove("open");
-      
+
       document.getElementById("fullview-share").onclick = () => {
         const url = window.location.origin + window.location.pathname + "?id=" + p.id;
         navigator.clipboard.writeText(url);
@@ -260,7 +267,7 @@ export function renderGrid() {
           showToast("Saved to favorites!");
         }
         localStorage.setItem("pb-favs", JSON.stringify(state.favorites));
-        if (state.activeCategory === "favorites") applyFilters(); 
+        if (state.activeCategory === "favorites") applyFilters();
       };
     };
 
