@@ -89,5 +89,16 @@
     "author": "anonymous",
     "votes": 12,
     "difficulty": "intermediate"
+  },
+  {
+    "id": "test-snapshot-testing-026",
+    "category": "Testing & QA",
+    "tag": "testing · regressions",
+    "title": "Testing - UI Snapshot Regression Strategy",
+    "description": "Automatically detect unexpected visual changes in your UI components.",
+    "body": "<task>\nSetup Snapshot testing in Jest/React.\nExplain how to handle dynamic data (like dates) in snapshots so they don't fail every day.\n</task>",
+    "author": "anonymous",
+    "votes": 18,
+    "difficulty": "intermediate"
   }
 ]

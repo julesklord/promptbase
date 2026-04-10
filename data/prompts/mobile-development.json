@@ -88,6 +88,17 @@
     "difficulty": "intermediate"
   },
   {
+    "id": "mobile-swiftui-mvvm-028",
+    "category": "Mobile Development",
+    "tag": "swiftui · architecture",
+    "title": "SwiftUI - MVVM Pattern for Modern iOS Apps",
+    "description": "Organize iOS apps with a clean separation of View and ViewModel.",
+    "body": "<task>\nRefactor a standard `ViewController` logic into SwiftUI views and `@Published` ViewModels.\nDemonstrate the use of `@StateObject` for lifecycle management.\n</task>",
+    "author": "anonymous",
+    "votes": 17,
+    "difficulty": "intermediate"
+  },
+  {
     "id": "mobile-flutter-bloc-027",
     "category": "Mobile Development",
     "tag": "flutter · state",
