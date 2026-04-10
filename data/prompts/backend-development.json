@@ -8,8 +8,15 @@
     "body": "Conduct a comprehensive code review on the following Python snippet:\n\n<context>\n[INSERT_PYTHON_CODE]\n\nTarget Environment: [Production/Prototyping]\n</context>\n\n<task>\nRefactor and review based on the following criteria:\n1. Strict adherence to PEP 8.\n2. Modern Type Hints (Python 3.10+ compatible).\n3. Utilization of Context Managers for robust resource handling.\n4. Application of `async/await` if the operations are I/O bound.\n5. Structured Error Handling.\n6. Google-style Docstrings for all methods and classes.\n\nProvide:\n- The refactored code block containing inline explanations.\n- A security and performance impact analysis.\n- A recommended testing strategy (e.g., Pytest).\n- Suggested `ruff` or `black` configuration directives.\n</task>",
     "author": "community",
     "votes": 0,
-    "model": ["claude", "gpt"],
-    "usecase": ["python", "backend", "code-quality"],
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "python",
+      "backend",
+      "code-quality"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -21,8 +28,15 @@
     "body": "Design a centralized error handling system for a Node.js [EXPRESS/FASTIFY/NESTJS] application.\n\n<context>\nTarget Scale: [Startup/Enterprise]\n</context>\n\n<task>\nThe architecture must satisfy the following requirements:\n- Structured JSON Logging.\n- Seamless Error Tracking integration payload (e.g., Sentry/DataDog).\n- Retry logic implementing exponential backoff for network requests.\n- Circuit Breaker pattern for external API dependencies.\n- Graceful system shutdown handling.\n\nProvide:\n1. The centralized error middleware code.\n2. Configuration for a high-performance logger (Winston/Pino).\n3. Distinct Custom Error class definitions.\n4. Integration examples demonstrating how to throw and catch effectively.\n5. A unit testing strategy for the error layers.\n</task>",
     "author": "community",
     "votes": 0,
-    "model": ["claude", "gpt"],
-    "usecase": ["nodejs", "backend", "devops"],
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "nodejs",
+      "backend",
+      "devops"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -34,8 +48,15 @@
     "body": "Act as a Solutions Architect. Determine whether REST or GraphQL is the optimal choice for the [PROJECT_DESCRIPTION].\n\n<context>\nProject Parameters:\n- Application Type: [SPA/Mobile/SSR/Desktop]\n- Expected API Surface: [NUMBER OF ENDPOINTS]\n- Client Platforms: [Web/Mobile/Both]\n- Team Composition: [N Engineers], [Experience Level]\n- Scale/Throughput: [USERS/RPS]\n</context>\n\n<task>\nExecute a comparative analysis focusing on:\n1. **Performance**: Caching capabilities, payload optimization, and round-trip reduction.\n2. **Complexity**: Development velocity, testing overhead, and debugging friction.\n3. **Scalability**: Rate limiting implementation and deep infrastructure monitoring.\n4. **Developer Experience**: API Documentation and required client-side tooling.\n5. **Evolution**: Long-term versioning strategy and schema deprecation.\n\nProvide:\n- A definitive architecture recommendation with a supporting technical justification.\n- Concrete architectural trade-offs specific to this project.\n- A potential hybrid approach (if highly applicable).\n</task>",
     "author": "community",
     "votes": 22,
-    "model": ["claude", "gpt"],
-    "usecase": ["api-design", "architecture", "backend"],
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "api-design",
+      "architecture",
+      "backend"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -47,8 +68,15 @@
     "body": "Design a comprehensive REST API specification for [BUSINESS_CONTEXT].\n\n<context>\nRequirements:\n- Core Entities: [LIST_ENTITIES]\n- Critical Operations: [BUSINESS_ACTIONS]\n- System Constraints: [LIMITS]\n- Authentication Protocol: [TYPE]\n</context>\n\n<task>\nProvide:\n1. A hierarchical endpoint structure utilizing correct HTTP verbs and RESTful paths.\n2. Detailed JSON schemas for primary Request/Response payloads.\n3. Standardized HTTP status codes and defined edge cases.\n4. A complete OpenAPI 3.0 specification (YAML format) covering the structural foundation.\n5. Architectural considerations for rate-limiting and pagination paradigms.\n</task>\n\n<constraints>\nStrictly adhere to REST principles: statelessness, resource-oriented routing, correct verb usage, and cacheability.\n</constraints>",
     "author": "jules",
     "votes": 7,
-    "model": ["claude", "gpt"],
-    "usecase": ["api-design", "backend", "architecture"],
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "api-design",
+      "backend",
+      "architecture"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -60,8 +88,16 @@
     "body": "Construct a Model Context Protocol (MCP) server using Python (FastMCP) to expose the following capabilities:\n\n<context>\nTarget Capabilities: [LIST_OF_TOOLS]\nTransport Layer: [stdio / SSE / websocket]\nAuthentication: [None / API key / OAuth]\nDeployment Target: [Local / WSL2 / Docker / Remote]\n</context>\n\n<task>\nFor each requested tool, you must generate:\n- A descriptive name and semantic description (crucial for LLM routing).\n- An argument schema strictly enforcing types via Pydantic validation.\n- Graceful error handling that returns descriptive context to the LLM.\n- An example mock invocation and corresponding response payload.\n</task>\n\n<constraints>\nStrictly follow the MCP 2025 specification. Do not introduce unnecessary third-party dependencies beyond FastMCP and Pydantic.\n</constraints>",
     "author": "jules",
     "votes": 15,
-    "model": ["claude", "gemini", "gpt"],
-    "usecase": ["mcp", "backend", "agents"],
+    "model": [
+      "claude",
+      "gemini",
+      "gpt"
+    ],
+    "usecase": [
+      "mcp",
+      "backend",
+      "agents"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -73,8 +109,15 @@
     "body": "Refactor the error handling mechanics of the following Rust codebase.\n\n<context>\nSource Code (containing `unwrap()` or `panic!()` anti-patterns):\n[INSERT_RUST_CODE]\n</context>\n\n<task>\nAchieve the following goals:\n1. Systematically replace panics with `Result<T, E>`.\n2. Engineer custom error types utilizing the `thiserror` crate (ideal for library integration).\n3. Utilize `anyhow` for application-level execution (context wrapping).\n4. Establish pristine error propagation using the `?` operator.\n\nProvide:\n- The refactored, compile-ready code.\n- An example of an exhaustive `match` statement for granular error control.\n- A unit test script verifying the correct error variant is yielded on failure.\n</task>",
     "author": "community",
     "votes": 0,
-    "model": ["claude", "gpt"],
-    "usecase": ["rust", "backend", "reliability"],
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "rust",
+      "backend",
+      "reliability"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -87,5 +130,38 @@
     "author": "ferrisCoder99",
     "votes": 1,
     "difficulty": "advanced"
+  },
+  {
+    "id": "backend-go-worker-005",
+    "category": "Backend Development",
+    "tag": "go · concurrency",
+    "title": "Go - Scalable Worker Pool with Context",
+    "description": "Implement a high-performance concurrent worker architecture with graceful shutdown.",
+    "body": "<task>\nWrite a Go implementation for a worker pool handling tasks from a channel.\n1. Use `sync.WaitGroup` for synchronization.\n2. Implement `context.Context` to handle cancellation and timeouts.\n3. Show the main loop dispatching [N] workers.\n</task>",
+    "author": "anonymous",
+    "votes": 50,
+    "difficulty": "advanced"
+  },
+  {
+    "id": "backend-node-stream-006",
+    "category": "Backend Development",
+    "tag": "nodejs · performance",
+    "title": "Node.js - High-Speed CSV Processing with Streams",
+    "description": "Process massive datasets without loading the entire file into RAM.",
+    "body": "<task>\nUse `fs.createReadStream` and `csv-parser` to ingest a large file.\nDemonstrate piping into a `Transform` stream to sanitize data before writing to a database segment.\n</task>",
+    "author": "anonymous",
+    "votes": 19,
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "backend-fastapi-auth-007",
+    "category": "Backend Development",
+    "tag": "python · fastapi",
+    "title": "FastAPI - OAuth2 with JWT Authentication",
+    "description": "Implement a secure login system using JSON Web Tokens and dependency injection.",
+    "body": "<task>\nConfigure `OAuth2PasswordBearer` and `jose`.\nImplement a dependency `get_current_user` that validates tokens and fetches the user from the database.\n</task>",
+    "author": "anonymous",
+    "votes": 42,
+    "difficulty": "intermediate"
   }
 ]

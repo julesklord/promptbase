@@ -8,8 +8,15 @@
     "body": "Generate a production-mirrored `docker-compose.yml` for local development on [PROJECT_NAME].\n\n<context>\nRequired Infrastructure Stack:\n- API Backend: [LANGUAGE/FRAMEWORK]\n- Primary Database: [PostgreSQL / MySQL / MongoDB]\n- In-Memory Cache: [Redis / Memcached]\n- Message Broker: [RabbitMQ / Kafka] (If applicable)\n- Frontend: [Node/Python Dev Server]\n</context>\n\n<task>\nThe compose configuration must support:\n- Codebase hot-reloading.\n- Exposed debugger ports.\n- Synchronized local volume mounts.\n- Explicit internal Docker networking.\n- Isolated persistent data volumes.\n- Centralized JSON logging.\n\nProvide:\n1. The complete `docker-compose.yml`.\n2. Highly optimized `.Dockerfile` templates for each custom service.\n3. A robust `.env` variable template.\n4. A `Makefile` containing common developer proxy commands (up, down, format, test).\n5. Hardware optimization recommendations specifically addressing M-Series Mac architecture and Windows WSL2 filesystem limits.\n</task>",
     "author": "community",
     "votes": 13,
-    "model": ["claude", "gpt"],
-    "usecase": ["docker", "devops", "development"],
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "docker",
+      "devops",
+      "development"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -21,8 +28,15 @@
     "body": "Act as a Kubernetes Administrator. Migrate the provided `docker-compose.yml` into production-ready Kubernetes manifests.\n\n<context>\nCurrent Compose Stack:\n[INSERT_COMPOSE_YML]\n\nTarget Platform:\nLocal: [Minikube / Docker Desktop]\nCloud: [EKS / AKS / GKE]\n</context>\n\n<task>\nGenerate the corresponding declarative YAML manifests satisfying the following:\n- Stateless application Deployments with explicit Resource Quotas and Anti-Affinity rules.\n- Stateful database pods utilizing StatefulSets and PersistentVolumeClaims.\n- Configuration abstraction utilizing ConfigMaps.\n- Credential injection using securely mounted Secrets.\n- External routing configuration via Ingress objects.\n- Functional Liveness and Readiness probes to ensure zero-downtime rolling updates.\n\nProvide the manifests alongside a `kustomization.yaml` file to demonstrate environment overlay mechanics (Base vs Prod).\n</task>",
     "author": "community",
     "votes": 0,
-    "model": ["claude", "gpt"],
-    "usecase": ["kubernetes", "devops", "infrastructure"],
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "kubernetes",
+      "devops",
+      "infrastructure"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -34,8 +48,15 @@
     "body": "Optimize the following Dockerfile to meet modern containerized best practices.\n\n<context>\nCurrent Dockerfile:\n[INSERT_DOCKERFILE_CONTENT]\n\nIdentified Bottlenecks:\n- Current Build Time: [TIME]\n- Current Image Size: [SIZE]\n</context>\n\n<task>\nPerform a structural review and implementation focusing on:\n1. Identification of bloated layers causing cache invalidation.\n2. Implementation of a Multi-Stage build pattern to strip build-tools from the final runtime image.\n3. Strategic instruction ordering to maximize Docker Layer Caching.\n4. Drafting a granular `.dockerignore` file.\n5. Utilization of non-root user execution directives.\n\nProvide the optimized `Dockerfile` and a breakdown of the architectural gains.\n</task>",
     "author": "jules",
     "votes": 18,
-    "model": ["claude", "gpt"],
-    "usecase": ["devops", "docker", "cicd"],
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "devops",
+      "docker",
+      "cicd"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -47,8 +68,16 @@
     "body": "Design a comprehensive Git workflow tailored for a growing engineering organization.\n\n<context>\nTeam Topology:\n- Size: [N Developers]\n- Release Cadence: [Sprint/Continuous]\n- VCS Platform: [GitHub / GitLab / Bitbucket]\n</context>\n\n<task>\nEstablish a workflow architecture covering the following parameters:\n- Selection and justification of the Branching Strategy (Gitflow vs Trunk-based vs GitLab Flow).\n- Strict Naming Conventions for branches, commits (e.g., Conventional Commits), and release tags.\n- Pull Request templates enforcing mandatory Code Review checklists.\n- A semantic or calendar-based (SEMVER/CALVER) versioning strategy.\n- Protocol for emergency Hotfix injections into production.\n- Repository protection rules (branch policies) required on the main branches.\n</task>",
     "author": "jules",
     "votes": 10,
-    "model": ["claude", "gemini", "gpt"],
-    "usecase": ["devops", "git", "team-workflow"],
+    "model": [
+      "claude",
+      "gemini",
+      "gpt"
+    ],
+    "usecase": [
+      "devops",
+      "git",
+      "team-workflow"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -60,8 +89,15 @@
     "body": "Act as a Release Engineer. Diagnose the failure in my continuous integration pipeline on [PLATFORM].\n\n<context>\nFailure Telemetry:\n- Failing Stage: [STAGE_NAME]\n- Execution Logs:\n[INSERT_LOG_OUTPUT]\n- Base Commit: [SHA]\n</context>\n\n<task>\nExecute a diagnostic review adhering to this framework:\n1. **Context Assessment**: Determine if recent environment variables, runner AMI updates, or dependency caches triggered the failure.\n2. **Log Triage**: Pinpoint the precise sub-process failure within the stack trace.\n3. **Root Cause Analysis**: Isolate the variable (e.g., OOM kill, network timeout, package version mismatch, race condition).\n4. **Remediation**: Provide the exact YAML or script fix required.\n\nProvide the code correction alongside a command snippet required to reproduce the specific failing test execution locally.\n</task>",
     "author": "jules",
     "votes": 13,
-    "model": ["claude", "gpt"],
-    "usecase": ["devops", "cicd", "debugging"],
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "devops",
+      "cicd",
+      "debugging"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -73,8 +109,16 @@
     "body": "Act as a Systems Administrator specializing in Windows Subsystem for Linux (WSL2).\n\n<context>\nA background daemon running on [WSL2 Arch/Ubuntu OR Windows Host] is failing to receive traffic from the opposing OS boundary.\n\nTarget Service: [SERVICE_NAME]\nTarget Port: [PORT]\nCurrent Interface Binding: [127.0.0.1 / 0.0.0.0 / HOSTNAME]\n</context>\n\n<task>\nProvide the following:\n1. An immediate diagnosis of the routing failure (addressing WSL's default Hyper-V NAT isolation behavior).\n2. CLI commands (`netstat`, `ss`, `ip route`) to verify the exact binding state on both Linux and Windows.\n3. The explicit port proxying solution using Windows `netsh interface portproxy` or Linux `socat` commands.\n4. Instructions on persisting this configuration across host reboots taking into account dynamic WSL2 IP allocations.\n</task>",
     "author": "jules",
     "votes": 24,
-    "model": ["claude", "gemini", "gpt"],
-    "usecase": ["sysadmin", "wsl2", "networking"],
+    "model": [
+      "claude",
+      "gemini",
+      "gpt"
+    ],
+    "usecase": [
+      "sysadmin",
+      "wsl2",
+      "networking"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -86,8 +130,48 @@
     "body": "Configure the network layer in WSL2 to regain outbound internet access while forced behind a restrictive Enterprise VPN ([Cisco AnyConnect / GlobalProtect / Zscaler]).\n\n<context>\nCurrent Symptoms:\n- WSL2 instantly drops inbound/outbound packets upon VPN connection.\n- `/etc/resolv.conf` is aggressively overwritten rendering DNS dead.\n- Severe MTU byte fragmentation causing stalled HTTP requests.\n</context>\n\n<task>\nProvide a comprehensive bash/powershell remediation guide:\n1. Configure the Windows `.wslconfig` establishing `networkingMode=mirrored` or the equivalent NAT override.\n2. Create an immutable script to lock and sync a reliable `nameserver` in `resolv.conf`.\n3. Implement a bridging bypass using `wsl-vpnkit` or `socat` tunnels.\n4. Output the commands to dynamically drop the vEth MTU size to strictly match the VPN payload limit.\n</task>",
     "author": "jules",
     "votes": 25,
-    "model": ["gpt", "claude"],
-    "usecase": ["wsl2", "networking", "sysadmin"],
+    "model": [
+      "gpt",
+      "claude"
+    ],
+    "usecase": [
+      "wsl2",
+      "networking",
+      "sysadmin"
+    ],
     "difficulty": "advanced"
+  },
+  {
+    "id": "devops-k8s-pod-disruption-011",
+    "category": "DevOps & Infrastructure",
+    "tag": "k8s · high-availability",
+    "title": "Kubernetes - Pod Disruption Budgets (PDB)",
+    "description": "Ensure service availability during node maintenance and upgrades.",
+    "body": "<task>\nWrite a YAML manifest for a `PodDisruptionBudget`.\nConfigure `minAvailable: 75%` or `maxUnavailable: 1` and explain how the scheduler evaluates this during draining operations.\n</task>",
+    "author": "anonymous",
+    "votes": 21,
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "devops-terraform-module-012",
+    "category": "DevOps & Infrastructure",
+    "tag": "terraform · iac",
+    "title": "Terraform - Modular Infrastructure Pattern",
+    "description": "Design reusable infrastructure components for multi-environment deployments.",
+    "body": "<task>\nRefactor a single `main.tf` into a module-based structure.\nShow how to parameterize inputs and output specific resource IDs (like VPC IDs) for cross-module integration.\n</task>",
+    "author": "anonymous",
+    "votes": 48,
+    "difficulty": "advanced"
+  },
+  {
+    "id": "devops-docker-multi-stage-013",
+    "category": "DevOps & Infrastructure",
+    "tag": "docker · security",
+    "title": "Docker - Secure Multi-Stage Builds",
+    "description": "Reduce image size and attack surface by stripping build dependencies.",
+    "body": "<task>\nCreate a Dockerfile with a `build` stage and a `production` stage.\nCopy only the compiled binary to a `scratch` or `alpine` base.\n</task>",
+    "author": "anonymous",
+    "votes": 35,
+    "difficulty": "intermediate"
   }
 ]

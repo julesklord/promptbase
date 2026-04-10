@@ -8,8 +8,15 @@
     "body": "Act as a Security Auditor. Perform an OWASP Top 10 2024 analysis on the following system:\n\n<context>\nApplication Scope:\n- Stack: [LANGUAGE/FRAMEWORK]\n- Type: [SPA/SSR/API]\n- Authentication: [TYPE]\n- Sensitive Data Handled: [TYPE]\n</context>\n\n<task>\nAudit the application focusing strictly on:\n1. **Broken Access Control**: Is the authorization layer robust and consistently applied?\n2. **Cryptographic Failures**: Is sensitive data encrypted at rest and in transit?\n3. **Injection**: Are there vectors for SQL/NoSQL/Command injection?\n4. **Insecure Design**: Was threat modeling utilized during architecture?\n5. **Security Misconfiguration**: Are secure defaults strictly enforced?\n6. **Vulnerable Components**: Are third-party dependencies updated and scanned?\n7. **Authentication Failures**: Is session and token management secure?\n8. **Data Integrity**: Are serialization practices safe?\n9. **Logging Gaps**: Is the system sufficiently auditable?\n10. **SSRF**: Is server-side request forgery mitigated through strict URL validation?\n\nProvide:\n- Identified vulnerabilities with a high level of confidence.\n- A reproduction step or PoC (if mathematically possible based on the stack).\n- Primary recommended fix.\n- Applicable CVEs or remediation references.\n</task>",
     "author": "community",
     "votes": 15,
-    "model": ["claude", "gpt"],
-    "usecase": ["security", "code-audit", "best-practices"],
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "security",
+      "code-audit",
+      "best-practices"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -21,8 +28,15 @@
     "body": "Act as an Identity and Access Management Architect.\n\n<context>\nPlatform Context:\n- Application: [SPA/Mobile/Backend]\n- User Base: [Internal/External/Federated]\n- Third-Party Integrations: [LIST]\n- Scale Requirements: [USERS_COUNT]\n- Security Prerequisites: [SSO/2FA/etc]\n</context>\n\n<task>\nCompare Auth Strategies and select the optimal pattern:\n1. **Session-based (Traditional)**:\n   - Pros: Simple, highly secure server-control.\n   - Cons: CSRF vulnerability, scalability friction in multi-server setups.\n2. **JWT (Stateless)**:\n   - Pros: Truly stateless, excellent mobile compatibility.\n   - Cons: Exceedingly difficult to revoke immediately, potential payload bloat.\n3. **OAuth2 + OpenID Connect**:\n   - Pros: Delegated centralized access, industry standard.\n   - Cons: Implementation complexity, reliance on an external identity provider.\n\nProvide:\n- A definitive recommendation with architectural justification.\n- An implementation code skeleton for the chosen path.\n- Hardened security best practices specific to the context.\n- A robust refresh token strategy.\n- A bulletproof logout and token revocation mechanism.\n</task>",
     "author": "community",
     "votes": 11,
-    "model": ["claude", "gpt"],
-    "usecase": ["security", "auth", "backend"],
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "security",
+      "auth",
+      "backend"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -34,8 +48,15 @@
     "body": "Act as a DevSecOps Remediation Specialist.\n\n<context>\nVulnerable Code Snippet:\n[VULNERABLE_CODE]\n</context>\n\n<task>\nExecute the following remediation protocol:\n1. Identify the exact attack vector in the provided snippet.\n2. Refactor the code using [LANGUAGE: Node/Python/PHP/Java] enforcing modern best practices.\n3. Implement strict Input Validation using an allow-list approach.\n4. Explain, for educational purposes, why manual string escaping is insufficient and dangerous.\n\nProvide:\n- The corrected, hardened code.\n- A unit test script simulating a malicious payload (SQLMap style) to prove the fix.\n- Recommendations for SAST/DAST tooling to catch this in CI/CD.\n</task>",
     "author": "community",
     "votes": 0,
-    "model": ["claude", "gpt"],
-    "usecase": ["security", "backend", "remediation"],
+    "model": [
+      "claude",
+      "gpt"
+    ],
+    "usecase": [
+      "security",
+      "backend",
+      "remediation"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -91,6 +112,39 @@
     "body": "<task>\nFormulate a production-grade Content Security Policy (CSP) header string.\nRequirements:\n1. Strictly prohibit generic `unsafe-inline` and `unsafe-eval`.\n2. Design a dynamic `nonce` injection strategy for SSR frameworks (e.g., Next.js or Express) to authorize specific first-party scripts.\n3. Configure `report-uri` to ingest violation payloads for security telemetry.\n</task>",
     "author": "secOps_Lead",
     "votes": 8,
+    "difficulty": "advanced"
+  },
+  {
+    "id": "security-brute-force-014",
+    "category": "Security & Auth",
+    "tag": "security · rate-limiting",
+    "title": "Security - Login Brute-Force Protection",
+    "description": "Implement exponential backoff and account lockout policies natively.",
+    "body": "<task>\nDesign a Redis-backed rate limiter for login attempts.\nImplement a strategy that increases delay for each failed attempt and eventually locks out the IP for [X] minutes.\n</task>",
+    "author": "anonymous",
+    "votes": 46,
+    "difficulty": "advanced"
+  },
+  {
+    "id": "security-sql-injection-015",
+    "category": "Security & Auth",
+    "tag": "security · audits",
+    "title": "Security - SQL Injection Audit Playbook",
+    "description": "Practical steps to identify and mitigate SQLi vulnerabilities in legacy apps.",
+    "body": "<task>\n1. Explain the difference between Error-based and Blind SQLi.\n2. Provide examples of parameterized queries in 3 different languages.\n3. Define a WAF rule to detect common SQLi patterns.\n</task>",
+    "author": "anonymous",
+    "votes": 12,
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "security-oauth-pkce-016",
+    "category": "Security & Auth",
+    "tag": "security · oauth2",
+    "title": "OAuth2 - PKCE Flow for Mobile Apps",
+    "description": "Secure the authorization code flow without a client secret for public clients.",
+    "body": "<task>\nImplement the Proof Key for Code Exchange (PKCE) logic.\n1. Generate `code_verifier` and `code_challenge`.\n2. Explain the exchange sequence between the Mobile App and the Auth Server.\n</task>",
+    "author": "anonymous",
+    "votes": 55,
     "difficulty": "advanced"
   }
 ]
