@@ -7,21 +7,36 @@ export const state = {
   activeTag: null,
   searchQuery: "",
   votes: JSON.parse(localStorage.getItem("pb-votes") || "{}"),
-  favorites: JSON.parse(localStorage.getItem("pb-favs") || "{}")
+  favorites: JSON.parse(localStorage.getItem("pb-favs") || "{}"),
 };
 
 export function applyFilters() {
   const sort = document.getElementById("sortSelect")?.value || "votes";
-  
+
+  const q = state.searchQuery ? state.searchQuery.toLowerCase() : "";
+
   state.filtered = state.allPrompts.filter((p) => {
     if (state.activeCategory === "favorites" && !state.favorites[p.id]) return false;
-    if (state.activeCategory !== "all" && state.activeCategory !== "favorites" && p.category !== state.activeCategory) return false;
+    if (
+      state.activeCategory !== "all" &&
+      state.activeCategory !== "favorites" &&
+      p.category !== state.activeCategory
+    )
+      return false;
     if (state.activeDiff !== "all" && p.difficulty !== state.activeDiff) return false;
     if (state.activeModel !== "all" && !(p.model || []).includes(state.activeModel)) return false;
     if (state.activeTag && !(p.usecase || []).includes(state.activeTag)) return false;
-    if (state.searchQuery) {
-      const q = state.searchQuery.toLowerCase();
-      return (p.title + p.tag + p.description + (p.usecase || []).join(" ") + p.body).toLowerCase().includes(q);
+    if (q) {
+      if (p._searchIndex === undefined) {
+        p._searchIndex = (
+          (p.title || "") +
+          (p.tag || "") +
+          (p.description || "") +
+          (p.usecase || []).join(" ") +
+          (p.body || "")
+        ).toLowerCase();
+      }
+      return p._searchIndex.includes(q);
     }
     return true;
   });
@@ -32,7 +47,7 @@ export function applyFilters() {
     state.filtered.sort((a, b) => a.title.localeCompare(b.title));
   } else if (sort === "newest") {
     // Basic newest = end of array for now or by ID/index
-    state.filtered.reverse(); 
+    state.filtered.reverse();
   }
 
   // Trigger render event or call renderer
