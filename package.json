@@ -35,9 +35,17 @@
     "type": "git",
     "url": "git+https://github.com/julesklord/promptbase.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "prompts",
+    "llm",
+    "ai",
+    "engineering",
+    "productivity",
+    "mcp",
+    "vanilla-js"
+  ],
+  "author": "Jules Martins",
+  "license": "MIT",
   "type": "commonjs",
   "bugs": {
     "url": "https://github.com/julesklord/promptbase/issues"
