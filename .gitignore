@@ -9,3 +9,5 @@ promptbase.zip
 .DS_Store
 *.log
 coverage/
+.agents/
+.claude/

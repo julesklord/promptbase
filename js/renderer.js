@@ -132,35 +132,35 @@ function openFullViewModal(p, models) {
       <div class="modal-header">
         <div>
           <div class="modal-title">${escapeHtml(p.title)}</div>
-          <div style="font-size:10px;color:var(--text3);margin-top:6px;">${escapeHtml(p.tag)} · ${escapeHtml(p.category)}</div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-top:6px;text-transform:uppercase;letter-spacing:0.1em;">${escapeHtml(p.tag)} · ${escapeHtml(p.category)}</div>
         </div>
         <button class="modal-close" id="closeFullView">×</button>
       </div>
       <div class="modal-body">
-        <div style="margin-bottom:1.5rem;padding:12px;background:var(--bg3);border-left:2px solid var(--red);">
-          <div style="font-size:11px;color:var(--text2);">${escapeHtml(p.description)}</div>
+        <div class="modal-tip">
+          <div style="font-size:12px;color:var(--text2);">${escapeHtml(p.description)}</div>
         </div>
-        <div style="margin-bottom:1.5rem;">
-          <div style="font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Prompt Body</div>
-          <div style="background:var(--bg);border:1px solid var(--border);padding:12px;font-size:11px;color:var(--text2);line-height:1.7;white-space:pre-wrap;max-height:400px;overflow-y:auto;">${formatPromptBody(p.body)}</div>
+        <div style="margin-bottom:2rem;">
+          <div style="font-family:var(--mono);font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:10px;">Prompt Body</div>
+          <div style="background:var(--ui-surface-1);border:1px solid var(--ui-border-default);box-shadow:var(--ui-inset-shallow);border-radius:var(--ui-r-md);padding:16px;font-family:var(--mono);font-size:12px;color:var(--text2);line-height:1.7;white-space:pre-wrap;max-height:400px;overflow-y:auto;">${formatPromptBody(p.body)}</div>
         </div>
-        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <div style="display:flex;gap:2rem;flex-wrap:wrap;">
           <div style="flex:1;min-width:150px;">
-            <div style="font-size:9px;color:var(--text3);text-transform:uppercase;margin-bottom:6px;">Models</div>
-            <div style="display:flex;gap:4px;flex-wrap:wrap;">${models}</div>
+            <div style="font-family:var(--mono);font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;">Models</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">${models}</div>
           </div>
           <div style="flex:1;min-width:150px;">
-            <div style="font-size:9px;color:var(--text3);text-transform:uppercase;margin-bottom:6px;">Use Cases</div>
-            <div style="display:flex;gap:4px;flex-wrap:wrap;">
-              ${(p.usecase || []).map((t) => `<span style="font-size:10px;padding:2px 8px;background:var(--bg3);color:var(--text2);border:1px solid var(--border);">${escapeHtml(t)}</span>`).join("")}
+            <div style="font-family:var(--mono);font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;">Use Cases</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              ${(p.usecase || []).map((t) => `<span class="tag-pill" style="pointer-events:none;">${escapeHtml(t)}</span>`).join("")}
             </div>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <div class="contribute-hint">Author: <strong>${escapeHtml(p.author || "anonymous")}</strong> · Difficulty: <strong>${escapeHtml(p.difficulty)}</strong> · ID: <code style="color:var(--amber);font-size:10px;">${p.id}</code></div>
-        <div style="display:flex;gap:8px;">
-          <button class="btn-ghost fav-btn ${currentFav ? "faved" : ""}" id="fullview-fav" style="border: 1px solid var(--amber) !important; color: var(--amber);">${currentFav ? "★ Saved" : "☆ Save"}</button>
+        <div class="contribute-hint" style="font-family:var(--mono);">Author: <strong style="color:var(--text2);">${escapeHtml(p.author || "anonymous")}</strong> · Difficulty: <strong style="color:var(--text2);">${escapeHtml(p.difficulty)}</strong> · ID: <code style="color:var(--brand-primary);font-size:10px;">${p.id}</code></div>
+        <div style="display:flex;gap:10px;">
+          <button class="btn-ghost fav-btn ${currentFav ? "faved" : ""}" id="fullview-fav">${currentFav ? "★ Saved" : "☆ Save"}</button>
           <button class="btn-ghost" id="fullview-share">🔗 Share Link</button>
           <button class="btn-red" id="fullview-copy">Copy Prompt</button>
         </div>
