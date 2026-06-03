@@ -11,3 +11,5 @@ promptbase.zip
 coverage/
 .agents/
 .claude/
+
+.env
